@@ -26,9 +26,9 @@ def load_data():
             all_data['reddit'] = json.load(f)
     
     # 讀取 2ch 數據
-    2ch_file = data_dir / f'2ch_{today}.json'
-    if 2ch_file.exists():
-        with open(2ch_file, 'r', encoding='utf-8') as f:
+    twoch_file = data_dir / f'2ch_{today}.json'
+    if twoch_file.exists():
+        with open(twoch_file, 'r', encoding='utf-8') as f:
             all_data['2ch'] = json.load(f)
     
     return all_data
