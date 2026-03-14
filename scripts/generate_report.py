@@ -1,89 +1,46 @@
 #!/usr/bin/env python3
 """
-生成每週報告 HTML - 首頁直接顯示消息
+生成每日報告 HTML - 簡單直接
 """
 
 import os
 import json
 import datetime
 from pathlib import Path
-from collections import defaultdict
 
-def load_week_data(week, year):
-    """載入指定週的數據"""
+def load_latest_data():
+    """載入最新數據"""
     data_dir = Path('data')
-    all_reddit = []
-    all_japan = []
+    all_items = []
     
-    # 掃描該週的所有數據
-    for json_file in data_dir.glob('reddit_*.json'):
+    # 讀取所有 JSON 檔案
+    for json_file in sorted(data_dir.glob('*.json')):
         try:
-            date_str = json_file.stem.replace('reddit_', '')
-            file_date = datetime.datetime.strptime(date_str, '%Y-%m-%d').date()
-            week_num = file_date.isocalendar()[1]
-            if week_num == week and file_date.year == year:
-                with open(json_file, 'r', encoding='utf-8') as f:
-                    all_reddit.extend(json.load(f))
+            with open(json_file, 'r', encoding='utf-8') as f:
+                items = json.load(f)
+                if isinstance(items, list):
+                    all_items.extend(items)
         except:
             pass
     
-    for json_file in data_dir.glob('2ch_*.json'):
-        try:
-            date_str = json_file.stem.replace('2ch_', '')
-            file_date = datetime.datetime.strptime(date_str, '%Y-%m-%d').date()
-            week_num = file_date.isocalendar()[1]
-            if week_num == week and file_date.year == year:
-                with open(json_file, 'r', encoding='utf-8') as f:
-                    all_japan.extend(json.load(f))
-        except:
-            pass
-    
-    return {'reddit': all_reddit, 'japan': all_japan}
-
-def get_available_weeks():
-    """獲取所有可用的週"""
-    data_dir = Path('data')
-    weeks = set()
-    
-    for json_file in data_dir.glob('*.json'):
-        try:
-            parts = json_file.stem.split('_')
-            if len(parts) >= 2:
-                date_str = parts[1]
-                file_date = datetime.datetime.strptime(date_str, '%Y-%m-%d').date()
-                week_num = file_date.isocalendar()[1]
-                weeks.add((file_date.year, week_num))
-        except:
-            pass
-    
-    return sorted(weeks, reverse=True)
+    # 按熱度排序
+    all_items.sort(key=lambda x: x.get('score', 0), reverse=True)
+    return all_items[:30]
 
 def generate_html():
     """生成 HTML"""
     
-    # 獲取可用週
-    available_weeks = get_available_weeks()
-    current_year = datetime.datetime.now().year
-    current_week = datetime.datetime.now().isocalendar()[1]
-    
     today = datetime.datetime.now()
     date_str = today.strftime('%Y年%m月%d日')
     
-    # 默認加載當前週
-    default_week = available_weeks[0] if available_weeks else (current_year, current_week)
-    year, week = default_week
-    data = load_week_data(week, year)
-    all_items = data['reddit'] + data['japan']
-    all_items.sort(key=lambda x: x.get('score', 0), reverse=True)
+    items = load_latest_data()
     
     html = f'''<!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏美术外包周报 - 第{week}周</title>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <title>游戏美术外包 Daily Report</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {{
@@ -92,8 +49,6 @@ def generate_html():
             --gray: #666666;
             --light-gray: #f5f5f5;
             --white: #ffffff;
-            --shadow: 0 4px 20px rgba(0,0,0,0.08);
-            --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
         }}
         
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
@@ -105,7 +60,7 @@ def generate_html():
             line-height: 1.6;
         }}
         
-        .container {{ max-width: 1400px; margin: 0 auto; padding: 0 24px; }}
+        .container {{ max-width: 1200px; margin: 0 auto; padding: 0 20px; }}
         
         header {{
             padding: 40px 0 30px;
@@ -114,7 +69,7 @@ def generate_html():
         }}
         
         .logo {{
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             color: var(--gray);
             letter-spacing: 2px;
@@ -122,112 +77,79 @@ def generate_html():
         }}
         
         h1 {{
-            font-size: clamp(28px, 4vw, 48px);
+            font-size: 32px;
             font-weight: 700;
-            color: var(--dark);
-            margin: 12px 0;
+            margin: 10px 0;
         }}
         
-        h1 span {{ color: var(--primary); }}
-        
-        .subtitle {{
-            font-size: 16px;
+        .date {{
             color: var(--gray);
-            font-weight: 300;
+            font-size: 14px;
         }}
         
-        .week-tabs {{
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+        .stats {{
             margin-top: 20px;
-        }}
-        
-        .week-tab {{
-            padding: 8px 20px;
-            background: var(--white);
-            border: 2px solid var(--light-gray);
-            border-radius: 25px;
-            font-size: 13px;
-            font-weight: 500;
+            font-size: 14px;
             color: var(--gray);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }}
-        
-        .week-tab:hover {{
-            border-color: var(--primary);
-            color: var(--primary);
-        }}
-        
-        .week-tab.active {{
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
         }}
         
         .bento-grid {{
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
-            padding: 30px 0;
+            padding: 20px 0 40px;
         }}
         
         .bento-item {{
             background: var(--white);
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
         }}
         
         .bento-item:hover {{
             transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
         }}
         
         .bento-item.large {{ 
             grid-column: span 2; 
         }}
         
-        @media (max-width: 768px) {{
+        @media (max-width: 600px) {{
             .bento-item.large {{ grid-column: span 1; }}
         }}
         
         .bento-image {{
             width: 100%;
-            height: 180px;
+            height: 160px;
             object-fit: cover;
             background: var(--light-gray);
         }}
         
         .bento-content {{
-            padding: 20px;
+            padding: 16px;
         }}
         
         .bento-source {{
             display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
+            padding: 2px 8px;
+            border-radius: 3px;
             font-size: 11px;
-            font-weight: 500;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }}
         
         .bento-title {{
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
-            color: var(--dark);
-            margin-bottom: 8px;
-            line-height: 1.4;
+            margin-bottom: 6px;
         }}
         
         .bento-title a {{
-            color: inherit;
+            color: var(--dark);
             text-decoration: none;
         }}
         
@@ -236,45 +158,32 @@ def generate_html():
         .bento-title-zh {{
             font-size: 13px;
             color: var(--gray);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }}
         
         .bento-footer {{
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 12px;
+            padding-top: 10px;
             border-top: 1px solid var(--light-gray);
-        }}
-        
-        .bento-stats {{
             font-size: 12px;
             color: var(--gray);
         }}
         
         .tag {{
-            display: inline-block;
             background: var(--light-gray);
-            padding: 3px 8px;
+            padding: 2px 6px;
             border-radius: 3px;
             font-size: 10px;
-            color: var(--gray);
         }}
         
         footer {{
-            padding: 40px 0;
+            padding: 30px 0;
             border-top: 1px solid var(--light-gray);
-            margin-top: 40px;
             text-align: center;
             color: var(--gray);
-            font-size: 13px;
-        }}
-        
-        .no-data {{
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--gray);
-            font-size: 16px;
+            font-size: 12px;
         }}
     </style>
 </head>
@@ -282,29 +191,17 @@ def generate_html():
     <div class="container">
         <header>
             <div class="logo">Game Art Outsourcing</div>
-            <h1>游戏美术外包<span>周报</span></h1>
-            <p class="subtitle">日本与欧美论坛讨论精选</p>
-            
-            <div class="week-tabs">
-'''
-
-    # 添加週标签
-    for y, w in available_weeks:
-        is_active = (y == year and w == week)
-        html += f'<a href="week{w}.html" class="week-tab {"active" if is_active else ""}">第{w}周 {y}</a>'
-
-    html += f'''
-            </div>
+            <h1>游戏美术外包 Daily Report</h1>
+            <p class="date">{date_str}</p>
+            <p class="stats">📊 {len(items)} 条讨论</p>
         </header>
 '''
 
-    if all_items:
-        html += f'''
-        <div class="bento-grid">
-'''
+    if items:
+        html += '<div class="bento-grid">'
         
-        for i, item in enumerate(all_items[:30]):
-            is_large = i == 0 and len(all_items) >= 3
+        for i, item in enumerate(items):
+            is_large = i == 0 and len(items) >= 3
             image = item.get('image', 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop')
             title = item.get('title', '')
             title_zh = item.get('title_zh', title)
@@ -315,87 +212,43 @@ def generate_html():
             tags = item.get('tags', [])
             
             html += f'''
-            <div class="bento-item {'large' if is_large else ''}">
-                <img src="{image}" alt="" class="bento-image" loading="lazy">
-                <div class="bento-content">
-                    <span class="bento-source">{source}</span>
-                    <h3 class="bento-title">
-                        <a href="{url}" target="_blank">{title}</a>
-                    </h3>
-                    <p class="bento-title-zh">{title_zh}</p>
-                    <div class="bento-footer">
-                        <span class="bento-stats">⬆️ {score} · 💬 {comments}</span>
-                        <span class="tag">{tags[0] if tags else ''}</span>
-                    </div>
+        <div class="bento-item {'large' if is_large else ''}">
+            <img src="{image}" alt="" class="bento-image">
+            <div class="bento-content">
+                <span class="bento-source">{source}</span>
+                <h3 class="bento-title">
+                    <a href="{url}" target="_blank">{title}</a>
+                </h3>
+                <p class="bento-title-zh">{title_zh}</p>
+                <div class="bento-footer">
+                    <span>⬆️ {score} · 💬 {comments}</span>
+                    <span class="tag">{tags[0] if tags else ''}</span>
                 </div>
             </div>
-'''
+        </div>'''
         
-        html += '''
-        </div>
-'''
+        html += '</div>'
     else:
-        html += '''
-        <div class="no-data">暂无数据</div>
-'''
+        html += '<p style="padding:40px;text-align:center;color:#666;">暂无数据</p>'
 
     html += f'''
         <footer>
             <p>📅 更新于 {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}</p>
         </footer>
     </div>
-    
-    <script>
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
-        
-        gsap.from('header', {{
-            duration: 0.6,
-            y: -20,
-            opacity: 0,
-            ease: 'power2.out'
-        }});
-        
-        gsap.utils.toArray('.bento-item').forEach((item, i) => {{
-            gsap.from(item, {{
-                scrollTrigger: {{
-                    trigger: item,
-                    start: 'top 95%',
-                }},
-                duration: 0.4,
-                y: 20,
-                opacity: 0,
-                delay: i * 0.03,
-                ease: 'power2.out'
-            }});
-        }});
-    </script>
 </body>
 </html>'''
     
     return html
 
 def main():
-    print("Generating weekly report...")
+    print("Generating daily report...")
     
-    # 生成主頁
     html = generate_html()
     with open('output/index.html', 'w', encoding='utf-8') as f:
         f.write(html)
     
-    # 為每週生成獨立頁面
-    available_weeks = get_available_weeks()
-    for year, week in available_weeks:
-        data = load_week_data(week, year)
-        all_items = data['reddit'] + data['japan']
-        
-        # 为这一周生成HTML
-        html = generate_html()
-        with open(f'output/week{week}.html', 'w', encoding='utf-8') as f:
-            f.write(html)
-        print(f"Generated week {week}")
-    
-    print(f"Done! Total weeks: {len(available_weeks)}")
+    print(f"Done! Generated index.html with {len(load_latest_data())} items")
 
 if __name__ == '__main__':
     main()
