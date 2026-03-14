@@ -1,62 +1,19 @@
 [
   {
     "source": "reddit",
-    "source_name": "r/gamedev",
-    "subreddit": "r/gamedev",
-    "region": "US/EU",
-    "title": "Midjourney V7 Released - Impact on Game Art",
-    "title_zh": "Midjourney V7发布 - 对游戏美术的影响",
-    "summary": "Midjourney V7带来重大更新，更强的理解和创作能力。游戏美术师如何看待这一新工具成为热议话题。",
-    "content": "Midjourney最新版本V7正式发布，带来了显著改进的图像理解和生成能力。新版本最令人关注的特性是更精准的提示词理解、更好的角色一致性控制，以及全新推出的3D渲染模式。这一更新对游戏美术行业产生了巨大影响：有人欢呼AI工具的进步使概念美术设计效率大幅提升；也有人担忧这可能进一步压缩传统美术师的生存空间。",
-    "url": "https://www.reddit.com/r/gamedev/comments/1k5n8p3/midjourney_v7_released_impact_on_game_art/",
-    "score": 5678,
-    "num_comments": 2345,
-    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
+    "source_name": "待更新",
+    "title": "第9周数据",
+    "title_zh": "⚠️ 待手动更新",
+    "summary": "等待手动搜索更新",
+    "content": "此周数据需要手动搜索更新",
+    "url": "#",
+    "score": 0,
+    "num_comments": 0,
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop",
     "tags": [
-      "AI",
-      "Midjourney",
-      "工具"
+      "待更新"
     ],
-    "week": 9
-  },
-  {
-    "source": "reddit",
-    "source_name": "r/GameArt",
-    "subreddit": "r/GameArt",
-    "region": "US/EU",
-    "title": "Game Art Portfolio Review Thread - March 2026",
-    "title_zh": "游戏美术作品集审核帖 - 2026年3月",
-    "summary": "Reddit游戏美术社区每月作品集审核帖热闹非凡，资深美术师为新人提供反馈和建议。",
-    "content": "Reddit游戏美术社区每月一次的作品集审核帖如期而至，这次收到了超过200份作品投稿。社区的资深美术师和招聘经理为每位投稿人提供了详细的反馈。审核中常见的建议包括：作品集需要展示多样化的技能而非单一风格；动态作品比静态图像更能展示能力；对于希望进入游戏行业的求职者，审核者建议要展示对游戏设计基本概念的理解。",
-    "url": "https://www.reddit.com/r/GameArt/comments/1k4m7n2/game_art_portfolio_review_thread_march_2026/",
-    "score": 2345,
-    "num_comments": 876,
-    "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
-    "tags": [
-      "作品集",
-      "建议",
-      "社区"
-    ],
-    "week": 9
-  },
-  {
-    "source": "japan",
-    "source_name": "5ch",
-    "subreddit": "5ch",
-    "region": "JP",
-    "title": "ゲーム会社　美术部署の募集停止ラッシュ",
-    "title_zh": "游戏公司美术部门招聘停止潮",
-    "summary": "日本多家游戏公司暂停美术部门招聘，业界推测与成本控制有关。",
-    "content": "日本游戏行业近期出现美术部门招聘冻结潮。据5ch社区网友反映，多家知名游戏公司陆续暂停了美术相关职位的招聘。这一现象引发了对行业前景的担忧。业界分析师指出，招聘冻结可能与游戏市场增长放缓导致公司需要控制人力成本有关。不过也有从业者认为这是短期现象，随着新项目的启动，招聘需求将会恢复。",
-    "url": "https://game.5ch.net/test/read.cgi/gamedev/1912345/",
-    "score": 1876,
-    "num_comments": 543,
-    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop",
-    "tags": [
-      "日本",
-      "招聘",
-      "行业"
-    ],
-    "week": 9
+    "week": 9,
+    "note": "⚠️ 占位数据"
   }
 ]
