@@ -1,209 +1,132 @@
 [
   {
-    "source": "FC2_游戏",
-    "title": "写真やイラストが投稿できる",
-    "title_zh": "写真や插画が投稿できる",
-    "url": "http://bbs.fc2.com/",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007493",
-    "tags": [
-      "美术"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "連続投稿おことわり機能付き",
-    "title_zh": "連続投稿おことわり機能付き",
-    "url": "http://bbs.fc2.com/",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007527",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "自分で書いたHTML･CSSが挿入できる",
-    "title_zh": "自分で書いたHTML･CSSが挿入できる",
-    "url": "http://bbs.fc2.com/",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007543",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "メール通知設定でリアルタイムで書き込みがわかる",
-    "title_zh": "メール通知設定でリアルタイムで書き込みがわかる",
-    "url": "http://bbs.fc2.com/",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007556",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "ブログパーツとして設定できる",
-    "title_zh": "ブログパーツとして設定できる",
-    "url": "http://bbs.fc2.com/",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007568",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "マルチスレッドタイプのサンプル",
-    "title_zh": "マルチスレッドタイプのサンプル",
-    "url": "http://bbs01.bbs.fc2.com/",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007581",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "マルチトピックタイプのサンプル",
-    "title_zh": "マルチトピックタイプのサンプル",
-    "url": "http://bbs02.bbs.fc2.com/",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007595",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "Sample of Thread Float BBS",
-    "title_zh": "Sample of Thread Float BBS",
-    "url": "http://bbs03.bbs.fc2.com/",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007613",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "テンプレートタイプのサンプル",
-    "title_zh": "テンプレートタイプのサンプル",
-    "url": "http://bbs04.bbs.fc2.com/",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007628",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "こんな機能が欲しい【2】(1001)",
-    "title_zh": "こんな機能が欲しい【2】(1001)",
-    "url": "http://ruru-jinro.bbs.fc2.com/?act=reply&tid=8380888&2ch=1",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007643",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "戦術・議論スレッド(235)",
-    "title_zh": "戦術・議論スレッド(235)",
-    "url": "http://ruru-jinro.bbs.fc2.com/?act=reply&tid=8380926&2ch=1",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007656",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "てんやわんやのスレッド。(1001)",
-    "title_zh": "てんやわんやのスレッド。(1001)",
-    "url": "http://grnba.bbs.fc2.com/?act=reply&tid=15537130&2ch=1",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007671",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "割れトリップ情報(163)",
-    "title_zh": "割れトリップ情報(163)",
-    "url": "http://ruru-jinro.bbs.fc2.com/?act=reply&tid=8380914&2ch=1",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007682",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "政治経済４スレ目(983)",
-    "title_zh": "政治経済４スレ目(983)",
-    "url": "http://edokriko.bbs.fc2.com/?act=reply&tid=8759513&2ch=1",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007693",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "『放知技』データベース(698)",
-    "title_zh": "『放知技』データベース(698)",
-    "url": "http://grnba.bbs.fc2.com/?act=reply&tid=16427145&2ch=1",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007703",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "質問・要望(1001)",
-    "title_zh": "質問・要望(1001)",
-    "url": "http://fleed3.bbs.fc2.com/?act=reply&tid=7117990&2ch=1",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007716",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "FC2_游戏",
-    "title": "飲尿獣医の屋根裏部屋(261)",
-    "title_zh": "飲尿獣医の屋根裏部屋(261)",
-    "url": "http://grnba.bbs.fc2.com/?act=reply&tid=17374902&2ch=1",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:11.007727",
-    "tags": [
-      "讨论"
-    ]
-  },
-  {
-    "source": "はてな_游戏",
+    "source": "はてな_游戏热门",
+    "region": "JP",
     "title": "サクサク読めて、アプリ限定の機能も多数！アプリで開く",
     "title_zh": "サクサク読めて、アプリ限定の機能も多数！アプリで開く",
     "url": "https://hatenabookmark.page.link/app",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:12.069908",
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop",
+    "collected_at": "2026-03-14T05:47:44.282120",
     "tags": [
       "讨论"
     ]
   },
   {
-    "source": "はてな_游戏",
+    "source": "はてな_游戏热门",
+    "region": "JP",
+    "title": "はてなブックマーク",
+    "title_zh": "はてなブックマーク",
+    "url": "https://b.hatena.ne.jp/hotentry/game",
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop",
+    "collected_at": "2026-03-14T05:47:44.282154",
+    "tags": [
+      "讨论"
+    ]
+  },
+  {
+    "source": "はてな_游戏热门",
+    "region": "JP",
     "title": "はてなブックマークって？",
     "title_zh": "はてなブックマークって？",
     "url": "https://b.hatena.ne.jp/hotentry/game",
-    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400",
-    "collected_at": "2026-03-14T05:43:12.069942",
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop",
+    "collected_at": "2026-03-14T05:47:44.282171",
+    "tags": [
+      "讨论"
+    ]
+  },
+  {
+    "source": "はてな_游戏热门",
+    "region": "JP",
+    "title": "アプリ・拡張の紹介",
+    "title_zh": "アプリ・拡張の紹介",
+    "url": "https://b.hatena.ne.jp/hotentry/game",
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop",
+    "collected_at": "2026-03-14T05:47:44.282186",
+    "tags": [
+      "讨论"
+    ]
+  },
+  {
+    "source": "はてな_游戏热门",
+    "region": "JP",
+    "title": "はてなブログ（総合）",
+    "title_zh": "はてなブログ（総合）",
+    "url": "https://b.hatena.ne.jp/hotentry/game",
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop",
+    "collected_at": "2026-03-14T05:47:44.282280",
+    "tags": [
+      "讨论"
+    ]
+  },
+  {
+    "source": "Yahoo知恵袋_游戏",
+    "region": "JP",
+    "title": "知恵袋トップへ戻る",
+    "title_zh": "知恵袋トップへ戻る",
+    "url": "https://chiebukuro.yahoo.co.jp/",
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop",
+    "collected_at": "2026-03-14T05:47:46.560433",
+    "tags": [
+      "讨论"
+    ]
+  },
+  {
+    "source": "Yahoo知恵袋_游戏",
+    "region": "JP",
+    "title": "Yahoo!知恵袋",
+    "title_zh": "Yahoo!知恵袋",
+    "url": "https://chiebukuro.yahoo.co.jp/",
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop",
+    "collected_at": "2026-03-14T05:47:46.560460",
+    "tags": [
+      "讨论"
+    ]
+  },
+  {
+    "source": "Yahoo知恵袋_游戏",
+    "region": "JP",
+    "title": "Yahoo! JAPAN",
+    "title_zh": "Yahoo! JAPAN",
+    "url": "https://www.yahoo.co.jp/",
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop",
+    "collected_at": "2026-03-14T05:47:46.560473",
+    "tags": [
+      "讨论"
+    ]
+  },
+  {
+    "source": "Yahoo知恵袋_游戏",
+    "region": "JP",
+    "title": "プライバシーポリシー",
+    "title_zh": "プライバシーポリシー",
+    "url": "https://www.lycorp.co.jp/ja/company/privacypolicy/",
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop",
+    "collected_at": "2026-03-14T05:47:46.560486",
+    "tags": [
+      "讨论"
+    ]
+  },
+  {
+    "source": "Yahoo知恵袋_游戏",
+    "region": "JP",
+    "title": "プライバシーセンター",
+    "title_zh": "プライバシーセンター",
+    "url": "https://privacy.lycorp.co.jp/ja/",
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop",
+    "collected_at": "2026-03-14T05:47:46.560498",
+    "tags": [
+      "讨论"
+    ]
+  },
+  {
+    "source": "Yahoo知恵袋_游戏",
+    "region": "JP",
+    "title": "ヘルプ・お問い合わせ",
+    "title_zh": "ヘルプ・お問い合わせ",
+    "url": "https://support.yahoo-net.jp/PccChiebukuro/s/",
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop",
+    "collected_at": "2026-03-14T05:47:46.560517",
     "tags": [
       "讨论"
     ]
