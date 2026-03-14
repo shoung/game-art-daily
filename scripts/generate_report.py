@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-生成每日報告 HTML - 瀑布流布局
+生成每日報告 HTML - 瀑布流 + 浮動卡片
 """
 
 import os
@@ -18,12 +18,18 @@ def load_latest_data():
             with open(json_file, 'r', encoding='utf-8') as f:
                 items = json.load(f)
                 if isinstance(items, list):
-                    all_items.extend(items)
+                    for item in items:
+                        # 確保有足夠的內容
+                        if 'summary' not in item:
+                            item['summary'] = item.get('title_zh', '')[:50]
+                        if 'content' not in item:
+                            item['content'] = item.get('title_zh', '')
+                        all_items.append(item)
         except:
             pass
     
     all_items.sort(key=lambda x: x.get('score', 0), reverse=True)
-    return all_items[:30]
+    return all_items[:20]
 
 def generate_html():
     """生成 HTML"""
@@ -32,6 +38,9 @@ def generate_html():
     date_str = today.strftime('%Y年%m月%d日')
     
     items = load_latest_data()
+    
+    # 構建卡片數據
+    cards_json = json.dumps(items, ensure_ascii=False)
     
     html = f'''<!DOCTYPE html>
 <html lang="zh-TW">
@@ -91,24 +100,15 @@ def generate_html():
             color: var(--gray);
         }}
         
-        /* 瀑布流布局 */
         .waterfall {{
             column-count: 4;
             column-gap: 20px;
             padding: 20px 0 40px;
         }}
         
-        @media (max-width: 1200px) {{
-            .waterfall {{ column-count: 3; }}
-        }}
-        
-        @media (max-width: 900px) {{
-            .waterfall {{ column-count: 2; }}
-        }}
-        
-        @media (max-width: 600px) {{
-            .waterfall {{ column-count: 1; }}
-        }}
+        @media (max-width: 1200px) {{ .waterfall {{ column-count: 3; }} }}
+        @media (max-width: 900px) {{ .waterfall {{ column-count: 2; }} }}
+        @media (max-width: 600px) {{ .waterfall {{ column-count: 1; }} }}
         
         .card {{
             break-inside: avoid;
@@ -117,6 +117,7 @@ def generate_html():
             overflow: hidden;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             margin-bottom: 20px;
+            cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
         }}
         
@@ -157,10 +158,11 @@ def generate_html():
         
         .card-title a:hover {{ color: var(--primary); }}
         
-        .card-title-zh {{
+        .card-preview {{
             font-size: 13px;
             color: var(--gray);
             margin-bottom: 10px;
+            line-height: 1.5;
         }}
         
         .card-footer {{
@@ -178,6 +180,98 @@ def generate_html():
             padding: 2px 6px;
             border-radius: 3px;
             font-size: 10px;
+        }}
+        
+        /* Modal */
+        .modal-overlay {{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }}
+        
+        .modal-overlay.active {{
+            display: flex;
+        }}
+        
+        .modal {{
+            background: var(--white);
+            border-radius: 16px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }}
+        
+        .modal-close {{
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+            z-index: 10;
+        }}
+        
+        .modal-image {{
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }}
+        
+        .modal-content {{
+            padding: 24px;
+        }}
+        
+        .modal-source {{
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }}
+        
+        .modal-title {{
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }}
+        
+        .modal-title-zh {{
+            font-size: 16px;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }}
+        
+        .modal-body {{
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }}
+        
+        .modal-link {{
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+        }}
+        
+        .modal-link:hover {{
+            background: #cc0000;
         }}
         
         footer {{
@@ -202,7 +296,7 @@ def generate_html():
     if items:
         html += '<div class="waterfall">'
         
-        for item in items:
+        for i, item in enumerate(items):
             image = item.get('image', 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop')
             title = item.get('title', '')
             title_zh = item.get('title_zh', title)
@@ -211,16 +305,16 @@ def generate_html():
             score = item.get('score', 0)
             comments = item.get('num_comments', 0)
             tags = item.get('tags', [])
+            preview = item.get('summary', title_zh[:50])
+            content = item.get('content', title_zh)
             
             html += f'''
-        <div class="card">
+        <div class="card" onclick="showModal({i})">
             <img src="{image}" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">{source}</span>
-                <h3 class="card-title">
-                    <a href="{url}" target="_blank">{title}</a>
-                </h3>
-                <p class="card-title-zh">{title_zh}</p>
+                <h3 class="card-title">{title}</h3>
+                <p class="card-preview">{preview}</p>
                 <div class="card-footer">
                     <span>⬆️ {score} · 💬 {comments}</span>
                     <span class="tag">{tags[0] if tags else ''}</span>
@@ -229,6 +323,57 @@ def generate_html():
         </div>'''
         
         html += '</div>'
+        
+        # 添加 Modal HTML
+        html += f'''
+        <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+            <div class="modal" onclick="event.stopPropagation()">
+                <span class="modal-close" onclick="hideModal()">✕</span>
+                <img src="" alt="" class="modal-image" id="modalImage">
+                <div class="modal-content">
+                    <span class="modal-source" id="modalSource"></span>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <p class="modal-title-zh" id="modalTitleZh"></p>
+                    <div class="modal-body" id="modalBody"></div>
+                    <a href="#" target="_blank" class="modal-link" id="modalLink">查看原始内容 →</a>
+                </div>
+            </div>
+        </div>
+'''
+        
+        # 添加 JavaScript
+        html += f'''
+        <script>
+        const cardsData = {cards_json};
+        
+        function showModal(index) {{
+            const item = cardsData[index];
+            document.getElementById('modalImage').src = item.image || 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop';
+            document.getElementById('modalSource').textContent = item.subreddit || item.source || '';
+            document.getElementById('modalTitle').textContent = item.title || '';
+            document.getElementById('modalTitleZh').textContent = item.title_zh || '';
+            document.getElementById('modalBody').textContent = item.content || item.summary || item.title_zh || '';
+            document.getElementById('modalLink').href = item.url || '#';
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }}
+        
+        function hideModal() {{
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }}
+        
+        function closeModal(e) {{
+            if (e.target.classList.contains('modal-overlay')) {{
+                hideModal();
+            }}
+        }}
+        
+        document.addEventListener('keydown', function(e) {{
+            if (e.key === 'Escape') hideModal();
+        }});
+        </script>
+'''
     else:
         html += '<p style="padding:40px;text-align:center;color:#666;">暂无数据</p>'
 

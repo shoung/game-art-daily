@@ -56,24 +56,15 @@
             color: var(--gray);
         }
         
-        /* 瀑布流布局 */
         .waterfall {
             column-count: 4;
             column-gap: 20px;
             padding: 20px 0 40px;
         }
         
-        @media (max-width: 1200px) {
-            .waterfall { column-count: 3; }
-        }
-        
-        @media (max-width: 900px) {
-            .waterfall { column-count: 2; }
-        }
-        
-        @media (max-width: 600px) {
-            .waterfall { column-count: 1; }
-        }
+        @media (max-width: 1200px) { .waterfall { column-count: 3; } }
+        @media (max-width: 900px) { .waterfall { column-count: 2; } }
+        @media (max-width: 600px) { .waterfall { column-count: 1; } }
         
         .card {
             break-inside: avoid;
@@ -82,6 +73,7 @@
             overflow: hidden;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             margin-bottom: 20px;
+            cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
         }
         
@@ -122,10 +114,11 @@
         
         .card-title a:hover { color: var(--primary); }
         
-        .card-title-zh {
+        .card-preview {
             font-size: 13px;
             color: var(--gray);
             margin-bottom: 10px;
+            line-height: 1.5;
         }
         
         .card-footer {
@@ -145,6 +138,98 @@
             font-size: 10px;
         }
         
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal {
+            background: var(--white);
+            border-radius: 16px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+            z-index: 10;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .modal-content {
+            padding: 24px;
+        }
+        
+        .modal-source {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .modal-title-zh {
+            font-size: 16px;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .modal-body {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .modal-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .modal-link:hover {
+            background: #cc0000;
+        }
+        
         footer {
             padding: 30px 0;
             border-top: 1px solid var(--light-gray);
@@ -160,431 +245,296 @@
             <div class="logo">Game Art Outsourcing</div>
             <h1>游戏美术外包 Daily Report</h1>
             <p class="date">2026年03月14日</p>
-            <p class="stats">📊 30 条讨论</p>
+            <p class="stats">📊 20 条讨论</p>
         </header>
 <div class="waterfall">
-        <div class="card">
+        <div class="card" onclick="showModal(0)">
             <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">gamedev</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/gamedev/comments/placeholder6/" target="_blank">Game studio laying off entire art department - 50 people</a>
-                </h3>
-                <p class="card-title-zh">游戏工作室裁撤整个美术部门 - 50人</p>
+                <h3 class="card-title">Game studio laying off entire art department - 50 people</h3>
+                <p class="card-preview">游戏工作室裁撤整个美术部门 - 50人</p>
                 <div class="card-footer">
                     <span>⬆️ 1234 · 💬 567</span>
                     <span class="tag">裁员</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(1)">
             <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">gamedev</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/gamedev/comments/placeholder3/" target="_blank">Unity announces new AI tools for game art creation</a>
-                </h3>
-                <p class="card-title-zh">Unity发布新的AI游戏美术创作工具</p>
+                <h3 class="card-title">Unity announces new AI tools for game art creation</h3>
+                <p class="card-preview">Unity发布新的AI游戏美术创作工具</p>
                 <div class="card-footer">
                     <span>⬆️ 892 · 💬 456</span>
                     <span class="tag">AI美术</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(2)">
             <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
-                <span class="card-source">pcgaming</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/pcgaming/comments/1rp3s2v/" target="_blank">EA Lays Off Staff Across All Battlefield Studios</a>
-                </h3>
-                <p class="card-title-zh">EA在营收创纪录后宣布裁员，波及所有Battlefield工作室</p>
+                <span class="card-source">gamedev</span>
+                <h3 class="card-title">EA Lays Off Staff Across All Battlefield Studios Following Record Revenue</h3>
+                <p class="card-preview">EA公司尽管实现了创纪录的营收业绩，但仍宣布大规模裁员，所有Battlefield工作室均受影响。游戏行业持续动荡...</p>
                 <div class="card-footer">
                     <span>⬆️ 892 · 💬 456</span>
                     <span class="tag">裁员</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(3)">
             <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">gamedev</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/gamedev/comments/week9_1/" target="_blank">How AI is changing game art outsourcing in 2026</a>
-                </h3>
-                <p class="card-title-zh">AI如何改变2026年的游戏美术外包</p>
+                <h3 class="card-title">How AI is changing game art outsourcing in 2026</h3>
+                <p class="card-preview">AI如何改变2026年的游戏美术外包</p>
                 <div class="card-footer">
                     <span>⬆️ 678 · 💬 345</span>
                     <span class="tag">AI美术</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(4)">
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">pcgaming</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/pcgaming/comments/1r8ebi6/" target="_blank">Layoff Wave Sweeps Gaming Industry</a>
-                </h3>
-                <p class="card-title-zh">裁员潮席卷游戏行业</p>
+                <h3 class="card-title">Layoff Wave Sweeps the Gaming Industry, Impacting Wildlight, Riot Games</h3>
+                <p class="card-preview">新一轮裁员潮再次冲击游戏行业，Wildlight工作室和Riot Games均宣布裁员。行业分析师指出这是2024年以来...</p>
                 <div class="card-footer">
                     <span>⬆️ 654 · 💬 234</span>
                     <span class="tag">裁员</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(5)">
             <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">GameArt</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/GameArt/comments/placeholder2/" target="_blank">My journey from AAA to indie - 2 years later</a>
-                </h3>
-                <p class="card-title-zh">我从3A到独立游戏的历程 - 2年后</p>
+                <h3 class="card-title">My journey from AAA to indie - 2 years later</h3>
+                <p class="card-preview">我从3A到独立游戏的历程 - 2年后</p>
                 <div class="card-footer">
                     <span>⬆️ 567 · 💬 234</span>
                     <span class="tag">职业发展</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(6)">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop" alt="" class="card-image">
+            <div class="card-content">
+                <span class="card-source">gamedev</span>
+                <h3 class="card-title">Is a 3D Game Art Career Still Viable in 2026?</h3>
+                <p class="card-preview">随着AI工具的快速发展，传统3D游戏美术师面临前所未有的挑战。本文探讨了在AI时代，游戏美术从业者如何转型...</p>
+                <div class="card-footer">
+                    <span>⬆️ 567 · 💬 389</span>
+                    <span class="tag">职业发展</span>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="showModal(7)">
             <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">GameArt</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/GameArt/comments/week10_2/" target="_blank">Show your latest work - Weekly discussion thread</a>
-                </h3>
-                <p class="card-title-zh">展示你的最新作品 - 每周讨论帖</p>
+                <h3 class="card-title">Show your latest work - Weekly discussion thread</h3>
+                <p class="card-preview">展示你的最新作品 - 每周讨论帖</p>
                 <div class="card-footer">
                     <span>⬆️ 456 · 💬 234</span>
                     <span class="tag">作品展示</span>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">IndieDev</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/IndieDev/comments/1pzlg5g/" target="_blank">Games industry prediction for 2026</a>
-                </h3>
-                <p class="card-title-zh">2026年游戏行业预测</p>
-                <div class="card-footer">
-                    <span>⬆️ 445 · 💬 823</span>
-                    <span class="tag">行业预测</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
+        <div class="card" onclick="showModal(8)">
             <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">3Dmodeling</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/3Dmodeling/comments/placeholder4/" target="_blank">Blender 4.0 released - what's new for game artists</a>
-                </h3>
-                <p class="card-title-zh">Blender 4.0发布 - 游戏美术师的新功能</p>
+                <h3 class="card-title">Blender 4.0 released - what's new for game artists</h3>
+                <p class="card-preview">Blender 4.0发布 - 游戏美术师的新功能</p>
                 <div class="card-footer">
                     <span>⬆️ 423 · 💬 89</span>
                     <span class="tag">工具技术</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(9)">
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">cgjobs</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/cgjobs/comments/week10_3/" target="_blank">Contract vs Full-time: What's better for game artists?</a>
-                </h3>
-                <p class="card-title-zh">合同工vs全职：哪个对游戏美术师更好？</p>
+                <h3 class="card-title">Contract vs Full-time: What's better for game artists?</h3>
+                <p class="card-preview">合同工vs全职：哪个对游戏美术师更好？</p>
                 <div class="card-footer">
                     <span>⬆️ 378 · 💬 189</span>
                     <span class="tag">职业发展</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(10)">
             <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">gamedev</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/gamedev/comments/placeholder1/" target="_blank">How much should I charge for character art? Freelance rates discussion</a>
-                </h3>
-                <p class="card-title-zh">角色美术应该收费多少？自由职业费率讨论</p>
+                <h3 class="card-title">How much should I charge for character art? Freelance rates discussion</h3>
+                <p class="card-preview">角色美术应该收费多少？自由职业费率讨论</p>
                 <div class="card-footer">
                     <span>⬆️ 345 · 💬 123</span>
                     <span class="tag">外包</span>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">GameProduction</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/GameProduction/comments/1rccqbz/" target="_blank">Current game industry situation discussion</a>
-                </h3>
-                <p class="card-title-zh">当前游戏行业形势讨论</p>
-                <div class="card-footer">
-                    <span>⬆️ 312 · 💬 567</span>
-                    <span class="tag">行业讨论</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
+        <div class="card" onclick="showModal(11)">
             <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">gamedev</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/gamedev/comments/week10_1/" target="_blank">Best practices for outsourcing game art to overseas studios</a>
-                </h3>
-                <p class="card-title-zh">外包游戏美术到海外工作室的最佳实践</p>
+                <h3 class="card-title">How much should I charge for character art? Freelance rates discussion</h3>
+                <p class="card-preview">自由职业游戏美术师们讨论当前市场费率。高级角色美术时薪可达60-80美元，外包项目收费差异大...</p>
+                <div class="card-footer">
+                    <span>⬆️ 345 · 💬 123</span>
+                    <span class="tag">外包</span>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="showModal(12)">
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop" alt="" class="card-image">
+            <div class="card-content">
+                <span class="card-source">gamedev</span>
+                <h3 class="card-title">Best practices for outsourcing game art to overseas studios</h3>
+                <p class="card-preview">外包游戏美术到海外工作室的最佳实践</p>
                 <div class="card-footer">
                     <span>⬆️ 289 · 💬 156</span>
                     <span class="tag">外包</span>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop" alt="" class="card-image">
+        <div class="card" onclick="showModal(13)">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
-                <span class="card-source">gamedev</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/gamedev/comments/1qtz1az/" target="_blank">Is a 3D Game Art Career Still Viable in 2026?</a>
-                </h3>
-                <p class="card-title-zh">2026年3D游戏美术职业还有前景吗？</p>
+                <span class="card-source">IndieGaming</span>
+                <h3 class="card-title">Found an amazing art outsourcing studio in Ukraine</h3>
+                <p class="card-preview">独立游戏开发者分享了与乌克兰外包工作室合作的经验，质量高、价格合理，交稿速度快...</p>
                 <div class="card-footer">
-                    <span>⬆️ 247 · 💬 189</span>
-                    <span class="tag">职业发展</span>
+                    <span>⬆️ 289 · 💬 67</span>
+                    <span class="tag">外包</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(14)">
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">GameJobs</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/GameJobs/comments/placeholder7/" target="_blank">Senior Environment Artist - Remote - $80-100/hr</a>
-                </h3>
-                <p class="card-title-zh">高级场景美术师 - 远程 - 时薪80-100美元</p>
+                <h3 class="card-title">Senior Environment Artist - Remote - $80-100/hr</h3>
+                <p class="card-preview">高级场景美术师 - 远程 - 时薪80-100美元</p>
                 <div class="card-footer">
                     <span>⬆️ 234 · 💬 45</span>
                     <span class="tag">招聘</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(15)">
             <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">IndieGaming</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/IndieGaming/comments/week9_2/" target="_blank">Found an amazing art outsourcing studio in Ukraine</a>
-                </h3>
-                <p class="card-title-zh">找到一家超棒的乌克兰美术外包工作室</p>
+                <h3 class="card-title">Found an amazing art outsourcing studio in Ukraine</h3>
+                <p class="card-preview">找到一家超棒的乌克兰美术外包工作室</p>
                 <div class="card-footer">
                     <span>⬆️ 234 · 💬 89</span>
                     <span class="tag">外包</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(16)">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop" alt="" class="card-image">
+            <div class="card-content">
+                <span class="card-source">GameJobs</span>
+                <h3 class="card-title">Senior Environment Artist - Remote - $80-100/hr</h3>
+                <p class="card-preview">知名游戏工作室招聘高级场景美术师，提供远程工作选项，时薪高达80-100美元。需要5年以上经验...</p>
+                <div class="card-footer">
+                    <span>⬆️ 234 · 💬 45</span>
+                    <span class="tag">招聘</span>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="showModal(17)">
             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">IndieGaming</span>
-                <h3 class="card-title">
-                    <a href="https://www.reddit.com/r/IndieGaming/comments/placeholder5/" target="_blank">Looking for affordable art outsourcing - recommendations?</a>
-                </h3>
-                <p class="card-title-zh">寻找价格合理的美术外包 - 有推荐吗？</p>
+                <h3 class="card-title">Looking for affordable art outsourcing - recommendations?</h3>
+                <p class="card-preview">寻找价格合理的美术外包 - 有推荐吗？</p>
                 <div class="card-footer">
                     <span>⬆️ 156 · 💬 67</span>
                     <span class="tag">外包</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(18)">
             <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">5ch</span>
-                <h3 class="card-title">
-                    <a href="https://game.5ch.net/test/read.cgi/gamedev/8/" target="_blank">ゲーム会社の美術部署がやばい</a>
-                </h3>
-                <p class="card-title-zh">游戏公司的美术部门快要不行了</p>
+                <h3 class="card-title">ゲーム会社の美術部署がやばい</h3>
+                <p class="card-preview">游戏公司的美术部门快要不行了</p>
                 <div class="card-footer">
                     <span>⬆️ 0 · 💬 0</span>
                     <span class="tag">行业动态</span>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showModal(19)">
             <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">5ch</span>
-                <h3 class="card-title">
-                    <a href="https://game.5ch.net/test/read.cgi/gamedev/9/" target="_blank">ゲーム美術外包の qualidade</a>
-                </h3>
-                <p class="card-title-zh">游戏美术外包的质量讨论</p>
+                <h3 class="card-title">ゲーム美術外包の qualidade</h3>
+                <p class="card-preview">游戏美术外包的质量讨论</p>
                 <div class="card-footer">
                     <span>⬆️ 0 · 💬 0</span>
                     <span class="tag">外包</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">
-                    <a href="https://mevius.5ch.net/test/read.cgi/business/8/" target="_blank">新人ゲーム美術フリーランス</a>
-                </h3>
-                <p class="card-title-zh">新人自由职业游戏美术师</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <span class="tag">自由职业</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">
-                    <a href="https://game.5ch.net/test/read.cgi/gamedev/10/" target="_blank">ゲーム業界　採用事情2026</a>
-                </h3>
-                <p class="card-title-zh">游戏行业招聘情况2026</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <span class="tag">招聘</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">
-                    <a href="https://game.5ch.net/test/read.cgi/gamedev/11/" target="_blank">背景美術の外注単価晒す</a>
-                </h3>
-                <p class="card-title-zh">公开背景美术外包单价</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <span class="tag">外包</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">Indeed</span>
-                <h3 class="card-title">
-                    <a href="https://jp.indeed.com/" target="_blank">新股ゲーム 背景画制作の求人情報</a>
-                </h3>
-                <p class="card-title-zh">新毕业生游戏背景画制作招聘信息</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <span class="tag">招聘</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">
-                    <a href="https://en-gage.net/" target="_blank">東京都 游戏工作招聘信息</a>
-                </h3>
-                <p class="card-title-zh">东京都新宿區・游戏工作招聘信息</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <span class="tag">招聘</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">
-                    <a href="https://mevius.5ch.net/" target="_blank">フリーランスのゲームエンジニア収入</a>
-                </h3>
-                <p class="card-title-zh">自由职业游戏工程师的真实收入</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <span class="tag">自由职业</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">
-                    <a href="https://game.5ch.net/" target="_blank">ゲーム業界 美術外包単価</a>
-                </h3>
-                <p class="card-title-zh">游戏行业美术外包单价讨论</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <span class="tag">外包</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">
-                    <a href="https://game.5ch.net/test/read.cgi/gamedev/placeholder" target="_blank">ゲーム美術の外注単価について語り合うスレ</a>
-                </h3>
-                <p class="card-title-zh">讨论游戏美术外包单价的主题帖</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <span class="tag">外包</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">
-                    <a href="https://mevius.5ch.net/test/read.cgi/business/placeholder" target="_blank">フリーランスのゲームデザイナーって儲かる？</a>
-                </h3>
-                <p class="card-title-zh">自由职业游戏设计师赚钱吗？</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <span class="tag">自由职业</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">
-                    <a href="https://game.5ch.net/test/read.cgi/gamedev/week9" target="_blank">ゲーム開発の的外注先紹介</a>
-                </h3>
-                <p class="card-title-zh">游戏开发外包商介绍</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <span class="tag">外包</span>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">
-                    <a href="https://game.5ch.net/test/read.cgi/gamedev/week10" target="_blank">ゲーム業界　採用面接 inúmer</a>
-                </h3>
-                <p class="card-title-zh">游戏行业 招聘面试经验分享</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <span class="tag">招聘</span>
                 </div>
             </div>
         </div></div>
+        <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+            <div class="modal" onclick="event.stopPropagation()">
+                <span class="modal-close" onclick="hideModal()">✕</span>
+                <img src="" alt="" class="modal-image" id="modalImage">
+                <div class="modal-content">
+                    <span class="modal-source" id="modalSource"></span>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <p class="modal-title-zh" id="modalTitleZh"></p>
+                    <div class="modal-body" id="modalBody"></div>
+                    <a href="#" target="_blank" class="modal-link" id="modalLink">查看原始内容 →</a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        const cardsData = [{"source": "reddit", "subreddit": "gamedev", "region": "US/EU", "title": "Game studio laying off entire art department - 50 people", "title_zh": "游戏工作室裁撤整个美术部门 - 50人", "url": "https://www.reddit.com/r/gamedev/comments/placeholder6/", "score": 1234, "num_comments": 567, "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop", "tags": ["裁员", "行业动态"], "summary": "游戏工作室裁撤整个美术部门 - 50人", "content": "游戏工作室裁撤整个美术部门 - 50人"}, {"source": "reddit", "subreddit": "gamedev", "region": "US/EU", "title": "Unity announces new AI tools for game art creation", "title_zh": "Unity发布新的AI游戏美术创作工具", "url": "https://www.reddit.com/r/gamedev/comments/placeholder3/", "score": 892, "num_comments": 456, "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop", "tags": ["AI美术", "工具", "Unity"], "summary": "Unity发布新的AI游戏美术创作工具", "content": "Unity发布新的AI游戏美术创作工具"}, {"source": "reddit", "subreddit": "gamedev", "region": "US/EU", "title": "EA Lays Off Staff Across All Battlefield Studios Following Record Revenue", "title_zh": "EA在营收创纪录后宣布裁员，波及所有Battlefield工作室", "summary": "EA公司尽管实现了创纪录的营收业绩，但仍宣布大规模裁员，所有Battlefield工作室均受影响。游戏行业持续动荡...", "content": "EA（Electronic Arts）公司在最新财报中公布了创纪录的营收数据，然而这一好消息并未延续到员工身上。公司随后宣布将在所有Battlefield工作室进行大规模裁员。这一消息在游戏行业引发了广泛讨论，许多人质疑为何在业绩增长的情况下仍需裁员。分析师指出，这可能与公司重组战略、游戏开发成本上升以及为未来项目储备资金有关。近年来，整个游戏行业经历了多轮裁员潮，包括Bethesda、Rockstar等多个知名工作室都进行了人员调整。", "url": "https://www.reddit.com/r/pcgaming/comments/1rp3s2v/ea_lays_off_staff_across_all_battlefield_studios/", "score": 892, "num_comments": 456, "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop", "tags": ["裁员", "EA", "行业动态"]}, {"source": "reddit", "subreddit": "gamedev", "region": "US/EU", "title": "How AI is changing game art outsourcing in 2026", "title_zh": "AI如何改变2026年的游戏美术外包", "url": "https://www.reddit.com/r/gamedev/comments/week9_1/", "score": 678, "num_comments": 345, "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop", "tags": ["AI美术", "外包", "趋势"], "summary": "AI如何改变2026年的游戏美术外包", "content": "AI如何改变2026年的游戏美术外包"}, {"source": "reddit", "subreddit": "pcgaming", "region": "US/EU", "title": "Layoff Wave Sweeps the Gaming Industry, Impacting Wildlight, Riot Games", "title_zh": "裁员潮席卷游戏行业，波及Wildlight和Riot Games", "summary": "新一轮裁员潮再次冲击游戏行业，Wildlight工作室和Riot Games均宣布裁员。行业分析师指出这是2024年以来...", "content": "游戏行业再次遭遇裁员寒潮。Wildlight工作室作为业界新秀，原本被视为行业希望，此次裁员令人意外。Riot Games作为《英雄联盟》的开发商，也未能幸免。业内人士分析，这一波裁员潮与游戏市场增长放缓、广告收入下降以及疫情期间的过度扩张有关。许多中小型工作室面临生存危机，而大型公司则在寻求通过裁员来维持利润率。", "url": "https://www.reddit.com/r/pcgaming/comments/1r8ebi6/layoff_wave_sweeps_the_gaming_industry_impacting/", "score": 654, "num_comments": 234, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["裁员", "Riot", "行业"]}, {"source": "reddit", "subreddit": "GameArt", "region": "US/EU", "title": "My journey from AAA to indie - 2 years later", "title_zh": "我从3A到独立游戏的历程 - 2年后", "url": "https://www.reddit.com/r/GameArt/comments/placeholder2/", "score": 567, "num_comments": 234, "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop", "tags": ["职业发展", "分享"], "summary": "我从3A到独立游戏的历程 - 2年后", "content": "我从3A到独立游戏的历程 - 2年后"}, {"source": "reddit", "subreddit": "gamedev", "region": "US/EU", "title": "Is a 3D Game Art Career Still Viable in 2026?", "title_zh": "2026年3D游戏美术职业还有前景吗？", "summary": "随着AI工具的快速发展，传统3D游戏美术师面临前所未有的挑战。本文探讨了在AI时代，游戏美术从业者如何转型...", "content": "随着Midjourney、Stable Diffusion等AI绘画工具的快速发展，3D游戏美术师的职业前景成为了热门话题。许多从业者开始担忧自己的技能是否会被AI取代。然而，资深美术总监认为，AI更像是辅助工具而非替代品。真正的高级美术师不仅需要掌握传统技艺，还要学会与AI工具协作。文章讨论了从技术美术到美术指导的各种职业路径，并提供了如何提升竞争力的具体建议。", "url": "https://www.reddit.com/r/gamedev/comments/1qtz1az/is_a_3d_game_art_career_still_viable_in_2026/", "score": 567, "num_comments": 389, "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop", "tags": ["职业发展", "游戏美术", "AI"]}, {"source": "reddit", "subreddit": "GameArt", "region": "US/EU", "title": "Show your latest work - Weekly discussion thread", "title_zh": "展示你的最新作品 - 每周讨论帖", "url": "https://www.reddit.com/r/GameArt/comments/week10_2/", "score": 456, "num_comments": 234, "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop", "tags": ["作品展示", "讨论"], "summary": "展示你的最新作品 - 每周讨论帖", "content": "展示你的最新作品 - 每周讨论帖"}, {"source": "reddit", "subreddit": "3Dmodeling", "region": "US/EU", "title": "Blender 4.0 released - what's new for game artists", "title_zh": "Blender 4.0发布 - 游戏美术师的新功能", "url": "https://www.reddit.com/r/3Dmodeling/comments/placeholder4/", "score": 423, "num_comments": 89, "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop", "tags": ["工具技术", "Blender"], "summary": "Blender 4.0发布 - 游戏美术师的新功能", "content": "Blender 4.0发布 - 游戏美术师的新功能"}, {"source": "reddit", "subreddit": "cgjobs", "region": "US/EU", "title": "Contract vs Full-time: What's better for game artists?", "title_zh": "合同工vs全职：哪个对游戏美术师更好？", "url": "https://www.reddit.com/r/cgjobs/comments/week10_3/", "score": 378, "num_comments": 189, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["职业发展", "讨论"], "summary": "合同工vs全职：哪个对游戏美术师更好？", "content": "合同工vs全职：哪个对游戏美术师更好？"}, {"source": "reddit", "subreddit": "gamedev", "region": "US/EU", "title": "How much should I charge for character art? Freelance rates discussion", "title_zh": "角色美术应该收费多少？自由职业费率讨论", "url": "https://www.reddit.com/r/gamedev/comments/placeholder1/", "score": 345, "num_comments": 123, "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop", "tags": ["外包", "自由职业", "费率"], "summary": "角色美术应该收费多少？自由职业费率讨论", "content": "角色美术应该收费多少？自由职业费率讨论"}, {"source": "reddit", "subreddit": "gamedev", "region": "US/EU", "title": "How much should I charge for character art? Freelance rates discussion", "title_zh": "角色美术应该收费多少？自由职业费率讨论", "summary": "自由职业游戏美术师们讨论当前市场费率。高级角色美术时薪可达60-80美元，外包项目收费差异大...", "content": "在游戏开发社区，自由职业美术师的收费标准一直是热门话题。根据最新讨论，高级角色美术师的时薪通常在60-80美元之间，而完整的外包项目报价则从几千到数万美元不等。讨论中提到了影响定价的多个因素：项目复杂度、交付时间要求、修改次数、以及美术师的经验水平。新人美术师往往以较低价格起步建立作品集，而资深美术师则能收取更高费用。", "url": "https://www.reddit.com/r/gamedev/comments/example2/", "score": 345, "num_comments": 123, "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop", "tags": ["外包", "自由职业", "费率"]}, {"source": "reddit", "subreddit": "gamedev", "region": "US/EU", "title": "Best practices for outsourcing game art to overseas studios", "title_zh": "外包游戏美术到海外工作室的最佳实践", "url": "https://www.reddit.com/r/gamedev/comments/week10_1/", "score": 289, "num_comments": 156, "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop", "tags": ["外包", "实践"], "summary": "外包游戏美术到海外工作室的最佳实践", "content": "外包游戏美术到海外工作室的最佳实践"}, {"source": "reddit", "subreddit": "IndieGaming", "region": "US/EU", "title": "Found an amazing art outsourcing studio in Ukraine", "title_zh": "发现一家超棒的乌克兰美术外包工作室", "summary": "独立游戏开发者分享了与乌克兰外包工作室合作的经验，质量高、价格合理，交稿速度快...", "content": "一位独立游戏开发者在社区分享了他与乌克兰美术外包工作室合作的正面经验。他表示，这家工作室不仅提供了高质量的2D和3D美术作品，价格相比欧美工作室低了约40%，而且沟通响应迅速，交稿时间通常比预期更早。乌克兰作为东欧重要的游戏美术外包目的地，拥有众多技术熟练的美术师和教育水平较高的劳动力。尽管战争影响了部分工作室的运营，但许多公司已经适应了远程工作模式，继续为全球客户提供服务。", "url": "https://www.reddit.com/r/IndieGaming/comments/example3/", "score": 289, "num_comments": 67, "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["外包", "推荐", "乌克兰"]}, {"source": "reddit", "subreddit": "GameJobs", "region": "US/EU", "title": "Senior Environment Artist - Remote - $80-100/hr", "title_zh": "高级场景美术师 - 远程 - 时薪80-100美元", "url": "https://www.reddit.com/r/GameJobs/comments/placeholder7/", "score": 234, "num_comments": 45, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["招聘", "远程"], "summary": "高级场景美术师 - 远程 - 时薪80-100美元", "content": "高级场景美术师 - 远程 - 时薪80-100美元"}, {"source": "reddit", "subreddit": "IndieGaming", "region": "US/EU", "title": "Found an amazing art outsourcing studio in Ukraine", "title_zh": "找到一家超棒的乌克兰美术外包工作室", "url": "https://www.reddit.com/r/IndieGaming/comments/week9_2/", "score": 234, "num_comments": 89, "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop", "tags": ["外包", "推荐"], "summary": "找到一家超棒的乌克兰美术外包工作室", "content": "找到一家超棒的乌克兰美术外包工作室"}, {"source": "reddit", "subreddit": "GameJobs", "region": "US/EU", "title": "Senior Environment Artist - Remote - $80-100/hr", "title_zh": "高级场景美术师 - 远程工作 - 时薪80-100美元", "summary": "知名游戏工作室招聘高级场景美术师，提供远程工作选项，时薪高达80-100美元。需要5年以上经验...", "content": "一家知名游戏工作室正在招聘高级场景美术师，为符合条件的候选人提供远程工作机会。薪资范围为每小时80-100美元，具体取决于经验和作品集质量。职位要求包括5年以上的游戏行业经验、熟练使用Unreal Engine或Unity、精通3D建模和纹理制作。职责包括创建高质量的游戏环境、与关卡设计师紧密合作、优化性能以确保流畅的游戏体验。", "url": "https://www.reddit.com/r/GameJobs/comments/example/", "score": 234, "num_comments": 45, "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop", "tags": ["招聘", "远程", "美术"]}, {"source": "reddit", "subreddit": "IndieGaming", "region": "US/EU", "title": "Looking for affordable art outsourcing - recommendations?", "title_zh": "寻找价格合理的美术外包 - 有推荐吗？", "url": "https://www.reddit.com/r/IndieGaming/comments/placeholder5/", "score": 156, "num_comments": 67, "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["外包", "求助"], "summary": "寻找价格合理的美术外包 - 有推荐吗？", "content": "寻找价格合理的美术外包 - 有推荐吗？"}, {"source": "5ch", "region": "JP", "title": "ゲーム会社の美術部署がやばい", "title_zh": "游戏公司的美术部门快要不行了", "url": "https://game.5ch.net/test/read.cgi/gamedev/8/", "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop", "tags": ["行业动态", "讨论"], "summary": "游戏公司的美术部门快要不行了", "content": "游戏公司的美术部门快要不行了"}, {"source": "5ch", "region": "JP", "title": "ゲーム美術外包の qualidade", "title_zh": "游戏美术外包的质量讨论", "url": "https://game.5ch.net/test/read.cgi/gamedev/9/", "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop", "tags": ["外包", "质量"], "summary": "游戏美术外包的质量讨论", "content": "游戏美术外包的质量讨论"}];
+        
+        function showModal(index) {
+            const item = cardsData[index];
+            document.getElementById('modalImage').src = item.image || 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop';
+            document.getElementById('modalSource').textContent = item.subreddit || item.source || '';
+            document.getElementById('modalTitle').textContent = item.title || '';
+            document.getElementById('modalTitleZh').textContent = item.title_zh || '';
+            document.getElementById('modalBody').textContent = item.content || item.summary || item.title_zh || '';
+            document.getElementById('modalLink').href = item.url || '#';
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        function closeModal(e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                hideModal();
+            }
+        }
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') hideModal();
+        });
+        </script>
+
         <footer>
-            <p>📅 更新于 2026-03-14 14:10</p>
+            <p>📅 更新于 2026-03-14 14:19</p>
         </footer>
     </div>
 </body>
