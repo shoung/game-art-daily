@@ -35,7 +35,7 @@
         .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--light-gray); font-size: 12px; color: var(--gray); }
         .tag { background: var(--light-gray); padding: 2px 6px; border-radius: 3px; font-size: 10px; }
         .tag.source-tag { background: var(--dark); color: white; }
-        .note { background: #fff3cd; color: #856404; padding: 8px 12px; border-radius: 4px; font-size: 12px; margin-bottom: 10px; }
+        .note { background: #d4edda; color: #155724; padding: 8px 12px; border-radius: 4px; font-size: 12px; margin-bottom: 10px; }
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0); z-index: 1000; align-items: center; justify-content: center; padding: 20px; transition: background 0.4s ease; }
         .modal-overlay.active { display: flex; background: rgba(0,0,0,0.7); }
         .modal { background: var(--white); border-radius: 16px; max-width: 700px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; opacity: 0; transform: scale(0.7) translateY(30px); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
@@ -57,69 +57,16 @@
             <div class="logo">Game Art Outsourcing</div>
             <h1>游戏美术外包日报</h1>
             <p class="date">2026年2月23日-3月1日</p>
-            <p class="stats">📊 1 条讨论</p>
+            <p class="stats">📊 0 条讨论</p>
             <div class="week-tabs">
                 <a href="index.html" class="week-tab ">本周</a>
                 <a href="week10.html" class="week-tab ">第10周</a>
                 <a href="week09.html" class="week-tab active">第9周</a>
             </div>
         </header>
-<div class="waterfall">
-        <div class="card" onclick="showModal(0)">
-            <div class="note">⚠️ ⚠️ 占位数据</div>
-            <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">reddit</span>
-                <h3 class="card-title">⚠️ 待手动更新</h3>
-                <p class="card-preview">等待手动搜索更新</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <div>
-                        <span class="tag">待更新</span>
-                        <span class="tag source-tag">待更新</span>
-                    </div>
-                </div>
-            </div>
-        </div></div>
-        <div class="modal-overlay" id="modal" onclick="closeModal(event)">
-            <div class="modal" onclick="event.stopPropagation()">
-                <span class="modal-close" onclick="hideModal()">✕</span>
-                <img src="" alt="" class="modal-image" id="modalImage">
-                <div class="modal-content">
-                    <span class="modal-source" id="modalSource"></span>
-                    <h2 class="modal-title" id="modalTitle"></h2>
-                    <p class="modal-original-title" id="modalOriginalTitle"></p>
-                    <div class="modal-body" id="modalBody"></div>
-                    <a href="#" target="_blank" class="modal-link" id="modalLink">查看原文 →</a>
-                </div>
-            </div>
-        </div>
-        <script>
-        const cardsData = [{"source": "reddit", "source_name": "待更新", "title": "第9周数据", "title_zh": "⚠️ 待手动更新", "summary": "等待手动搜索更新", "content": "此周数据需要手动搜索更新", "url": "#", "score": 0, "num_comments": 0, "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop", "tags": ["待更新"], "week": 9, "note": "⚠️ 占位数据"}];
-        function showModal(index) {
-            const item = cardsData[index];
-            document.getElementById('modalImage').src = item.image || '';
-            document.getElementById('modalSource').textContent = item.subreddit || item.source || '';
-            document.getElementById('modalTitle').textContent = item.title_zh || item.title || '';
-            document.getElementById('modalOriginalTitle').textContent = '原文: ' + (item.title || '');
-            document.getElementById('modalBody').textContent = item.content || item.summary || '';
-            document.getElementById('modalLink').href = item.url || '#';
-            document.getElementById('modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function hideModal() {
-            document.getElementById('modal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        function closeModal(e) {
-            if (e.target.classList.contains('modal-overlay')) hideModal();
-        }
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') hideModal();
-        });
-        </script>
+<p style="padding:40px;text-align:center;color:#666;">暂无数据</p>
         <footer>
-            <p>📅 更新于 2026-03-14 17:19</p>
+            <p>📅 更新于 2026-03-14 17:22</p>
         </footer>
     </div>
 </body>
