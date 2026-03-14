@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-生成每日報告 HTML - 簡單直接
+生成每日報告 HTML - 瀑布流布局
 """
 
 import os
@@ -13,7 +13,6 @@ def load_latest_data():
     data_dir = Path('data')
     all_items = []
     
-    # 讀取所有 JSON 檔案
     for json_file in sorted(data_dir.glob('*.json')):
         try:
             with open(json_file, 'r', encoding='utf-8') as f:
@@ -23,7 +22,6 @@ def load_latest_data():
         except:
             pass
     
-    # 按熱度排序
     all_items.sort(key=lambda x: x.get('score', 0), reverse=True)
     return all_items[:30]
 
@@ -60,7 +58,7 @@ def generate_html():
             line-height: 1.6;
         }}
         
-        .container {{ max-width: 1200px; margin: 0 auto; padding: 0 20px; }}
+        .container {{ max-width: 1400px; margin: 0 auto; padding: 0 20px; }}
         
         header {{
             padding: 40px 0 30px;
@@ -93,46 +91,50 @@ def generate_html():
             color: var(--gray);
         }}
         
-        .bento-grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+        /* 瀑布流布局 */
+        .waterfall {{
+            column-count: 4;
+            column-gap: 20px;
             padding: 20px 0 40px;
         }}
         
-        .bento-item {{
+        @media (max-width: 1200px) {{
+            .waterfall {{ column-count: 3; }}
+        }}
+        
+        @media (max-width: 900px) {{
+            .waterfall {{ column-count: 2; }}
+        }}
+        
+        @media (max-width: 600px) {{
+            .waterfall {{ column-count: 1; }}
+        }}
+        
+        .card {{
+            break-inside: avoid;
             background: var(--white);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
             transition: transform 0.2s, box-shadow 0.2s;
         }}
         
-        .bento-item:hover {{
+        .card:hover {{
             transform: translateY(-4px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.12);
         }}
         
-        .bento-item.large {{ 
-            grid-column: span 2; 
-        }}
-        
-        @media (max-width: 600px) {{
-            .bento-item.large {{ grid-column: span 1; }}
-        }}
-        
-        .bento-image {{
+        .card-image {{
             width: 100%;
-            height: 160px;
-            object-fit: cover;
-            background: var(--light-gray);
+            display: block;
         }}
         
-        .bento-content {{
+        .card-content {{
             padding: 16px;
         }}
         
-        .bento-source {{
+        .card-source {{
             display: inline-block;
             background: var(--primary);
             color: white;
@@ -142,26 +144,26 @@ def generate_html():
             margin-bottom: 8px;
         }}
         
-        .bento-title {{
+        .card-title {{
             font-size: 14px;
             font-weight: 500;
             margin-bottom: 6px;
         }}
         
-        .bento-title a {{
+        .card-title a {{
             color: var(--dark);
             text-decoration: none;
         }}
         
-        .bento-title a:hover {{ color: var(--primary); }}
+        .card-title a:hover {{ color: var(--primary); }}
         
-        .bento-title-zh {{
+        .card-title-zh {{
             font-size: 13px;
             color: var(--gray);
             margin-bottom: 10px;
         }}
         
-        .bento-footer {{
+        .card-footer {{
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -198,10 +200,9 @@ def generate_html():
 '''
 
     if items:
-        html += '<div class="bento-grid">'
+        html += '<div class="waterfall">'
         
-        for i, item in enumerate(items):
-            is_large = i == 0 and len(items) >= 3
+        for item in items:
             image = item.get('image', 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop')
             title = item.get('title', '')
             title_zh = item.get('title_zh', title)
@@ -212,15 +213,15 @@ def generate_html():
             tags = item.get('tags', [])
             
             html += f'''
-        <div class="bento-item {'large' if is_large else ''}">
-            <img src="{image}" alt="" class="bento-image">
-            <div class="bento-content">
-                <span class="bento-source">{source}</span>
-                <h3 class="bento-title">
+        <div class="card">
+            <img src="{image}" alt="" class="card-image">
+            <div class="card-content">
+                <span class="card-source">{source}</span>
+                <h3 class="card-title">
                     <a href="{url}" target="_blank">{title}</a>
                 </h3>
-                <p class="bento-title-zh">{title_zh}</p>
-                <div class="bento-footer">
+                <p class="card-title-zh">{title_zh}</p>
+                <div class="card-footer">
                     <span>⬆️ {score} · 💬 {comments}</span>
                     <span class="tag">{tags[0] if tags else ''}</span>
                 </div>
