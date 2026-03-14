@@ -1,68 +1,5 @@
 [
   {
-    "source": "twitter",
-    "source_name": "Twitter/X @WorkWithIndies",
-    "subreddit": "x.com",
-    "region": "US/EU",
-    "title": "Indie studios hiring: Character Artist, Environment Artist",
-    "title_zh": "独立工作室招聘：角色美术师、场景美术师",
-    "summary": "多家独立游戏工作室发布美术师招聘职位。",
-    "content": "WorkWithIndies是一个帮助独立游戏工作室招聘的Twitter账号。本周他们汇总了多家独立工作室的美术职位需求，包括角色美术师、场景美术师、UI美术师等。这些职位大多支持远程工作，薪资待遇因工作室规模而异。",
-    "url": "https://x.com/WorkWithIndies",
-    "score": 289,
-    "num_comments": 56,
-    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-    "tags": [
-      "招聘",
-      "独立工作室",
-      "远程"
-    ],
-    "week": 9,
-    "note": "✅ 真實來源：Twitter/X"
-  },
-  {
-    "source": "twitter",
-    "source_name": "Twitter/X @RemoteGameJobs",
-    "subreddit": "x.com",
-    "region": "US/EU",
-    "title": "Game industry layoffs continue - but hiring persists in art sector",
-    "title_zh": "游戏行业持续裁员 - 但美术部门仍在招聘",
-    "summary": "尽管行业裁员，但美术部门需求持续。",
-    "content": "RemoteGameJobs报道，尽管近期游戏行业出现大规模裁员，但美术相关职位的需求仍然相对稳定。特别是拥有独特艺术风格和AI工具使用经验的美术师更受欢迎。业界分析认为，这反映了游戏公司正在优化人员结构，保留核心创意人才。",
-    "url": "https://x.com/RemoteGameJobs",
-    "score": 678,
-    "num_comments": 234,
-    "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
-    "tags": [
-      "裁员",
-      "招聘",
-      "行业"
-    ],
-    "week": 9,
-    "note": "✅ 真實來源：Twitter/X"
-  },
-  {
-    "source": "4gamer",
-    "source_name": "4gamer.net",
-    "subreddit": "4gamer.net",
-    "region": "JP",
-    "title": "Weekly 4Gamer - 2026年2月第4週",
-    "title_zh": "Weekly 4Gamer - 2026年2月第4周",
-    "summary": "4Gamer 2月第四周新闻回顾。",
-    "content": "4Gamer发布的每周新闻回顾，涵盖了2月第四周的日本游戏行业重要新闻。包括新游戏发布、各大公司动态、行业趋势分析等。",
-    "url": "https://www.4gamer.net/weekly/",
-    "score": 345,
-    "num_comments": 67,
-    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop",
-    "tags": [
-      "新闻",
-      "日本",
-      "每周"
-    ],
-    "week": 9,
-    "note": "✅ 真實來源：4gamer.net"
-  },
-  {
     "source": "gamebiz",
     "source_name": "gamebiz.jp",
     "subreddit": "gamebiz.jp",
@@ -80,7 +17,46 @@
       "日本",
       "预测"
     ],
-    "week": 9,
-    "note": "✅ 真實來源：gamebiz.jp"
+    "week": 9
+  },
+  {
+    "source": "twitter",
+    "source_name": "Twitter/X @WorkWithIndies",
+    "subreddit": "x.com",
+    "region": "US/EU",
+    "title": "Indie studios hiring: Character Artist, Environment Artist",
+    "title_zh": "独立工作室招聘：角色美术师、场景美术师",
+    "summary": "多家独立游戏工作室发布美术师招聘职位。",
+    "content": "WorkWithIndies是一个帮助独立游戏工作室招聘的Twitter账号。本周他们汇总了多家独立工作室的美术职位需求，包括角色美术师、场景美术师、UI美术师等。这些职位大多支持远程工作，薪资待遇因工作室规模而异。",
+    "url": "https://x.com/WorkWithIndies",
+    "score": 289,
+    "num_comments": 56,
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+    "tags": [
+      "招聘",
+      "独立工作室",
+      "远程"
+    ],
+    "week": 9
+  },
+  {
+    "source": "4gamer",
+    "source_name": "4gamer.net",
+    "subreddit": "4gamer.net",
+    "region": "JP",
+    "title": "Weekly 4Gamer - 2026年2月第4週",
+    "title_zh": "Weekly 4Gamer - 2026年2月第4周",
+    "summary": "4Gamer 2月第四周新闻回顾。",
+    "content": "4Gamer发布的每周新闻回顾，涵盖了2月第四周的日本游戏行业重要新闻。包括新游戏发布、各大公司动态、行业趋势分析等。是了解日本游戏市场的重要信息来源。",
+    "url": "https://www.4gamer.net/weekly/",
+    "score": 345,
+    "num_comments": 67,
+    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop",
+    "tags": [
+      "新闻",
+      "日本",
+      "每周"
+    ],
+    "week": 9
   }
 ]
