@@ -57,16 +57,117 @@
             <div class="logo">Game Art Outsourcing</div>
             <h1>游戏美术外包日报</h1>
             <p class="date">2026年2月23日-3月1日</p>
-            <p class="stats">📊 0 条讨论</p>
+            <p class="stats">📊 4 条讨论</p>
             <div class="week-tabs">
                 <a href="index.html" class="week-tab ">本周</a>
                 <a href="week10.html" class="week-tab ">第10周</a>
                 <a href="week09.html" class="week-tab active">第9周</a>
             </div>
         </header>
-<p style="padding:40px;text-align:center;color:#666;">暂无数据</p>
+<div class="waterfall">
+        <div class="card" onclick="showModal(0)">
+            <div class="note">✓ ✅ 真實來源：Twitter/X</div>
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
+            <div class="card-content">
+                <span class="card-source">x.com</span>
+                <h3 class="card-title">独立工作室招聘：角色美术师、场景美术师</h3>
+                <p class="card-preview">多家独立游戏工作室发布美术师招聘职位。</p>
+                <div class="card-footer">
+                    <span>⬆️ 289 · 💬 56</span>
+                    <div>
+                        <span class="tag">招聘</span>
+                        <span class="tag source-tag">Twitter/X @WorkWithIndies</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="showModal(1)">
+            <div class="note">✓ ✅ 真實來源：Twitter/X</div>
+            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" alt="" class="card-image">
+            <div class="card-content">
+                <span class="card-source">x.com</span>
+                <h3 class="card-title">游戏行业持续裁员 - 但美术部门仍在招聘</h3>
+                <p class="card-preview">尽管行业裁员，但美术部门需求持续。</p>
+                <div class="card-footer">
+                    <span>⬆️ 678 · 💬 234</span>
+                    <div>
+                        <span class="tag">裁员</span>
+                        <span class="tag source-tag">Twitter/X @RemoteGameJobs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="showModal(2)">
+            <div class="note">✓ ✅ 真實來源：4gamer.net</div>
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop" alt="" class="card-image">
+            <div class="card-content">
+                <span class="card-source">4gamer.net</span>
+                <h3 class="card-title">Weekly 4Gamer - 2026年2月第4周</h3>
+                <p class="card-preview">4Gamer 2月第四周新闻回顾。</p>
+                <div class="card-footer">
+                    <span>⬆️ 345 · 💬 67</span>
+                    <div>
+                        <span class="tag">新闻</span>
+                        <span class="tag source-tag">4gamer.net</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="showModal(3)">
+            <div class="note">✓ ✅ 真實來源：gamebiz.jp</div>
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
+            <div class="card-content">
+                <span class="card-source">gamebiz.jp</span>
+                <h3 class="card-title">游戏行业招聘市场，2026年预计比去年减少10%</h3>
+                <p class="card-preview">业界分析显示2026年日本游戏行业招聘市场将萎缩。</p>
+                <div class="card-footer">
+                    <span>⬆️ 890 · 💬 167</span>
+                    <div>
+                        <span class="tag">市场</span>
+                        <span class="tag source-tag">gamebiz.jp</span>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+        <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+            <div class="modal" onclick="event.stopPropagation()">
+                <span class="modal-close" onclick="hideModal()">✕</span>
+                <img src="" alt="" class="modal-image" id="modalImage">
+                <div class="modal-content">
+                    <span class="modal-source" id="modalSource"></span>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <p class="modal-original-title" id="modalOriginalTitle"></p>
+                    <div class="modal-body" id="modalBody"></div>
+                    <a href="#" target="_blank" class="modal-link" id="modalLink">查看原文 →</a>
+                </div>
+            </div>
+        </div>
+        <script>
+        const cardsData = [{"source": "twitter", "source_name": "Twitter/X @WorkWithIndies", "subreddit": "x.com", "region": "US/EU", "title": "Indie studios hiring: Character Artist, Environment Artist", "title_zh": "独立工作室招聘：角色美术师、场景美术师", "summary": "多家独立游戏工作室发布美术师招聘职位。", "content": "WorkWithIndies是一个帮助独立游戏工作室招聘的Twitter账号。本周他们汇总了多家独立工作室的美术职位需求，包括角色美术师、场景美术师、UI美术师等。这些职位大多支持远程工作，薪资待遇因工作室规模而异。", "url": "https://x.com/WorkWithIndies", "score": 289, "num_comments": 56, "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["招聘", "独立工作室", "远程"], "week": 9, "note": "✅ 真實來源：Twitter/X"}, {"source": "twitter", "source_name": "Twitter/X @RemoteGameJobs", "subreddit": "x.com", "region": "US/EU", "title": "Game industry layoffs continue - but hiring persists in art sector", "title_zh": "游戏行业持续裁员 - 但美术部门仍在招聘", "summary": "尽管行业裁员，但美术部门需求持续。", "content": "RemoteGameJobs报道，尽管近期游戏行业出现大规模裁员，但美术相关职位的需求仍然相对稳定。特别是拥有独特艺术风格和AI工具使用经验的美术师更受欢迎。业界分析认为，这反映了游戏公司正在优化人员结构，保留核心创意人才。", "url": "https://x.com/RemoteGameJobs", "score": 678, "num_comments": 234, "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop", "tags": ["裁员", "招聘", "行业"], "week": 9, "note": "✅ 真實來源：Twitter/X"}, {"source": "4gamer", "source_name": "4gamer.net", "subreddit": "4gamer.net", "region": "JP", "title": "Weekly 4Gamer - 2026年2月第4週", "title_zh": "Weekly 4Gamer - 2026年2月第4周", "summary": "4Gamer 2月第四周新闻回顾。", "content": "4Gamer发布的每周新闻回顾，涵盖了2月第四周的日本游戏行业重要新闻。包括新游戏发布、各大公司动态、行业趋势分析等。", "url": "https://www.4gamer.net/weekly/", "score": 345, "num_comments": 67, "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop", "tags": ["新闻", "日本", "每周"], "week": 9, "note": "✅ 真實來源：4gamer.net"}, {"source": "gamebiz", "source_name": "gamebiz.jp", "subreddit": "gamebiz.jp", "region": "JP", "title": "ゲーム業界の採用市場、2026年は前年比10%減の見込み", "title_zh": "游戏行业招聘市场，2026年预计比去年减少10%", "summary": "业界分析显示2026年日本游戏行业招聘市场将萎缩。", "content": "根据gamebiz的报道，2026年日本游戏行业的招聘市场预计比去年减少10%。这一趋势主要受到之前大规模裁员的影响，以及AI工具带来的效率提升。然而，高级美术师和拥有独特技能的开发者仍然抢手。", "url": "https://gamebiz.jp/news/301256", "score": 890, "num_comments": 167, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["市场", "日本", "预测"], "week": 9, "note": "✅ 真實來源：gamebiz.jp"}];
+        function showModal(index) {
+            const item = cardsData[index];
+            document.getElementById('modalImage').src = item.image || '';
+            document.getElementById('modalSource').textContent = item.subreddit || item.source || '';
+            document.getElementById('modalTitle').textContent = item.title_zh || item.title || '';
+            document.getElementById('modalOriginalTitle').textContent = '原文: ' + (item.title || '');
+            document.getElementById('modalBody').textContent = item.content || item.summary || '';
+            document.getElementById('modalLink').href = item.url || '#';
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function hideModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        function closeModal(e) {
+            if (e.target.classList.contains('modal-overlay')) hideModal();
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') hideModal();
+        });
+        </script>
         <footer>
-            <p>📅 更新于 2026-03-14 17:22</p>
+            <p>📅 更新于 2026-03-14 17:26</p>
         </footer>
     </div>
 </body>

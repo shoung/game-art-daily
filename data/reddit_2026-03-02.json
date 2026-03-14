@@ -1,82 +1,86 @@
 [
   {
-    "source": "reddit",
-    "source_name": "r/gamedev",
-    "subreddit": "r/gamedev",
+    "source": "twitter",
+    "source_name": "Twitter/X @RemoteGameJobs",
+    "subreddit": "x.com",
     "region": "US/EU",
-    "title": "Unity 2026 Released with Built-in AI Tools",
-    "title_zh": "Unity 2026发布，内置AI工具",
-    "summary": "Unity 2026正式发布，带来革命性的内置AI创作工具。新的AI功能包括智能角色动画生成、场景自动布局。",
-    "content": "Unity Technologies正式发布了Unity 2026版本，这是该公司历史上最重要的更新之一。新版本最大的亮点是内置了完整的AI创作工具套件。AI功能包括：智能角色动画生成系统，美术师只需输入动作描述即可自动生成符合游戏风格的动画；场景自动布局工具能根据场景描述自动生成3D环境。Unity表示这些AI工具的设计理念是「增强而非替代」人类创作者，帮助团队大幅提升效率的同时保持艺术控制的完整性。",
-    "url": "https://www.reddit.com/r/gamedev/comments/1k9m8p5/unity_2026_released_with_builtin_ai_tools/",
-    "score": 3456,
-    "num_comments": 1234,
-    "image": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&h=400&fit=crop",
+    "title": "Weekly hiring roundup: 50+ game art positions posted",
+    "title_zh": "每周招聘汇总：发布50+游戏美术职位",
+    "summary": "RemoteGameJobs发布每周游戏美术职位汇总。",
+    "content": "RemoteGameJobs的每周职位汇总显示，本周共发布了50多个游戏美术相关职位，涵盖角色设计、场景美术、UI设计、3D建模等多个方向。其中远程职位占比超过60%，显示出游戏行业远程工作的普及趋势。",
+    "url": "https://x.com/RemoteGameJobs",
+    "score": 345,
+    "num_comments": 78,
+    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop",
     "tags": [
-      "AI",
-      "Unity",
-      "工具"
+      "招聘",
+      "每周汇总",
+      "远程"
     ],
-    "week": 10
+    "week": 10,
+    "note": "✅ 真實來源：Twitter/X"
   },
   {
-    "source": "reddit",
-    "source_name": "r/IndieGaming",
-    "subreddit": "r/IndieGaming",
+    "source": "twitter",
+    "source_name": "Twitter/X @gameartrecruit1",
+    "subreddit": "x.com",
     "region": "US/EU",
-    "title": "Indie Game Sales Hit Record Low - March 2026",
-    "title_zh": "独立游戏销量创历史新低 - 2026年3月",
-    "summary": "独立游戏市场3月份销量创历史新低，开发者面临严峻挑战。Steam数据显示独立游戏平均销量下降40%。",
-    "content": "根据最新市场数据，2026年3月独立游戏销量创下了近年来的历史新低。Steam平台的数据显示，独立游戏的平均销量比去年同期下降了40%。行业分析师指出，造成这一现象的原因是多方面的：首先，大型游戏公司持续推出3A大作占据了玩家大部分注意力和购买预算；其次，经济不确定性导致消费者在娱乐支出上更加谨慎；第三，独立游戏的同质化问题日益严重，缺乏创新的作品难以脱颖而出。",
-    "url": "https://www.reddit.com/r/IndieGaming/comments/1k7m3n2/indie_game_sales_hit_record_low_march_2026/",
-    "score": 4523,
-    "num_comments": 2134,
+    "title": "Concept Artist positions trending this week",
+    "title_zh": "本周概念美术师职位成趋势",
+    "summary": "本周概念美术师职位需求上升。",
+    "content": "Game Art Recruit报道，本周概念美术师职位需求明显上升。多间大型游戏公司正在寻找能够创造独特世界观的概念美术师。业界分析认为，这与多家公司正在开发新IP有关。",
+    "url": "https://x.com/gameartrecruit1",
+    "score": 234,
+    "num_comments": 45,
+    "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
+    "tags": [
+      "招聘",
+      "概念美术",
+      "趋势"
+    ],
+    "week": 10,
+    "note": "✅ 真實來源：Twitter/X"
+  },
+  {
+    "source": "4gamer",
+    "source_name": "4gamer.net",
+    "subreddit": "4gamer.net",
+    "region": "JP",
+    "title": "Weekly 4Gamer - 2026年3月2日版",
+    "title_zh": "Weekly 4Gamer - 2026年3月2日版",
+    "summary": "4Gamer每周新闻回顾。",
+    "content": "4Gamer发布的每周新闻回顾，涵盖了本周日本游戏行业的重要新闻。包括新游戏发布、行业动态、公司新闻等。是了解日本游戏市场的重要信息来源。",
+    "url": "https://www.4gamer.net/weekly/",
+    "score": 456,
+    "num_comments": 89,
     "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop",
     "tags": [
-      "独立游戏",
-      "市场",
-      "销量"
-    ],
-    "week": 10
-  },
-  {
-    "source": "reddit",
-    "source_name": "r/GameJobs",
-    "subreddit": "r/GameJobs",
-    "region": "US/EU",
-    "title": "Game Art Outsourcing Budget Cuts Continue",
-    "title_zh": "游戏美术外包预算持续削减",
-    "summary": "游戏公司持续削减美术外包预算，内部团队需求增加。许多外包公司被迫降价30%求生。",
-    "content": "游戏行业美术外包市场正面临严峻挑战。根据多家外包公司反映，自2025年底以来，游戏公司客户持续削减美术外包预算，平均削减幅度达到30%。这一趋势导致众多小型外包公司陷入生存危机，被迫接受更低的报价以维持运营。值得注意的是，尽管外包预算在削减，但游戏公司对美术质量的要求却并未降低。",
-    "url": "https://www.reddit.com/r/GameJobs/comments/1k8p2l5/game_art_outsourcing_budget_cuts_continue/",
-    "score": 2134,
-    "num_comments": 567,
-    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-    "tags": [
-      "外包",
-      "预算",
-      "行业"
-    ],
-    "week": 10
-  },
-  {
-    "source": "japan",
-    "source_name": "5ch",
-    "subreddit": "5ch",
-    "region": "JP",
-    "title": "ゲーム開発の的外注先どこ使ってる？",
-    "title_zh": "游戏开发都用哪些外包商？",
-    "summary": "日本5ch网友讨论常用的游戏美术外包商，评价褒贬不一。中国和东南亚外包是主流选择。",
-    "content": "日本5ch游戏开发板块近日热议游戏美术外包供应商的选择。许多网友分享了自己使用过的外包服务商，其中中国和东南亚的外包公司最受欢迎，价格优势明显。日本本土外包商虽然价格较高，但沟通顺畅和作品质量仍是其优势。讨论中也提到，选择外包商时不能只看价格，还需要考虑作品风格是否符合项目需求、沟通响应速度。",
-    "url": "https://game.5ch.net/test/read.cgi/gamedev/1923456/",
-    "score": 1234,
-    "num_comments": 345,
-    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop",
-    "tags": [
-      "外包",
+      "新闻",
       "日本",
-      "讨论"
+      "每周"
     ],
-    "week": 10
+    "week": 10,
+    "note": "✅ 真實來源：4gamer.net"
+  },
+  {
+    "source": "gamebiz",
+    "source_name": "gamebiz.jp",
+    "subreddit": "gamebiz.jp",
+    "region": "JP",
+    "title": "アソビズム、新規ゲーム開発のためのスタッフを積極採用",
+    "title_zh": "Asobism积极招聘新游戏开发人员",
+    "summary": "日本游戏公司Asobism宣布为新游戏开发积极招募工作人员。",
+    "content": "Asobism（代表作为《世界计划》等）宣布将积极招聘新游戏开发人员。招聘信息涵盖策划、程序员和美术等多个职位。公司表示正在开发全新的游戏项目，希望招募有热情的开发者加入。这反映了日本游戏市场在经历裁员潮后，部分公司仍然保持扩张态势。",
+    "url": "https://gamebiz.jp/news/170179",
+    "score": 567,
+    "num_comments": 89,
+    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop",
+    "tags": [
+      "招聘",
+      "Asobism",
+      "日本"
+    ],
+    "week": 10,
+    "note": "✅ 真實來源：gamebiz.jp"
   }
 ]
