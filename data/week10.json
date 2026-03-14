@@ -1,45 +1,5 @@
 [
   {
-    "source": "twitter",
-    "source_name": "Twitter/X @RemoteGameJobs",
-    "subreddit": "x.com",
-    "region": "US/EU",
-    "title": "Weekly hiring roundup: 50+ game art positions posted",
-    "title_zh": "每周招聘汇总：发布50+游戏美术职位",
-    "summary": "RemoteGameJobs发布每周游戏美术职位汇总。",
-    "content": "RemoteGameJobs的每周职位汇总显示，本周共发布了50多个游戏美术相关职位，涵盖角色设计、场景美术、UI设计、3D建模等多个方向。其中远程职位占比超过60%，显示出游戏行业远程工作的普及趋势。",
-    "url": "https://x.com/RemoteGameJobs",
-    "score": 345,
-    "num_comments": 78,
-    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop",
-    "tags": [
-      "招聘",
-      "每周汇总",
-      "远程"
-    ],
-    "week": 10
-  },
-  {
-    "source": "gamebiz",
-    "source_name": "gamebiz.jp",
-    "subreddit": "gamebiz.jp",
-    "region": "JP",
-    "title": "アソビズム、新規ゲーム開発のためのスタッフを積極採用",
-    "title_zh": "Asobism积极招聘新游戏开发人员",
-    "summary": "日本游戏公司Asobism宣布为新游戏开发积极招募工作人员。",
-    "content": "Asobism（代表作为《世界计划》等）宣布将积极招聘新游戏开发人员。招聘信息涵盖策划、程序员和美术等多个职位。公司表示正在开发全新的游戏项目，希望招募有热情的开发者的加入。这反映了日本游戏市场在经历裁员潮后，部分公司仍然保持扩张态势。",
-    "url": "https://gamebiz.jp/news/170179",
-    "score": 567,
-    "num_comments": 89,
-    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop",
-    "tags": [
-      "招聘",
-      "Asobism",
-      "日本"
-    ],
-    "week": 10
-  },
-  {
     "source": "4gamer",
     "source_name": "4gamer.net",
     "subreddit": "4gamer.net",

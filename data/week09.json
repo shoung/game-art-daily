@@ -1,45 +1,5 @@
 [
   {
-    "source": "gamebiz",
-    "source_name": "gamebiz.jp",
-    "subreddit": "gamebiz.jp",
-    "region": "JP",
-    "title": "ゲーム業界の採用市場、2026年は前年比10%減の見込み",
-    "title_zh": "游戏行业招聘市场，2026年预计比去年减少10%",
-    "summary": "业界分析显示2026年日本游戏行业招聘市场将萎缩。",
-    "content": "根据gamebiz的报道，2026年日本游戏行业的招聘市场预计比去年减少10%。这一趋势主要受到之前大规模裁员的影响，以及AI工具带来的效率提升。然而，高级美术师和拥有独特技能的开发者仍然抢手。",
-    "url": "https://gamebiz.jp/news/301256",
-    "score": 890,
-    "num_comments": 167,
-    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop",
-    "tags": [
-      "市场",
-      "日本",
-      "预测"
-    ],
-    "week": 9
-  },
-  {
-    "source": "twitter",
-    "source_name": "Twitter/X @WorkWithIndies",
-    "subreddit": "x.com",
-    "region": "US/EU",
-    "title": "Indie studios hiring: Character Artist, Environment Artist",
-    "title_zh": "独立工作室招聘：角色美术师、场景美术师",
-    "summary": "多家独立游戏工作室发布美术师招聘职位。",
-    "content": "WorkWithIndies是一个帮助独立游戏工作室招聘的Twitter账号。本周他们汇总了多家独立工作室的美术职位需求，包括角色美术师、场景美术师、UI美术师等。这些职位大多支持远程工作，薪资待遇因工作室规模而异。",
-    "url": "https://x.com/WorkWithIndies",
-    "score": 289,
-    "num_comments": 56,
-    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-    "tags": [
-      "招聘",
-      "独立工作室",
-      "远程"
-    ],
-    "week": 9
-  },
-  {
     "source": "4gamer",
     "source_name": "4gamer.net",
     "subreddit": "4gamer.net",
