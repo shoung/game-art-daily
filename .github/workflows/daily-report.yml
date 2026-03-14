@@ -1,23 +1,16 @@
-name: Daily Game Art News Report
+# 這個檔案已停用，翻譯工作改由 OpenClaw AI 執行
+# 如需手動測試 HTML 生成，可觸發此 workflow
+
+name: Manual HTML Generation
 
 on:
-  schedule:
-    # 每天早上 8 點台灣時間 (UTC 0:00)
-    - cron: '0 0 * * *'
   workflow_dispatch:
   push:
     branches: [main]
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
 jobs:
-  collect-and-generate:
+  generate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -28,48 +21,21 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          pip install requests beautifulsoup4 lxml praw python-dotenv
+        run: pip install requests beautifulsoup4 lxml
 
-      - name: Collect Reddit news
-        env:
-          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
-          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
-          REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
-        run: python scripts/collect_reddit.py
-
-      - name: Collect Japan game news
-        run: python scripts/collect_2ch.py
-
-      - name: Generate daily report
+      - name: Generate report
         run: python scripts/generate_report.py
 
-      - name: Commit and push changes
+      - name: Commit and push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data/ output/
-          git diff --staged --quiet || git commit -m "Update daily report $(date +%Y-%m-%d)"
+          git add output/
+          git diff --staged --quiet || git commit -m "Update report"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} main
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: 'output'
-
-  deploy:
-    needs: collect-and-generate
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
