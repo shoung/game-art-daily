@@ -1,0 +1,52 @@
+name: Daily Game Art News Report
+
+on:
+  schedule:
+    # 每天早上 8 點台灣時間 (UTC 0:00)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  collect-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 praw python-dotenv
+
+      - name: Collect Reddit news
+        env:
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
+        run: python scripts/collect_reddit.py
+
+      - name: Collect 2ch news
+        run: python scripts/collect_2ch.py
+
+      - name: Generate daily report
+        run: python scripts/generate_report.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/ output/
+          git diff --staged --quiet || git commit -m "Update daily report $(date +%Y-%m-%d)"
+          git push
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
