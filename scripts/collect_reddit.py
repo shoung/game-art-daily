@@ -55,7 +55,7 @@ def collect_reddit():
                                 'source': 'reddit',
                                 'subreddit': subreddit_name,
                                 'title': post.title,
-                                'url': f'https://reddit.com{post.permalink}',
+                                'url': 'https://reddit.com' + post.permalink,
                                 'score': post.score,
                                 'num_comments': post.num_comments,
                                 'created_utc': datetime.datetime.fromtimestamp(
@@ -64,10 +64,10 @@ def collect_reddit():
                                 'flair': str(post.link_flair_text) if post.link_flair_text else None
                             })
                 except Exception as e:
-                    print(f"Error fetching r/{subreddit_name}: {e}")
+                    print(f'Error fetching r/{subreddit_name}: {e}')
                     
         except Exception as e:
-            print(f"Reddit API error: {e}")
+            print(f'Reddit API error: {e}')
     
     # 如果沒有結果，使用備用方式
     if not results:
@@ -96,21 +96,22 @@ def collect_reddit_fallback():
                 title_lower = post_data['title'].lower()
                 
                 if any(kw.lower() in title_lower for kw in KEYWORDS):
+                    permalink = post_data.get('permalink', '')
                     results.append({
                         'source': 'reddit',
                         'subreddit': sub,
                         'title': post_data['title'],
-                        'url': f'https://reddit.com{post_data['permalink']}",
-                        'score': post_data['score'],
-                        'num_comments': post_data['num_comments'],
+                        'url': 'https://reddit.com' + permalink,
+                        'score': post_data.get('score', 0),
+                        'num_comments': post_data.get('num_comments', 0),
                         'created_utc': datetime.datetime.fromtimestamp(
-                            post_data['created_utc']
+                            post_data.get('created_utc', 0)
                         ).isoformat(),
                         'flair': post_data.get('link_flair_text')
                     })
                     
         except Exception as e:
-            print(f"Error fetching r/{sub}: {e}")
+            print(f'Error fetching r/{sub}: {e}')
     
     return results
 
@@ -122,11 +123,11 @@ def save_results(results):
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
     
-    print(f"Saved {len(results)} Reddit posts to {filepath}")
+    print(f'Saved {len(results)} Reddit posts to {filepath}')
     return filepath
 
 if __name__ == '__main__':
-    print("Starting Reddit collection...")
+    print('Starting Reddit collection...')
     results = collect_reddit()
     save_results(results)
-    print(f"Collected {len(results)} posts from Reddit")
+    print(f'Collected {len(results)} posts from Reddit')
