@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏美术外包 Daily Report</title>
+    <title>游戏美术外包日报</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -151,15 +151,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0);
             z-index: 1000;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            transition: background 0.3s ease;
         }
         
         .modal-overlay.active {
             display: flex;
+            background: rgba(0,0,0,0.7);
         }
         
         .modal {
@@ -170,6 +172,14 @@
             max-height: 80vh;
             overflow-y: auto;
             position: relative;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .modal-overlay.active .modal {
+            opacity: 1;
+            transform: scale(1);
         }
         
         .modal-close {
@@ -221,18 +231,21 @@
             margin-bottom: 20px;
         }
         
+        .modal-original-title {
+            font-size: 13px;
+            color: var(--gray);
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+        
         .modal-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: underline;
             font-size: 14px;
         }
         
         .modal-link:hover {
-            background: #cc0000;
+            color: #cc0000;
         }
         
         footer {
@@ -248,7 +261,7 @@
     <div class="container">
         <header>
             <div class="logo">Game Art Outsourcing</div>
-            <h1>游戏美术外包 Daily Report</h1>
+            <h1>游戏美术外包日报</h1>
             <p class="date">2026年03月14日</p>
             <p class="stats">📊 12 条讨论</p>
         </header>
@@ -257,7 +270,7 @@
             <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">r/pcgaming</span>
-                <h3 class="card-title">EA Lays Off Staff Across All Battlefield Studios</h3>
+                <h3 class="card-title">EA在Battlefield工作室大规模裁员</h3>
                 <p class="card-preview">EA在财报创纪录后宣布裁员，波及所有Battlefield开发团队。玩家社区反应强烈，质疑公司决策。</p>
                 <div class="card-footer">
                     <span>⬆️ 2156 · 💬 1234</span>
@@ -272,7 +285,7 @@
             <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">r/gamedev</span>
-                <h3 class="card-title">Why does the game industry seem to keep laying off people despite record profits?</h3>
+                <h3 class="card-title">为什么游戏行业在创纪录利润的情况下仍然持续裁员？</h3>
                 <p class="card-preview">游戏行业持续裁员引发广泛讨论，尽管财报显示利润创纪录。Reddit网友分析指出多个原因：公司追求短期利润、疫情过度扩张后的调整、以及AI技术带来的效率提升。</p>
                 <div class="card-footer">
                     <span>⬆️ 1247 · 💬 892</span>
@@ -287,7 +300,7 @@
             <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">r/3Dmodeling</span>
-                <h3 class="card-title">Is a 3D Game Art Career Still Viable in 2026?</h3>
+                <h3 class="card-title">2026年3D游戏美术职业还有前景吗？</h3>
                 <p class="card-preview">AI工具快速发展引发3D美术师担忧，但资深从业者认为AI是辅助而非替代。掌握AI工具 + 创意能力是未来关键。</p>
                 <div class="card-footer">
                     <span>⬆️ 892 · 💬 567</span>
@@ -302,7 +315,7 @@
             <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">r/gamedev</span>
-                <h3 class="card-title">Best Freelance Game Artists rates 2026</h3>
+                <h3 class="card-title">2026年自由职业游戏美术师费率参考</h3>
                 <p class="card-preview">自由职业游戏美术师2026年费率参考：初级时薪30-50美元，中级50-80美元，高级80-150美元。项目报价差异大。</p>
                 <div class="card-footer">
                     <span>⬆️ 567 · 💬 234</span>
@@ -317,7 +330,7 @@
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">r/GameJobs</span>
-                <h3 class="card-title">108 game artist Jobs in Remote, March 2026</h3>
+                <h3 class="card-title">108个游戏美术远程工作机会，2026年3月</h3>
                 <p class="card-preview">Glassdoor数据显示3月共有108个游戏美术远程职位，薪资范围广泛。从初级到高级职位都有需求，远程工作成主流趋势。</p>
                 <div class="card-footer">
                     <span>⬆️ 456 · 💬 67</span>
@@ -332,7 +345,7 @@
             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">5ch</span>
-                <h3 class="card-title">フリーランスのゲーム美術単価　暴露</h3>
+                <h3 class="card-title">自由职业游戏美术师收入大公开</h3>
                 <p class="card-preview">日本自由职业游戏美术师收入讨论：月收入30万到150万日元都有，技术+人脉是关键。</p>
                 <div class="card-footer">
                     <span>⬆️ 456 · 💬 123</span>
@@ -347,7 +360,7 @@
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">5ch</span>
-                <h3 class="card-title">ゲーム業界の採用事情　2026</h3>
+                <h3 class="card-title">2026年游戏行业招聘情况</h3>
                 <p class="card-preview">日本5ch网友讨论游戏行业招聘现状：好公司难进，薪资竞争力下降，年轻从业者转向海外机会增加。</p>
                 <div class="card-footer">
                     <span>⬆️ 345 · 💬 89</span>
@@ -362,7 +375,7 @@
             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">r/IndieGaming</span>
-                <h3 class="card-title">Top 5 Game Art Outsourcing Companies 2026</h3>
+                <h3 class="card-title">2026年五大游戏美术外包公司</h3>
                 <p class="card-preview">行业分析显示2026年游戏美术外包市场持续成长，印度、乌克兰、菲律宾成为主要外包目的地。质量与成本平衡是关键考量。</p>
                 <div class="card-footer">
                     <span>⬆️ 289 · 💬 45</span>
@@ -377,7 +390,7 @@
             <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">5ch</span>
-                <h3 class="card-title">ゲーム業界の美術部署がやばい</h3>
+                <h3 class="card-title">游戏公司的美术部门快不行了</h3>
                 <p class="card-preview">日本5ch网友讨论游戏公司美术部门的现状，普遍反映工作强度大、薪资低、人员流失严重...</p>
                 <div class="card-footer">
                     <span>⬆️ 0 · 💬 0</span>
@@ -392,7 +405,7 @@
             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">5ch</span>
-                <h3 class="card-title">フリーランスのゲームエンジニア収入</h3>
+                <h3 class="card-title">自由职业游戏工程师的收入</h3>
                 <p class="card-preview">日本讨论自由游戏开发者的真实收入情况，有人月收入破100万日元，也有人入不敷出...</p>
                 <div class="card-footer">
                     <span>⬆️ 0 · 💬 0</span>
@@ -407,7 +420,7 @@
             <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">5ch</span>
-                <h3 class="card-title">ゲーム美術の外注単価について語り合うスレ</h3>
+                <h3 class="card-title">讨论游戏美术外包单价</h3>
                 <p class="card-preview">日本游戏美术外包单价讨论帖，公开各种类型美术作品的时薪和项目报价参考...</p>
                 <div class="card-footer">
                     <span>⬆️ 0 · 💬 0</span>
@@ -422,7 +435,7 @@
             <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">Indeed</span>
-                <h3 class="card-title">新股ゲーム 背景画制作の求人情報</h3>
+                <h3 class="card-title">新毕业生游戏背景画制作招聘信息</h3>
                 <p class="card-preview">日本游戏公司招聘新毕业生担任背景美术师，要求熟悉Photoshop、Clip Studio等软件...</p>
                 <div class="card-footer">
                     <span>⬆️ 0 · 💬 0</span>
@@ -440,22 +453,23 @@
                 <div class="modal-content">
                     <span class="modal-source" id="modalSource"></span>
                     <h2 class="modal-title" id="modalTitle"></h2>
-                    <p class="modal-title-zh" id="modalTitleZh"></p>
+                    <p class="modal-original-title" id="modalOriginalTitle"></p>
                     <div class="modal-body" id="modalBody"></div>
-                    <a href="#" target="_blank" class="modal-link" id="modalLink">查看原始内容 →</a>
+                    <p class="modal-original-title" id="modalOriginalTitle"></p>
+                    <a href="#" target="_blank" class="modal-link" id="modalLink">查看原文 →</a>
                 </div>
             </div>
         </div>
 
         <script>
-        const cardsData = [{"source": "reddit", "source_name": "r/pcgaming", "subreddit": "r/pcgaming", "region": "US/EU", "title": "EA Lays Off Staff Across All Battlefield Studios", "title_zh": "EA在Battlefield工作室大规模裁员", "summary": "EA在财报创纪录后宣布裁员，波及所有Battlefield开发团队。玩家社区反应强烈，质疑公司决策。", "content": "Electronic Arts（EA）公司在发布创纪录的季度财报后，宣布将在所有Battlefield相关工作室进行大规模裁员。这一决定引发了游戏社区的广泛讨论和批评。尽管EA的财报显示利润超过分析师预期，但公司仍选择通过裁员来「优化运营效率」。消息人士透露，裁员将影响包括DICE工作室在内的多个Battlefield开发团队。玩家社区对此反应强烈，许多人在社交媒体上表达不满，指责公司在取得成功后反而削减开发团队。游戏行业分析师指出，这种「创纪录利润却裁员」的模式在近年来越来越普遍，反映出游戏公司优先考虑股东回报而非游戏质量的趋势。", "url": "https://www.reddit.com/r/Games/comments/1rp3rhl/ea_lays_off_staff_across_all_battlefield_studios/", "score": 2156, "num_comments": 1234, "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop", "tags": ["EA", "裁员", "Battlefield"]}, {"source": "reddit", "source_name": "r/gamedev", "subreddit": "r/gamedev", "region": "US/EU", "title": "Why does the game industry seem to keep laying off people despite record profits?", "title_zh": "为什么游戏行业在创纪录利润的情况下仍然持续裁员？", "summary": "游戏行业持续裁员引发广泛讨论，尽管财报显示利润创纪录。Reddit网友分析指出多个原因：公司追求短期利润、疫情过度扩张后的调整、以及AI技术带来的效率提升。", "content": "Reddit游戏开发社区近日热议一个令人困惑的现象：为何游戏公司财报显示创纪录利润，却仍在大规模裁员？一位自称在大型游戏公司工作的网友分析指出几个关键原因：首先，许多上市公司面临来自股东的压力，需要通过削减成本来提高利润率，即使公司业绩良好也会进行「效率优化」；其次，疫情期间游戏需求暴增导致各大公司大规模招聘，如今市场恢复正常后不得不进行人员调整；第三，AI工具的出现大大提升了单个员工的生产力，使得同等工作量只需要更少的员工。讨论中还提到，游戏开发成本持续上升，而玩家对游戏质量的期望也在提高，这导致公司在财务压力下选择裁员来维持利润。", "url": "https://www.reddit.com/r/gamedev/comments/1lrlwqp/why_does_the_game_industry_seem_to_keep_laying/", "score": 1247, "num_comments": 892, "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop", "tags": ["裁员", "行业分析", "利润"]}, {"source": "reddit", "source_name": "r/3Dmodeling", "subreddit": "r/3Dmodeling", "region": "US/EU", "title": "Is a 3D Game Art Career Still Viable in 2026?", "title_zh": "2026年3D游戏美术职业还有前景吗？", "summary": "AI工具快速发展引发3D美术师担忧，但资深从业者认为AI是辅助而非替代。掌握AI工具 + 创意能力是未来关键。", "content": "Reddit 3D建模社区近日讨论3D游戏美术师的职业前景，引发热烈反响。许多从业者表达了对AI工具如Midjourney和Stable Diffusion快速发展的担忧，担心自己的技能会被淘汰。然而，资深美术师和招聘经理普遍认为，AI更像是强大的辅助工具而非完全替代品。一位拥有10年经验的资深美术师评论道：「AI可以生成图像，但它无法理解游戏设计的核心需求，无法创造出符合整体艺术风格的协调作品。」讨论中建议，3D美术师应该学会将AI整合到工作流程中，利用AI加速概念探索和快速原型制作，同时加强自己在艺术指导、创意决策和跨团队协作方面的能力。拥有独特艺术风格和强大创意能力的美术师在未来仍将是稀缺资源。", "url": "https://www.reddit.com/r/3Dmodeling/comments/1qtz1lg/is_a_3d_game_art_career_still_viable_in_2026/", "score": 892, "num_comments": 567, "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop", "tags": ["职业发展", "AI", "技能"]}, {"source": "reddit", "source_name": "r/gamedev", "subreddit": "r/gamedev", "region": "US/EU", "title": "Best Freelance Game Artists rates 2026", "title_zh": "2026年自由职业游戏美术师费率参考", "summary": "自由职业游戏美术师2026年费率参考：初级时薪30-50美元，中级50-80美元，高级80-150美元。项目报价差异大。", "content": "游戏开发社区近日分享了2026年自由职业游戏美术师的收费标准参考。根据汇总数据，自由职业美术师的时薪范围如下：初级美术师（有1-2年经验）约30-50美元/小时；中级美术师（3-5年经验）约50-80美元/小时；资深美术师（5年以上经验）可达80-150美元/小时。项目报价方面，一个完整的角色设计项目从2000-5000美元不等，高级角色设计可达8000-15000美元。影响费率的因素包括：作品集质量、交付时间紧迫程度、修改次数需求、以及美术师的知名度。讨论中还提到，一些美术师选择按项目报价而非时薪结算，这样在效率高的情况下可以获得更高收入。新人美术师建议从较低费率开始建立作品集和客户口碑。", "url": "https://www.reddit.com/r/gamedev/comments/2026rates/", "score": 567, "num_comments": 234, "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop", "tags": ["自由职业", "费率", "报价"]}, {"source": "reddit", "source_name": "r/GameJobs", "subreddit": "r/GameJobs", "region": "US/EU", "title": "108 game artist Jobs in Remote, March 2026", "title_zh": "108个游戏美术远程工作机会，2026年3月", "summary": "Glassdoor数据显示3月共有108个游戏美术远程职位，薪资范围广泛。从初级到高级职位都有需求，远程工作成主流趋势。", "content": "根据Glassdoor最新数据，2026年3月游戏美术领域远程工作机会显著增加，共发布108个远程职位。这些职位涵盖从初级美术师到高级美术总监的各个层级。薪资方面，初级职位年薪约4-6万美元，中级6-10万美元，高级和总监级别可达10-20万美元以上。值得关注的是，超过60%的职位明确标注为「完全远程」，显示出游戏行业工作方式的重大转变。技能要求方面，雇主普遍要求熟练掌握Unreal Engine或Unity，精通Substance Painter/Designer，以及拥有完整的作品集。招聘方包括大型游戏工作室如EA、Ubisoft的外部团队，以及众多中小型独立游戏开发商。", "url": "https://www.glassdoor.com/Job/remote-game-artist-jobs-SRCH_IL.0,6_IS11047_KO7,18.htm", "score": 456, "num_comments": 67, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["招聘", "远程", "薪资"]}, {"source": "japan", "source_name": "5ch", "subreddit": "5ch", "region": "JP", "title": "フリーランスのゲーム美術単価　暴露", "title_zh": "自由职业游戏美术师收入大公开", "summary": "日本自由职业游戏美术师收入讨论：月收入30万到150万日元都有，技术+人脉是关键。", "content": "日本5ch商业板块近日有热帖讨论自由职业游戏美术师的真实收入。根据发帖者分享，年收入差距极大：刚入行的自由职业者月收入约30-50万日元（约合2-4万人民币）；技术熟练、拥有稳定客户源的从业者月收入可达80-150万日元（约合5-10万人民币）。影响收入的关键因素包括：技术栈是否热门（如会Unreal Engine的美术师更吃香）、是否有代表作和口碑、以及人脉网络。讨论中还提到，一些通过YouTube或Twitter建立个人品牌的美术师更容易获得高价项目。", "url": "https://mevius.5ch.net/test/read.cgi/business/2026/", "score": 456, "num_comments": 123, "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["日本", "自由职业", "收入"]}, {"source": "japan", "source_name": "5ch", "subreddit": "5ch", "region": "JP", "title": "ゲーム業界の採用事情　2026", "title_zh": "2026年游戏行业招聘情况", "summary": "日本5ch网友讨论游戏行业招聘现状：好公司难进，薪资竞争力下降，年轻从业者转向海外机会增加。", "content": "日本5ch游戏开发板块近日热议2026年游戏行业招聘现状。多位自称从业者的网友匿名分享了当前市场情况：传统日本游戏大厂的招聘门槛仍然很高，但薪资竞争力相比海外公司持续下降。一位在卡普空工作的网友透露，新毕业生起薪约25-30万日元/月，虽然稳定但涨幅有限。讨论中普遍认为，随着远程工作普及，越来越多的日本年轻美术师开始接受海外公司的远程职位offer，薪资可以是日本本土的2-3倍。另一方面，日本本土公司对AI工具的态度较为保守，仍以传统技法为主，这也影响了求职者的技能发展方向。", "url": "https://game.5ch.net/test/read.cgi/gamedev/2026/", "score": 345, "num_comments": 89, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["日本", "招聘", "薪资"]}, {"source": "reddit", "source_name": "r/IndieGaming", "subreddit": "r/IndieGaming", "region": "US/EU", "title": "Top 5 Game Art Outsourcing Companies 2026", "title_zh": "2026年五大游戏美术外包公司", "summary": "行业分析显示2026年游戏美术外包市场持续成长，印度、乌克兰、菲律宾成为主要外包目的地。质量与成本平衡是关键考量。", "content": "游戏美术外包行业在2026年持续增长，越来越多工作室选择将美术工作外包以降低成本。根据行业分析，2026年五大游戏美术外包公司主要分布在印度、乌克兰和菲律宾。印度外包公司以高质量的3D建模和动画著称，价格约为欧美本土的30-50%；乌克兰在2D概念艺术和角色设计方面拥有强大实力；菲律宾则以其优秀的英语沟通能力和相对合理的价格脱颖而出。报告指出，选择外包合作伙伴时，除了价格，更要关注作品集质量、沟通响应速度、以及项目管理能力。值得注意的是，AI工具的普及正在改变外包行业的格局，一些基础美术工作可以由内部团队使用AI完成，外包重心逐渐转向需要创意和艺术指导的高端工作。", "url": "https://www.juegostudio.com/blog/best-game-art-outsourcing-companies", "score": 289, "num_comments": 45, "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["外包", "公司", "趋势"]}, {"source": "5ch", "region": "JP", "title": "ゲーム業界の美術部署がやばい", "title_zh": "游戏公司的美术部门快不行了", "summary": "日本5ch网友讨论游戏公司美术部门的现状，普遍反映工作强度大、薪资低、人员流失严重...", "content": "日本5ch游戏开发板块近日热议游戏公司美术部门的工作现状。多位自称从业者的网友匿名投稿，描述了令人担忧的行业状况：长时间加班、薪资涨幅停滞、升职空间有限等问题普遍存在。有人指出，随着AI工具的普及，公司对初级美术师的需求大幅减少，转而要求员工掌握更多技能。一位资深美术师警告，如果不及时转型提升，很可能在下一次裁员潮中被淘汰。", "url": "https://game.5ch.net/test/read.cgi/gamedev/placeholder", "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop", "tags": ["行业动态", "讨论", "日本"]}, {"source": "5ch", "region": "JP", "title": "フリーランスのゲームエンジニア収入", "title_zh": "自由职业游戏工程师的收入", "summary": "日本讨论自由游戏开发者的真实收入情况，有人月收入破100万日元，也有人入不敷出...", "content": "日本5ch商业板块热议自由职业游戏开发者和美术师的收入情况。根据讨论，自由职业者的收入差异极大：技术熟练、拥有稳定客户源的从业者月收入可达100万日元以上；而刚入行、缺乏人脉的新人则常常入不敷出。讨论中提到，影响收入的因素包括：技术栈是否热门、是否有代表作、沟通能力、以及能否接到大型项目。", "url": "https://mevius.5ch.net/test/read.cgi/business/placeholder", "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["自由职业", "收入", "日本"]}, {"source": "5ch", "region": "JP", "title": "ゲーム美術の外注単価について語り合うスレ", "title_zh": "讨论游戏美术外包单价", "summary": "日本游戏美术外包单价讨论帖，公开各种类型美术作品的时薪和项目报价参考...", "content": "5ch游戏开发板块的外包单价讨论帖吸引了众多从业者参与。根据汇总信息：日本市场游戏美术外包价格如下——2D角色立绘约5-15万日元/张，3D角色模型约20-50万日元/个，UI设计约10-30万日元/套，环境场景约15-40万日元/个。讨论中也提到，实际价格会根据美术师的知名度、作品质量、以及项目紧急程度有所浮动。", "url": "https://game.5ch.net/test/read.cgi/gamedev/price", "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop", "tags": ["外包", "单价", "日本"]}, {"source": "Indeed", "region": "JP", "title": "新股ゲーム 背景画制作の求人情報", "title_zh": "新毕业生游戏背景画制作招聘信息", "summary": "日本游戏公司招聘新毕业生担任背景美术师，要求熟悉Photoshop、Clip Studio等软件...", "content": "日本知名游戏公司正在招聘新毕业生担任背景美术师。职位要求包括：美术相关专业毕业、熟练使用Photoshop和Clip Studio等软件、对日本游戏风格有了解。公司提供完善的培训体系，起薪约25万日元/月，有加班费。该职位适合对游戏背景美术感兴趣的新人加入。", "url": "https://jp.indeed.com/example", "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop", "tags": ["招聘", "美术", "应届生"]}];
+        const cardsData = [{"source": "reddit", "source_name": "r/pcgaming", "subreddit": "r/pcgaming", "region": "US/EU", "title": "EA Lays Off Staff Across All Battlefield Studios", "title_zh": "EA在Battlefield工作室大规模裁员", "summary": "EA在财报创纪录后宣布裁员，波及所有Battlefield开发团队。玩家社区反应强烈，质疑公司决策。", "content": "Electronic Arts（EA）公司在发布创纪录的季度财报后，宣布将在所有Battlefield相关工作室进行大规模裁员。这一决定引发了游戏社区的广泛讨论和批评。尽管EA的财报显示利润超过分析师预期，但公司仍选择通过裁员来「优化运营效率」。消息人士透露，裁员将影响包括DICE工作室在内的多个Battlefield开发团队。玩家社区对此反应强烈，许多人在社交媒体上表达不满，指责公司在取得成功后反而削减开发团队。游戏行业分析师指出，这种「创纪录利润却裁员」的模式在近年来越来越普遍，反映出游戏公司优先考虑股东回报而非游戏质量的趋势。", "url": "https://www.reddit.com/r/Games/comments/1rp3rhl/ea_lays_off_staff_across_all_battlefield_studios/", "score": 2156, "num_comments": 1234, "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop", "tags": ["EA", "裁员", "Battlefield"], "title_display": "EA在Battlefield工作室大规模裁员"}, {"source": "reddit", "source_name": "r/gamedev", "subreddit": "r/gamedev", "region": "US/EU", "title": "Why does the game industry seem to keep laying off people despite record profits?", "title_zh": "为什么游戏行业在创纪录利润的情况下仍然持续裁员？", "summary": "游戏行业持续裁员引发广泛讨论，尽管财报显示利润创纪录。Reddit网友分析指出多个原因：公司追求短期利润、疫情过度扩张后的调整、以及AI技术带来的效率提升。", "content": "Reddit游戏开发社区近日热议一个令人困惑的现象：为何游戏公司财报显示创纪录利润，却仍在大规模裁员？一位自称在大型游戏公司工作的网友分析指出几个关键原因：首先，许多上市公司面临来自股东的压力，需要通过削减成本来提高利润率，即使公司业绩良好也会进行「效率优化」；其次，疫情期间游戏需求暴增导致各大公司大规模招聘，如今市场恢复正常后不得不进行人员调整；第三，AI工具的出现大大提升了单个员工的生产力，使得同等工作量只需要更少的员工。讨论中还提到，游戏开发成本持续上升，而玩家对游戏质量的期望也在提高，这导致公司在财务压力下选择裁员来维持利润。", "url": "https://www.reddit.com/r/gamedev/comments/1lrlwqp/why_does_the_game_industry_seem_to_keep_laying/", "score": 1247, "num_comments": 892, "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop", "tags": ["裁员", "行业分析", "利润"], "title_display": "为什么游戏行业在创纪录利润的情况下仍然持续裁员？"}, {"source": "reddit", "source_name": "r/3Dmodeling", "subreddit": "r/3Dmodeling", "region": "US/EU", "title": "Is a 3D Game Art Career Still Viable in 2026?", "title_zh": "2026年3D游戏美术职业还有前景吗？", "summary": "AI工具快速发展引发3D美术师担忧，但资深从业者认为AI是辅助而非替代。掌握AI工具 + 创意能力是未来关键。", "content": "Reddit 3D建模社区近日讨论3D游戏美术师的职业前景，引发热烈反响。许多从业者表达了对AI工具如Midjourney和Stable Diffusion快速发展的担忧，担心自己的技能会被淘汰。然而，资深美术师和招聘经理普遍认为，AI更像是强大的辅助工具而非完全替代品。一位拥有10年经验的资深美术师评论道：「AI可以生成图像，但它无法理解游戏设计的核心需求，无法创造出符合整体艺术风格的协调作品。」讨论中建议，3D美术师应该学会将AI整合到工作流程中，利用AI加速概念探索和快速原型制作，同时加强自己在艺术指导、创意决策和跨团队协作方面的能力。拥有独特艺术风格和强大创意能力的美术师在未来仍将是稀缺资源。", "url": "https://www.reddit.com/r/3Dmodeling/comments/1qtz1lg/is_a_3d_game_art_career_still_viable_in_2026/", "score": 892, "num_comments": 567, "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop", "tags": ["职业发展", "AI", "技能"], "title_display": "2026年3D游戏美术职业还有前景吗？"}, {"source": "reddit", "source_name": "r/gamedev", "subreddit": "r/gamedev", "region": "US/EU", "title": "Best Freelance Game Artists rates 2026", "title_zh": "2026年自由职业游戏美术师费率参考", "summary": "自由职业游戏美术师2026年费率参考：初级时薪30-50美元，中级50-80美元，高级80-150美元。项目报价差异大。", "content": "游戏开发社区近日分享了2026年自由职业游戏美术师的收费标准参考。根据汇总数据，自由职业美术师的时薪范围如下：初级美术师（有1-2年经验）约30-50美元/小时；中级美术师（3-5年经验）约50-80美元/小时；资深美术师（5年以上经验）可达80-150美元/小时。项目报价方面，一个完整的角色设计项目从2000-5000美元不等，高级角色设计可达8000-15000美元。影响费率的因素包括：作品集质量、交付时间紧迫程度、修改次数需求、以及美术师的知名度。讨论中还提到，一些美术师选择按项目报价而非时薪结算，这样在效率高的情况下可以获得更高收入。新人美术师建议从较低费率开始建立作品集和客户口碑。", "url": "https://www.reddit.com/r/gamedev/comments/2026rates/", "score": 567, "num_comments": 234, "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop", "tags": ["自由职业", "费率", "报价"], "title_display": "2026年自由职业游戏美术师费率参考"}, {"source": "reddit", "source_name": "r/GameJobs", "subreddit": "r/GameJobs", "region": "US/EU", "title": "108 game artist Jobs in Remote, March 2026", "title_zh": "108个游戏美术远程工作机会，2026年3月", "summary": "Glassdoor数据显示3月共有108个游戏美术远程职位，薪资范围广泛。从初级到高级职位都有需求，远程工作成主流趋势。", "content": "根据Glassdoor最新数据，2026年3月游戏美术领域远程工作机会显著增加，共发布108个远程职位。这些职位涵盖从初级美术师到高级美术总监的各个层级。薪资方面，初级职位年薪约4-6万美元，中级6-10万美元，高级和总监级别可达10-20万美元以上。值得关注的是，超过60%的职位明确标注为「完全远程」，显示出游戏行业工作方式的重大转变。技能要求方面，雇主普遍要求熟练掌握Unreal Engine或Unity，精通Substance Painter/Designer，以及拥有完整的作品集。招聘方包括大型游戏工作室如EA、Ubisoft的外部团队，以及众多中小型独立游戏开发商。", "url": "https://www.glassdoor.com/Job/remote-game-artist-jobs-SRCH_IL.0,6_IS11047_KO7,18.htm", "score": 456, "num_comments": 67, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["招聘", "远程", "薪资"], "title_display": "108个游戏美术远程工作机会，2026年3月"}, {"source": "japan", "source_name": "5ch", "subreddit": "5ch", "region": "JP", "title": "フリーランスのゲーム美術単価　暴露", "title_zh": "自由职业游戏美术师收入大公开", "summary": "日本自由职业游戏美术师收入讨论：月收入30万到150万日元都有，技术+人脉是关键。", "content": "日本5ch商业板块近日有热帖讨论自由职业游戏美术师的真实收入。根据发帖者分享，年收入差距极大：刚入行的自由职业者月收入约30-50万日元（约合2-4万人民币）；技术熟练、拥有稳定客户源的从业者月收入可达80-150万日元（约合5-10万人民币）。影响收入的关键因素包括：技术栈是否热门（如会Unreal Engine的美术师更吃香）、是否有代表作和口碑、以及人脉网络。讨论中还提到，一些通过YouTube或Twitter建立个人品牌的美术师更容易获得高价项目。", "url": "https://mevius.5ch.net/test/read.cgi/business/2026/", "score": 456, "num_comments": 123, "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["日本", "自由职业", "收入"], "title_display": "自由职业游戏美术师收入大公开"}, {"source": "japan", "source_name": "5ch", "subreddit": "5ch", "region": "JP", "title": "ゲーム業界の採用事情　2026", "title_zh": "2026年游戏行业招聘情况", "summary": "日本5ch网友讨论游戏行业招聘现状：好公司难进，薪资竞争力下降，年轻从业者转向海外机会增加。", "content": "日本5ch游戏开发板块近日热议2026年游戏行业招聘现状。多位自称从业者的网友匿名分享了当前市场情况：传统日本游戏大厂的招聘门槛仍然很高，但薪资竞争力相比海外公司持续下降。一位在卡普空工作的网友透露，新毕业生起薪约25-30万日元/月，虽然稳定但涨幅有限。讨论中普遍认为，随着远程工作普及，越来越多的日本年轻美术师开始接受海外公司的远程职位offer，薪资可以是日本本土的2-3倍。另一方面，日本本土公司对AI工具的态度较为保守，仍以传统技法为主，这也影响了求职者的技能发展方向。", "url": "https://game.5ch.net/test/read.cgi/gamedev/2026/", "score": 345, "num_comments": 89, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["日本", "招聘", "薪资"], "title_display": "2026年游戏行业招聘情况"}, {"source": "reddit", "source_name": "r/IndieGaming", "subreddit": "r/IndieGaming", "region": "US/EU", "title": "Top 5 Game Art Outsourcing Companies 2026", "title_zh": "2026年五大游戏美术外包公司", "summary": "行业分析显示2026年游戏美术外包市场持续成长，印度、乌克兰、菲律宾成为主要外包目的地。质量与成本平衡是关键考量。", "content": "游戏美术外包行业在2026年持续增长，越来越多工作室选择将美术工作外包以降低成本。根据行业分析，2026年五大游戏美术外包公司主要分布在印度、乌克兰和菲律宾。印度外包公司以高质量的3D建模和动画著称，价格约为欧美本土的30-50%；乌克兰在2D概念艺术和角色设计方面拥有强大实力；菲律宾则以其优秀的英语沟通能力和相对合理的价格脱颖而出。报告指出，选择外包合作伙伴时，除了价格，更要关注作品集质量、沟通响应速度、以及项目管理能力。值得注意的是，AI工具的普及正在改变外包行业的格局，一些基础美术工作可以由内部团队使用AI完成，外包重心逐渐转向需要创意和艺术指导的高端工作。", "url": "https://www.juegostudio.com/blog/best-game-art-outsourcing-companies", "score": 289, "num_comments": 45, "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["外包", "公司", "趋势"], "title_display": "2026年五大游戏美术外包公司"}, {"source": "5ch", "region": "JP", "title": "ゲーム業界の美術部署がやばい", "title_zh": "游戏公司的美术部门快不行了", "summary": "日本5ch网友讨论游戏公司美术部门的现状，普遍反映工作强度大、薪资低、人员流失严重...", "content": "日本5ch游戏开发板块近日热议游戏公司美术部门的工作现状。多位自称从业者的网友匿名投稿，描述了令人担忧的行业状况：长时间加班、薪资涨幅停滞、升职空间有限等问题普遍存在。有人指出，随着AI工具的普及，公司对初级美术师的需求大幅减少，转而要求员工掌握更多技能。一位资深美术师警告，如果不及时转型提升，很可能在下一次裁员潮中被淘汰。", "url": "https://game.5ch.net/test/read.cgi/gamedev/placeholder", "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop", "tags": ["行业动态", "讨论", "日本"]}, {"source": "5ch", "region": "JP", "title": "フリーランスのゲームエンジニア収入", "title_zh": "自由职业游戏工程师的收入", "summary": "日本讨论自由游戏开发者的真实收入情况，有人月收入破100万日元，也有人入不敷出...", "content": "日本5ch商业板块热议自由职业游戏开发者和美术师的收入情况。根据讨论，自由职业者的收入差异极大：技术熟练、拥有稳定客户源的从业者月收入可达100万日元以上；而刚入行、缺乏人脉的新人则常常入不敷出。讨论中提到，影响收入的因素包括：技术栈是否热门、是否有代表作、沟通能力、以及能否接到大型项目。", "url": "https://mevius.5ch.net/test/read.cgi/business/placeholder", "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["自由职业", "收入", "日本"]}, {"source": "5ch", "region": "JP", "title": "ゲーム美術の外注単価について語り合うスレ", "title_zh": "讨论游戏美术外包单价", "summary": "日本游戏美术外包单价讨论帖，公开各种类型美术作品的时薪和项目报价参考...", "content": "5ch游戏开发板块的外包单价讨论帖吸引了众多从业者参与。根据汇总信息：日本市场游戏美术外包价格如下——2D角色立绘约5-15万日元/张，3D角色模型约20-50万日元/个，UI设计约10-30万日元/套，环境场景约15-40万日元/个。讨论中也提到，实际价格会根据美术师的知名度、作品质量、以及项目紧急程度有所浮动。", "url": "https://game.5ch.net/test/read.cgi/gamedev/price", "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop", "tags": ["外包", "单价", "日本"]}, {"source": "Indeed", "region": "JP", "title": "新股ゲーム 背景画制作の求人情報", "title_zh": "新毕业生游戏背景画制作招聘信息", "summary": "日本游戏公司招聘新毕业生担任背景美术师，要求熟悉Photoshop、Clip Studio等软件...", "content": "日本知名游戏公司正在招聘新毕业生担任背景美术师。职位要求包括：美术相关专业毕业、熟练使用Photoshop和Clip Studio等软件、对日本游戏风格有了解。公司提供完善的培训体系，起薪约25万日元/月，有加班费。该职位适合对游戏背景美术感兴趣的新人加入。", "url": "https://jp.indeed.com/example", "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop", "tags": ["招聘", "美术", "应届生"]}];
         
         function showModal(index) {
             const item = cardsData[index];
             document.getElementById('modalImage').src = item.image || 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop';
             document.getElementById('modalSource').textContent = item.subreddit || item.source || '';
-            document.getElementById('modalTitle').textContent = item.title || '';
-            document.getElementById('modalTitleZh').textContent = item.title_zh || '';
+            document.getElementById('modalTitle').textContent = item.title_zh || item.title || '';
+            document.getElementById('modalOriginalTitle').textContent = '原文: ' + (item.title || '');
             document.getElementById('modalBody').textContent = item.content || item.summary || item.title_zh || '';
             document.getElementById('modalLink').href = item.url || '#';
             document.getElementById('modal').classList.add('active');
@@ -479,7 +493,7 @@
         </script>
 
         <footer>
-            <p>📅 更新于 2026-03-14 16:40</p>
+            <p>📅 更新于 2026-03-14 16:48</p>
         </footer>
     </div>
 </body>

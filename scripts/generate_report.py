@@ -47,7 +47,7 @@ def generate_html():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏美术外包 Daily Report</title>
+    <title>游戏美术外包日报</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {{
@@ -195,15 +195,17 @@ def generate_html():
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0);
             z-index: 1000;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            transition: background 0.3s ease;
         }}
         
         .modal-overlay.active {{
             display: flex;
+            background: rgba(0,0,0,0.7);
         }}
         
         .modal {{
@@ -214,6 +216,14 @@ def generate_html():
             max-height: 80vh;
             overflow-y: auto;
             position: relative;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }}
+        
+        .modal-overlay.active .modal {{
+            opacity: 1;
+            transform: scale(1);
         }}
         
         .modal-close {{
@@ -265,18 +275,21 @@ def generate_html():
             margin-bottom: 20px;
         }}
         
+        .modal-original-title {{
+            font-size: 13px;
+            color: var(--gray);
+            margin-bottom: 16px;
+            font-style: italic;
+        }}
+        
         .modal-link {{
-            display: inline-block;
-            padding: 10px 20px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: underline;
             font-size: 14px;
         }}
         
         .modal-link:hover {{
-            background: #cc0000;
+            color: #cc0000;
         }}
         
         footer {{
@@ -292,7 +305,7 @@ def generate_html():
     <div class="container">
         <header>
             <div class="logo">Game Art Outsourcing</div>
-            <h1>游戏美术外包 Daily Report</h1>
+            <h1>游戏美术外包日报</h1>
             <p class="date">{date_str}</p>
             <p class="stats">📊 {len(items)} 条讨论</p>
         </header>
@@ -318,7 +331,7 @@ def generate_html():
             <img src="{image}" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">{source}</span>
-                <h3 class="card-title">{title}</h3>
+                <h3 class="card-title">{title_zh}</h3>
                 <p class="card-preview">{preview}</p>
                 <div class="card-footer">
                     <span>⬆️ {score} · 💬 {comments}</span>
@@ -341,9 +354,10 @@ def generate_html():
                 <div class="modal-content">
                     <span class="modal-source" id="modalSource"></span>
                     <h2 class="modal-title" id="modalTitle"></h2>
-                    <p class="modal-title-zh" id="modalTitleZh"></p>
+                    <p class="modal-original-title" id="modalOriginalTitle"></p>
                     <div class="modal-body" id="modalBody"></div>
-                    <a href="#" target="_blank" class="modal-link" id="modalLink">查看原始内容 →</a>
+                    <p class="modal-original-title" id="modalOriginalTitle"></p>
+                    <a href="#" target="_blank" class="modal-link" id="modalLink">查看原文 →</a>
                 </div>
             </div>
         </div>
@@ -358,8 +372,8 @@ def generate_html():
             const item = cardsData[index];
             document.getElementById('modalImage').src = item.image || 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop';
             document.getElementById('modalSource').textContent = item.subreddit || item.source || '';
-            document.getElementById('modalTitle').textContent = item.title || '';
-            document.getElementById('modalTitleZh').textContent = item.title_zh || '';
+            document.getElementById('modalTitle').textContent = item.title_zh || item.title || '';
+            document.getElementById('modalOriginalTitle').textContent = '原文: ' + (item.title || '');
             document.getElementById('modalBody').textContent = item.content || item.summary || item.title_zh || '';
             document.getElementById('modalLink').href = item.url || '#';
             document.getElementById('modal').classList.add('active');
