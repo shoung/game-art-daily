@@ -1,0 +1,50 @@
+[
+  {
+    "source": "Indeed",
+    "region": "JP",
+    "title": "新股ゲーム 背景画制作の求人情報",
+    "title_zh": "新毕业生游戏背景画制作招聘信息",
+    "url": "https://jp.indeed.com/",
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop",
+    "tags": [
+      "招聘",
+      "美术"
+    ]
+  },
+  {
+    "source": "5ch",
+    "region": "JP",
+    "title": "東京都 游戏工作招聘信息",
+    "title_zh": "东京都新宿區・游戏工作招聘信息",
+    "url": "https://en-gage.net/",
+    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop",
+    "tags": [
+      "招聘",
+      "东京"
+    ]
+  },
+  {
+    "source": "5ch",
+    "region": "JP",
+    "title": "フリーランスのゲームエンジニア収入",
+    "title_zh": "自由职业游戏工程师的真实收入",
+    "url": "https://mevius.5ch.net/",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+    "tags": [
+      "自由职业",
+      "收入"
+    ]
+  },
+  {
+    "source": "5ch",
+    "region": "JP",
+    "title": "ゲーム業界 美術外包単価",
+    "title_zh": "游戏行业美术外包单价讨论",
+    "url": "https://game.5ch.net/",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+    "tags": [
+      "外包",
+      "单价"
+    ]
+  }
+]
