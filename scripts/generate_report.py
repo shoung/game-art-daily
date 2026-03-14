@@ -182,6 +182,11 @@ def generate_html():
             font-size: 10px;
         }}
         
+        .tag.source-tag {{
+            background: var(--dark);
+            color: white;
+        }}
+        
         /* Modal */
         .modal-overlay {{
             display: none;
@@ -317,7 +322,10 @@ def generate_html():
                 <p class="card-preview">{preview}</p>
                 <div class="card-footer">
                     <span>⬆️ {score} · 💬 {comments}</span>
-                    <span class="tag">{tags[0] if tags else ''}</span>
+                    <div>
+                        <span class="tag">{tags[0] if tags else ''}</span>
+                        <span class="tag source-tag">{item.get('source_name', source)}</span>
+                    </div>
                 </div>
             </div>
         </div>'''
