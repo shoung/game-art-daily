@@ -1,0 +1,78 @@
+[
+  {
+    "source": "reddit",
+    "source_name": "r/gamedev",
+    "subreddit": "r/gamedev",
+    "region": "US/EU",
+    "title": "Unity 2026 Released with Built-in AI Tools",
+    "title_zh": "Unity 2026发布，内置AI工具",
+    "summary": "Unity 2026正式发布，带来革命性的内置AI创作工具。新的AI功能包括智能角色动画生成、场景自动布局、以及AI辅助的代码编写。",
+    "content": "Unity Technologies正式发布了Unity 2026版本，这是该公司历史上最重要的更新之一。新版本最大的亮点是内置了完整的AI创作工具套件。AI功能包括：智能角色动画生成系统，美术师只需输入动作描述即可自动生成符合游戏风格的动画；场景自动布局工具能根据场景描述自动生成3D环境；AI辅助编码功能可以帮助程序员快速生成基础代码框架。Unity表示这些AI工具的设计理念是「增强而非替代」人类创作者，帮助团队大幅提升效率的同时保持艺术控制的完整性。行业反应普遍积极，但也有人担忧AI工具可能导致初级岗位减少。",
+    "url": "https://www.reddit.com/r/gamedev/comments/week10_1/",
+    "score": 567,
+    "num_comments": 234,
+    "image": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&h=400&fit=crop",
+    "tags": [
+      "AI",
+      "Unity",
+      "工具"
+    ]
+  },
+  {
+    "source": "reddit",
+    "source_name": "r/IndieGaming",
+    "subreddit": "r/IndieGaming",
+    "region": "US/EU",
+    "title": "Indie Game Sales Hit Record Low - March 2026",
+    "title_zh": "独立游戏销量创历史新低 - 2026年3月",
+    "summary": "独立游戏市场3月份销量创历史新低，开发者面临严峻挑战。Steam数据显示独立游戏平均销量下降40%。",
+    "content": "根据最新市场数据，2026年3月独立游戏销量创下了近年来的历史新低。Steam平台的数据显示，独立游戏的平均销量比去年同期下降了40%。行业分析师指出，造成这一现象的原因是多方面的：首先，大型游戏公司持续推出3A大作占据了玩家大部分注意力和购买预算；其次，经济不确定性导致消费者在娱乐支出上更加谨慎；第三，独立游戏的同质化问题日益严重，缺乏创新的作品难以脱颖而出。许多独立开发者表示，即使他们推出了质量不错的游戏，也很难获得关注和销量。这促使更多人开始探索替代发行渠道和社区驱动的推广方式。",
+    "url": "https://www.reddit.com/r/IndieGaming/comments/week10_2/",
+    "score": 892,
+    "num_comments": 456,
+    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop",
+    "tags": [
+      "独立游戏",
+      "市场",
+      "销量"
+    ]
+  },
+  {
+    "source": "reddit",
+    "source_name": "r/GameJobs",
+    "subreddit": "r/GameJobs",
+    "region": "US/EU",
+    "title": "Game Art Outsourcing Budget Cuts Continue",
+    "title_zh": "游戏美术外包预算持续削减",
+    "summary": "游戏公司持续削减美术外包预算，内部团队需求增加。许多外包公司被迫降价30%求生。",
+    "content": "游戏行业美术外包市场正面临严峻挑战。根据多家外包公司反映，自2025年底以来，游戏公司客户持续削减美术外包预算，平均削减幅度达到30%。这一趋势导致众多小型外包公司陷入生存危机，被迫接受更低的报价以维持运营。值得注意的是，尽管外包预算在削减，但游戏公司对美术质量的要求却并未降低。行业人士分析，这一现象反映了游戏公司正在调整策略，更多依赖内部团队完成核心美术工作，而将非关键美术工作外包给愿意接受低价的服务商。对于从业者而言，这意味着竞争加剧，收入可能下降，但也有人认为这是推动行业整合和提升服务质量的契机。",
+    "url": "https://www.reddit.com/r/GameJobs/comments/week10_3/",
+    "score": 345,
+    "num_comments": 123,
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+    "tags": [
+      "外包",
+      "预算",
+      "行业"
+    ]
+  },
+  {
+    "source": "japan",
+    "source_name": "5ch",
+    "subreddit": "5ch",
+    "region": "JP",
+    "title": "ゲーム開発の的外注先どこ使ってる？",
+    "title_zh": "游戏开发都用哪些外包商？",
+    "summary": "日本5ch网友讨论常用的游戏美术外包商，评价褒贬不一。中国和东南亚外包是主流选择。",
+    "content": "日本5ch游戏开发板块近日热议游戏美术外包供应商的选择。许多网友分享了自己使用过的外包服务商，其中中国和东南亚的外包公司最受欢迎，价格优势明显。日本本土外包商虽然价格较高，但沟通顺畅和作品质量仍是其优势。讨论中也提到，选择外包商时不能只看价格，还需要考虑作品风格是否符合项目需求、沟通响应速度、以及长期合作的稳定性。有经验的开发者建议，新人可以先从小项目开始测试外包商的能力，建立信任后再进行大型项目的合作。",
+    "url": "https://game.5ch.net/test/read.cgi/gamedev/week10/",
+    "score": 234,
+    "num_comments": 89,
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop",
+    "tags": [
+      "外包",
+      "日本",
+      "讨论"
+    ]
+  }
+]

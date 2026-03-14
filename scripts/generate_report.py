@@ -100,6 +100,35 @@ def generate_html():
             color: var(--gray);
         }}
         
+        .week-tabs {{
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }}
+        
+        .week-tab {{
+            padding: 8px 16px;
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }}
+        
+        .week-tab:hover {{
+            border-color: var(--primary);
+            color: var(--primary);
+        }}
+        
+        .week-tab.active {{
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }}
+        
         .waterfall {{
             column-count: 4;
             column-gap: 20px;
@@ -217,8 +246,8 @@ def generate_html():
             overflow-y: auto;
             position: relative;
             opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: scale(0.8) translateY(20px);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }}
         
         .modal-overlay.active .modal {{
@@ -308,8 +337,18 @@ def generate_html():
             <h1>游戏美术外包日报</h1>
             <p class="date">{date_str}</p>
             <p class="stats">📊 {len(items)} 条讨论</p>
+            
+            <!-- Week Tabs -->
+            <div class="week-tabs">
+                <a href="index.html" class="week-tab active">本周</a>
+                <a href="week10.html" class="week-tab">第10周</a>
+                <a href="week09.html" class="week-tab">第9周</a>
+            </div>
         </header>
 '''
+
+    # Add CSS for tabs and better animation
+    # ... but first let me find where to add the CSS
 
     if items:
         html += '<div class="waterfall">'
