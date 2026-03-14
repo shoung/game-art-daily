@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏美术外包日报</title>
+    <title>游戏美术外包日报 - 第9周</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -25,265 +25,48 @@
         
         .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
         
-        header {
-            padding: 40px 0 30px;
-            border-bottom: 1px solid var(--light-gray);
-            margin-bottom: 30px;
-        }
+        header { padding: 40px 0 30px; border-bottom: 1px solid var(--light-gray); margin-bottom: 30px; }
+        .logo { font-size: 13px; font-weight: 500; color: var(--gray); letter-spacing: 2px; text-transform: uppercase; }
+        h1 { font-size: 32px; font-weight: 700; margin: 10px 0; }
+        .date { color: var(--gray); font-size: 14px; }
+        .stats { margin-top: 20px; font-size: 14px; color: var(--gray); }
         
-        .logo {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--gray);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+        .week-tabs { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .week-tab { padding: 8px 16px; background: var(--white); border: 2px solid var(--light-gray); border-radius: 20px; font-size: 13px; color: var(--gray); text-decoration: none; transition: all 0.3s ease; }
+        .week-tab:hover { border-color: var(--primary); color: var(--primary); }
+        .week-tab.active { background: var(--primary); border-color: var(--primary); color: white; }
         
-        h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin: 10px 0;
-        }
-        
-        .date {
-            color: var(--gray);
-            font-size: 14px;
-        }
-        
-        .stats {
-            margin-top: 20px;
-            font-size: 14px;
-            color: var(--gray);
-        }
-        
-        .week-tabs {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .week-tab {
-            padding: 8px 16px;
-            background: var(--white);
-            border: 2px solid var(--light-gray);
-            border-radius: 20px;
-            font-size: 13px;
-            color: var(--gray);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .week-tab:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-        
-        .week-tab.active {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-        }
-        
-        .waterfall {
-            column-count: 4;
-            column-gap: 20px;
-            padding: 20px 0 40px;
-        }
-        
+        .waterfall { column-count: 4; column-gap: 20px; padding: 20px 0 40px; }
         @media (max-width: 1200px) { .waterfall { column-count: 3; } }
         @media (max-width: 900px) { .waterfall { column-count: 2; } }
         @media (max-width: 600px) { .waterfall { column-count: 1; } }
         
-        .card {
-            break-inside: avoid;
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-        }
-        
-        .card-image {
-            width: 100%;
-            display: block;
-        }
-        
-        .card-content {
-            padding: 16px;
-        }
-        
-        .card-source {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 3px;
-            font-size: 11px;
-            margin-bottom: 8px;
-        }
-        
-        .card-title {
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 6px;
-        }
-        
-        .card-title a {
-            color: var(--dark);
-            text-decoration: none;
-        }
-        
+        .card { break-inside: avoid; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+        .card-image { width: 100%; display: block; }
+        .card-content { padding: 16px; }
+        .card-source { display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 3px; font-size: 11px; margin-bottom: 8px; }
+        .card-title { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+        .card-title a { color: var(--dark); text-decoration: none; }
         .card-title a:hover { color: var(--primary); }
+        .card-preview { font-size: 13px; color: var(--gray); margin-bottom: 10px; line-height: 1.5; }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--light-gray); font-size: 12px; color: var(--gray); }
+        .tag { background: var(--light-gray); padding: 2px 6px; border-radius: 3px; font-size: 10px; }
+        .tag.source-tag { background: var(--dark); color: white; }
         
-        .card-preview {
-            font-size: 13px;
-            color: var(--gray);
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
-        
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 10px;
-            border-top: 1px solid var(--light-gray);
-            font-size: 12px;
-            color: var(--gray);
-        }
-        
-        .tag {
-            background: var(--light-gray);
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 10px;
-        }
-        
-        .tag.source-tag {
-            background: var(--dark);
-            color: white;
-        }
-        
-        /* Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            transition: background 0.3s ease;
-        }
-        
-        .modal-overlay.active {
-            display: flex;
-            background: rgba(0,0,0,0.7);
-        }
-        
-        .modal {
-            background: var(--white);
-            border-radius: 16px;
-            max-width: 700px;
-            width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            opacity: 0;
-            transform: scale(0.8) translateY(20px);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        
-        .modal-overlay.active .modal {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--gray);
-            z-index: 10;
-        }
-        
-        .modal-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        
-        .modal-content {
-            padding: 24px;
-        }
-        
-        .modal-source {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-bottom: 12px;
-        }
-        
-        .modal-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        
-        .modal-title-zh {
-            font-size: 16px;
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-        
-        .modal-body {
-            font-size: 15px;
-            line-height: 1.8;
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-        
-        .modal-original-title {
-            font-size: 13px;
-            color: var(--gray);
-            margin-bottom: 16px;
-            font-style: italic;
-        }
-        
-        .modal-link {
-            color: var(--primary);
-            text-decoration: underline;
-            font-size: 14px;
-        }
-        
-        .modal-link:hover {
-            color: #cc0000;
-        }
-        
-        footer {
-            padding: 30px 0;
-            border-top: 1px solid var(--light-gray);
-            text-align: center;
-            color: var(--gray);
-            font-size: 12px;
-        }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0); z-index: 1000; align-items: center; justify-content: center; padding: 20px; transition: background 0.4s ease; }
+        .modal-overlay.active { display: flex; background: rgba(0,0,0,0.7); }
+        .modal { background: var(--white); border-radius: 16px; max-width: 700px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; opacity: 0; transform: scale(0.7) translateY(30px); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .modal-overlay.active .modal { opacity: 1; transform: scale(1) translateY(0); }
+        .modal-close { position: absolute; top: 16px; right: 16px; font-size: 24px; cursor: pointer; color: var(--gray); z-index: 10; }
+        .modal-image { width: 100%; height: 250px; object-fit: cover; }
+        .modal-content { padding: 24px; }
+        .modal-source { display: inline-block; background: var(--primary); color: white; padding: 4px 12px; border-radius: 4px; font-size: 12px; margin-bottom: 12px; }
+        .modal-title { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+        .modal-original-title { font-size: 13px; color: var(--gray); margin-bottom: 16px; font-style: italic; }
+        .modal-body { font-size: 15px; line-height: 1.8; color: var(--dark); margin-bottom: 20px; }
+        .modal-link { color: var(--primary); text-decoration: underline; font-size: 14px; }
+        footer { padding: 30px 0; border-top: 1px solid var(--light-gray); text-align: center; color: var(--gray); font-size: 12px; }
     </style>
 </head>
 <body>
@@ -291,55 +74,23 @@
         <header>
             <div class="logo">Game Art Outsourcing</div>
             <h1>游戏美术外包日报</h1>
-            <p class="date">2026年03月14日</p>
-            <p class="stats">📊 19 条讨论</p>
-            
-            <!-- Week Tabs -->
+            <p class="date">2026年2月23日-3月1日</p>
+            <p class="stats">📊 3 条讨论</p>
             <div class="week-tabs">
-                <a href="index.html" class="week-tab">本周</a>
-                <a href="week10.html" class="week-tab">第10周</a>
+                <a href="index.html" class="week-tab ">本周</a>
+                <a href="week10.html" class="week-tab ">第10周</a>
                 <a href="week09.html" class="week-tab active">第9周</a>
             </div>
         </header>
 <div class="waterfall">
         <div class="card" onclick="showModal(0)">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">r/pcgaming</span>
-                <h3 class="card-title">EA在Battlefield工作室大规模裁员</h3>
-                <p class="card-preview">EA在财报创纪录后宣布裁员，波及所有Battlefield开发团队。玩家社区反应强烈，质疑公司决策。</p>
-                <div class="card-footer">
-                    <span>⬆️ 2156 · 💬 1234</span>
-                    <div>
-                        <span class="tag">EA</span>
-                        <span class="tag source-tag">r/pcgaming</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(1)">
-            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">r/gamedev</span>
-                <h3 class="card-title">为什么游戏行业在创纪录利润的情况下仍然持续裁员？</h3>
-                <p class="card-preview">游戏行业持续裁员引发广泛讨论，尽管财报显示利润创纪录。Reddit网友分析指出多个原因：公司追求短期利润、疫情过度扩张后的调整、以及AI技术带来的效率提升。</p>
-                <div class="card-footer">
-                    <span>⬆️ 1247 · 💬 892</span>
-                    <div>
-                        <span class="tag">裁员</span>
-                        <span class="tag source-tag">r/gamedev</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(2)">
             <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">r/gamedev</span>
                 <h3 class="card-title">Midjourney V7发布 - 对游戏美术的影响</h3>
                 <p class="card-preview">Midjourney V7带来重大更新，更强的理解和创作能力。游戏美术师如何看待这一新工具成为热议话题。</p>
                 <div class="card-footer">
-                    <span>⬆️ 1234 · 💬 567</span>
+                    <span>⬆️ 5678 · 💬 2345</span>
                     <div>
                         <span class="tag">AI</span>
                         <span class="tag source-tag">r/gamedev</span>
@@ -347,89 +98,14 @@
                 </div>
             </div>
         </div>
-        <div class="card" onclick="showModal(3)">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">r/IndieGaming</span>
-                <h3 class="card-title">独立游戏销量创历史新低 - 2026年3月</h3>
-                <p class="card-preview">独立游戏市场3月份销量创历史新低，开发者面临严峻挑战。Steam数据显示独立游戏平均销量下降40%。</p>
-                <div class="card-footer">
-                    <span>⬆️ 892 · 💬 456</span>
-                    <div>
-                        <span class="tag">独立游戏</span>
-                        <span class="tag source-tag">r/IndieGaming</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(4)">
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">r/3Dmodeling</span>
-                <h3 class="card-title">2026年3D游戏美术职业还有前景吗？</h3>
-                <p class="card-preview">AI工具快速发展引发3D美术师担忧，但资深从业者认为AI是辅助而非替代。掌握AI工具 + 创意能力是未来关键。</p>
-                <div class="card-footer">
-                    <span>⬆️ 892 · 💬 567</span>
-                    <div>
-                        <span class="tag">职业发展</span>
-                        <span class="tag source-tag">r/3Dmodeling</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(5)">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">游戏公司美术部门招聘停止潮</h3>
-                <p class="card-preview">日本多家游戏公司暂停美术部门招聘，业界推测与成本控制有关。</p>
-                <div class="card-footer">
-                    <span>⬆️ 567 · 💬 189</span>
-                    <div>
-                        <span class="tag">日本</span>
-                        <span class="tag source-tag">5ch</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(6)">
-            <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">r/gamedev</span>
-                <h3 class="card-title">Unity 2026发布，内置AI工具</h3>
-                <p class="card-preview">Unity 2026正式发布，带来革命性的内置AI创作工具。新的AI功能包括智能角色动画生成、场景自动布局、以及AI辅助的代码编写。</p>
-                <div class="card-footer">
-                    <span>⬆️ 567 · 💬 234</span>
-                    <div>
-                        <span class="tag">AI</span>
-                        <span class="tag source-tag">r/gamedev</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(7)">
-            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">r/gamedev</span>
-                <h3 class="card-title">2026年自由职业游戏美术师费率参考</h3>
-                <p class="card-preview">自由职业游戏美术师2026年费率参考：初级时薪30-50美元，中级50-80美元，高级80-150美元。项目报价差异大。</p>
-                <div class="card-footer">
-                    <span>⬆️ 567 · 💬 234</span>
-                    <div>
-                        <span class="tag">自由职业</span>
-                        <span class="tag source-tag">r/gamedev</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(8)">
+        <div class="card" onclick="showModal(1)">
             <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">r/GameArt</span>
                 <h3 class="card-title">游戏美术作品集审核帖 - 2026年3月</h3>
                 <p class="card-preview">Reddit游戏美术社区每月作品集审核帖热闹非凡，资深美术师为新人提供反馈和建议。</p>
                 <div class="card-footer">
-                    <span>⬆️ 456 · 💬 234</span>
+                    <span>⬆️ 2345 · 💬 876</span>
                     <div>
                         <span class="tag">作品集</span>
                         <span class="tag source-tag">r/GameArt</span>
@@ -437,152 +113,17 @@
                 </div>
             </div>
         </div>
-        <div class="card" onclick="showModal(9)">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">r/GameJobs</span>
-                <h3 class="card-title">108个游戏美术远程工作机会，2026年3月</h3>
-                <p class="card-preview">Glassdoor数据显示3月共有108个游戏美术远程职位，薪资范围广泛。从初级到高级职位都有需求，远程工作成主流趋势。</p>
-                <div class="card-footer">
-                    <span>⬆️ 456 · 💬 67</span>
-                    <div>
-                        <span class="tag">招聘</span>
-                        <span class="tag source-tag">r/GameJobs</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(10)">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">自由职业游戏美术师收入大公开</h3>
-                <p class="card-preview">日本自由职业游戏美术师收入讨论：月收入30万到150万日元都有，技术+人脉是关键。</p>
-                <div class="card-footer">
-                    <span>⬆️ 456 · 💬 123</span>
-                    <div>
-                        <span class="tag">日本</span>
-                        <span class="tag source-tag">5ch</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(11)">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">r/GameJobs</span>
-                <h3 class="card-title">游戏美术外包预算持续削减</h3>
-                <p class="card-preview">游戏公司持续削减美术外包预算，内部团队需求增加。许多外包公司被迫降价30%求生。</p>
-                <div class="card-footer">
-                    <span>⬆️ 345 · 💬 123</span>
-                    <div>
-                        <span class="tag">外包</span>
-                        <span class="tag source-tag">r/GameJobs</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(12)">
+        <div class="card" onclick="showModal(2)">
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">5ch</span>
-                <h3 class="card-title">2026年游戏行业招聘情况</h3>
-                <p class="card-preview">日本5ch网友讨论游戏行业招聘现状：好公司难进，薪资竞争力下降，年轻从业者转向海外机会增加。</p>
+                <h3 class="card-title">游戏公司美术部门招聘停止潮</h3>
+                <p class="card-preview">日本多家游戏公司暂停美术部门招聘，业界推测与成本控制有关。</p>
                 <div class="card-footer">
-                    <span>⬆️ 345 · 💬 89</span>
+                    <span>⬆️ 1876 · 💬 543</span>
                     <div>
                         <span class="tag">日本</span>
                         <span class="tag source-tag">5ch</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(13)">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">r/IndieGaming</span>
-                <h3 class="card-title">2026年五大游戏美术外包公司</h3>
-                <p class="card-preview">行业分析显示2026年游戏美术外包市场持续成长，印度、乌克兰、菲律宾成为主要外包目的地。质量与成本平衡是关键考量。</p>
-                <div class="card-footer">
-                    <span>⬆️ 289 · 💬 45</span>
-                    <div>
-                        <span class="tag">外包</span>
-                        <span class="tag source-tag">r/IndieGaming</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(14)">
-            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">游戏开发都用哪些外包商？</h3>
-                <p class="card-preview">日本5ch网友讨论常用的游戏美术外包商，评价褒贬不一。中国和东南亚外包是主流选择。</p>
-                <div class="card-footer">
-                    <span>⬆️ 234 · 💬 89</span>
-                    <div>
-                        <span class="tag">外包</span>
-                        <span class="tag source-tag">5ch</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(15)">
-            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">游戏公司的美术部门快不行了</h3>
-                <p class="card-preview">日本5ch网友讨论游戏公司美术部门的现状，普遍反映工作强度大、薪资低、人员流失严重...</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <div>
-                        <span class="tag">行业动态</span>
-                        <span class="tag source-tag">5ch</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(16)">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">自由职业游戏工程师的收入</h3>
-                <p class="card-preview">日本讨论自由游戏开发者的真实收入情况，有人月收入破100万日元，也有人入不敷出...</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <div>
-                        <span class="tag">自由职业</span>
-                        <span class="tag source-tag">5ch</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(17)">
-            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">5ch</span>
-                <h3 class="card-title">讨论游戏美术外包单价</h3>
-                <p class="card-preview">日本游戏美术外包单价讨论帖，公开各种类型美术作品的时薪和项目报价参考...</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <div>
-                        <span class="tag">外包</span>
-                        <span class="tag source-tag">5ch</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="showModal(18)">
-            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">Indeed</span>
-                <h3 class="card-title">新毕业生游戏背景画制作招聘信息</h3>
-                <p class="card-preview">日本游戏公司招聘新毕业生担任背景美术师，要求熟悉Photoshop、Clip Studio等软件...</p>
-                <div class="card-footer">
-                    <span>⬆️ 0 · 💬 0</span>
-                    <div>
-                        <span class="tag">招聘</span>
-                        <span class="tag source-tag">Indeed</span>
                     </div>
                 </div>
             </div>
@@ -596,14 +137,13 @@
                     <h2 class="modal-title" id="modalTitle"></h2>
                     <p class="modal-original-title" id="modalOriginalTitle"></p>
                     <div class="modal-body" id="modalBody"></div>
-                    <p class="modal-original-title" id="modalOriginalTitle"></p>
                     <a href="#" target="_blank" class="modal-link" id="modalLink">查看原文 →</a>
                 </div>
             </div>
         </div>
-
+        
         <script>
-        const cardsData = [{"source": "reddit", "source_name": "r/pcgaming", "subreddit": "r/pcgaming", "region": "US/EU", "title": "EA Lays Off Staff Across All Battlefield Studios", "title_zh": "EA在Battlefield工作室大规模裁员", "summary": "EA在财报创纪录后宣布裁员，波及所有Battlefield开发团队。玩家社区反应强烈，质疑公司决策。", "content": "Electronic Arts（EA）公司在发布创纪录的季度财报后，宣布将在所有Battlefield相关工作室进行大规模裁员。这一决定引发了游戏社区的广泛讨论和批评。尽管EA的财报显示利润超过分析师预期，但公司仍选择通过裁员来「优化运营效率」。消息人士透露，裁员将影响包括DICE工作室在内的多个Battlefield开发团队。玩家社区对此反应强烈，许多人在社交媒体上表达不满，指责公司在取得成功后反而削减开发团队。游戏行业分析师指出，这种「创纪录利润却裁员」的模式在近年来越来越普遍，反映出游戏公司优先考虑股东回报而非游戏质量的趋势。", "url": "https://www.reddit.com/r/Games/comments/1rp3rhl/ea_lays_off_staff_across_all_battlefield_studios/", "score": 2156, "num_comments": 1234, "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop", "tags": ["EA", "裁员", "Battlefield"], "title_display": "EA在Battlefield工作室大规模裁员"}, {"source": "reddit", "source_name": "r/gamedev", "subreddit": "r/gamedev", "region": "US/EU", "title": "Why does the game industry seem to keep laying off people despite record profits?", "title_zh": "为什么游戏行业在创纪录利润的情况下仍然持续裁员？", "summary": "游戏行业持续裁员引发广泛讨论，尽管财报显示利润创纪录。Reddit网友分析指出多个原因：公司追求短期利润、疫情过度扩张后的调整、以及AI技术带来的效率提升。", "content": "Reddit游戏开发社区近日热议一个令人困惑的现象：为何游戏公司财报显示创纪录利润，却仍在大规模裁员？一位自称在大型游戏公司工作的网友分析指出几个关键原因：首先，许多上市公司面临来自股东的压力，需要通过削减成本来提高利润率，即使公司业绩良好也会进行「效率优化」；其次，疫情期间游戏需求暴增导致各大公司大规模招聘，如今市场恢复正常后不得不进行人员调整；第三，AI工具的出现大大提升了单个员工的生产力，使得同等工作量只需要更少的员工。讨论中还提到，游戏开发成本持续上升，而玩家对游戏质量的期望也在提高，这导致公司在财务压力下选择裁员来维持利润。", "url": "https://www.reddit.com/r/gamedev/comments/1lrlwqp/why_does_the_game_industry_seem_to_keep_laying/", "score": 1247, "num_comments": 892, "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop", "tags": ["裁员", "行业分析", "利润"], "title_display": "为什么游戏行业在创纪录利润的情况下仍然持续裁员？"}, {"source": "reddit", "source_name": "r/gamedev", "subreddit": "r/gamedev", "region": "US/EU", "title": "Midjourney V7 Released - Impact on Game Art", "title_zh": "Midjourney V7发布 - 对游戏美术的影响", "summary": "Midjourney V7带来重大更新，更强的理解和创作能力。游戏美术师如何看待这一新工具成为热议话题。", "content": "Midjourney最新版本V7正式发布，带来了显著改进的图像理解和生成能力。新版本最令人关注的特性是更精准的提示词理解、更好的角色一致性控制，以及全新推出的3D渲染模式。这一更新对游戏美术行业产生了巨大影响：有人欢呼AI工具的进步使概念美术设计效率大幅提升；也有人担忧这可能进一步压缩传统美术师的生存空间。一位资深游戏美术总监评论道：「Midjourney V7是一个强大的工具，但它仍然无法理解游戏的整体艺术方向和叙事需求。」目前行业共识是，AI不会完全取代人类美术师，但不会使用AI工具的美术师可能会被淘汰。", "url": "https://www.reddit.com/r/gamedev/comments/week9_1/", "score": 1234, "num_comments": 567, "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop", "tags": ["AI", "Midjourney", "工具"]}, {"source": "reddit", "source_name": "r/IndieGaming", "subreddit": "r/IndieGaming", "region": "US/EU", "title": "Indie Game Sales Hit Record Low - March 2026", "title_zh": "独立游戏销量创历史新低 - 2026年3月", "summary": "独立游戏市场3月份销量创历史新低，开发者面临严峻挑战。Steam数据显示独立游戏平均销量下降40%。", "content": "根据最新市场数据，2026年3月独立游戏销量创下了近年来的历史新低。Steam平台的数据显示，独立游戏的平均销量比去年同期下降了40%。行业分析师指出，造成这一现象的原因是多方面的：首先，大型游戏公司持续推出3A大作占据了玩家大部分注意力和购买预算；其次，经济不确定性导致消费者在娱乐支出上更加谨慎；第三，独立游戏的同质化问题日益严重，缺乏创新的作品难以脱颖而出。许多独立开发者表示，即使他们推出了质量不错的游戏，也很难获得关注和销量。这促使更多人开始探索替代发行渠道和社区驱动的推广方式。", "url": "https://www.reddit.com/r/IndieGaming/comments/week10_2/", "score": 892, "num_comments": 456, "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop", "tags": ["独立游戏", "市场", "销量"]}, {"source": "reddit", "source_name": "r/3Dmodeling", "subreddit": "r/3Dmodeling", "region": "US/EU", "title": "Is a 3D Game Art Career Still Viable in 2026?", "title_zh": "2026年3D游戏美术职业还有前景吗？", "summary": "AI工具快速发展引发3D美术师担忧，但资深从业者认为AI是辅助而非替代。掌握AI工具 + 创意能力是未来关键。", "content": "Reddit 3D建模社区近日讨论3D游戏美术师的职业前景，引发热烈反响。许多从业者表达了对AI工具如Midjourney和Stable Diffusion快速发展的担忧，担心自己的技能会被淘汰。然而，资深美术师和招聘经理普遍认为，AI更像是强大的辅助工具而非完全替代品。一位拥有10年经验的资深美术师评论道：「AI可以生成图像，但它无法理解游戏设计的核心需求，无法创造出符合整体艺术风格的协调作品。」讨论中建议，3D美术师应该学会将AI整合到工作流程中，利用AI加速概念探索和快速原型制作，同时加强自己在艺术指导、创意决策和跨团队协作方面的能力。拥有独特艺术风格和强大创意能力的美术师在未来仍将是稀缺资源。", "url": "https://www.reddit.com/r/3Dmodeling/comments/1qtz1lg/is_a_3d_game_art_career_still_viable_in_2026/", "score": 892, "num_comments": 567, "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop", "tags": ["职业发展", "AI", "技能"], "title_display": "2026年3D游戏美术职业还有前景吗？"}, {"source": "japan", "source_name": "5ch", "subreddit": "5ch", "region": "JP", "title": "ゲーム会社　美术部署の募集停止ラッシュ", "title_zh": "游戏公司美术部门招聘停止潮", "summary": "日本多家游戏公司暂停美术部门招聘，业界推测与成本控制有关。", "content": "日本游戏行业近期出现美术部门招聘冻结潮。据5ch社区网友反映，多家知名游戏公司陆续暂停了美术相关职位的招聘。这一现象引发了对行业前景的担忧。业界分析师指出，招聘冻结可能与以下因素相关：其一，游戏市场增长放缓导致公司需要控制人力成本；其二，AI工具的普及减少了对某些岗位的需求；其三，许多公司正在进行组织架构调整，等待新的发展方向明确后再重启招聘。不过也有从业者认为这是短期现象，随着新项目的启动，招聘需求将会恢复。", "url": "https://game.5ch.net/test/read.cgi/gamedev/week9/", "score": 567, "num_comments": 189, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["日本", "招聘", "行业"]}, {"source": "reddit", "source_name": "r/gamedev", "subreddit": "r/gamedev", "region": "US/EU", "title": "Unity 2026 Released with Built-in AI Tools", "title_zh": "Unity 2026发布，内置AI工具", "summary": "Unity 2026正式发布，带来革命性的内置AI创作工具。新的AI功能包括智能角色动画生成、场景自动布局、以及AI辅助的代码编写。", "content": "Unity Technologies正式发布了Unity 2026版本，这是该公司历史上最重要的更新之一。新版本最大的亮点是内置了完整的AI创作工具套件。AI功能包括：智能角色动画生成系统，美术师只需输入动作描述即可自动生成符合游戏风格的动画；场景自动布局工具能根据场景描述自动生成3D环境；AI辅助编码功能可以帮助程序员快速生成基础代码框架。Unity表示这些AI工具的设计理念是「增强而非替代」人类创作者，帮助团队大幅提升效率的同时保持艺术控制的完整性。行业反应普遍积极，但也有人担忧AI工具可能导致初级岗位减少。", "url": "https://www.reddit.com/r/gamedev/comments/week10_1/", "score": 567, "num_comments": 234, "image": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&h=400&fit=crop", "tags": ["AI", "Unity", "工具"]}, {"source": "reddit", "source_name": "r/gamedev", "subreddit": "r/gamedev", "region": "US/EU", "title": "Best Freelance Game Artists rates 2026", "title_zh": "2026年自由职业游戏美术师费率参考", "summary": "自由职业游戏美术师2026年费率参考：初级时薪30-50美元，中级50-80美元，高级80-150美元。项目报价差异大。", "content": "游戏开发社区近日分享了2026年自由职业游戏美术师的收费标准参考。根据汇总数据，自由职业美术师的时薪范围如下：初级美术师（有1-2年经验）约30-50美元/小时；中级美术师（3-5年经验）约50-80美元/小时；资深美术师（5年以上经验）可达80-150美元/小时。项目报价方面，一个完整的角色设计项目从2000-5000美元不等，高级角色设计可达8000-15000美元。影响费率的因素包括：作品集质量、交付时间紧迫程度、修改次数需求、以及美术师的知名度。讨论中还提到，一些美术师选择按项目报价而非时薪结算，这样在效率高的情况下可以获得更高收入。新人美术师建议从较低费率开始建立作品集和客户口碑。", "url": "https://www.reddit.com/r/gamedev/comments/2026rates/", "score": 567, "num_comments": 234, "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop", "tags": ["自由职业", "费率", "报价"], "title_display": "2026年自由职业游戏美术师费率参考"}, {"source": "reddit", "source_name": "r/GameArt", "subreddit": "r/GameArt", "region": "US/EU", "title": "Game Art Portfolio Review Thread - March 2026", "title_zh": "游戏美术作品集审核帖 - 2026年3月", "summary": "Reddit游戏美术社区每月作品集审核帖热闹非凡，资深美术师为新人提供反馈和建议。", "content": "Reddit游戏美术社区每月一次的作品集审核帖如期而至，这次收到了超过200份作品投稿。社区的资深美术师和招聘经理为每位投稿人提供了详细的反馈。审核中常见的建议包括：作品集需要展示多样化的技能而非单一风格；动态作品比静态图像更能展示能力；每个项目都应该附带简短的过程说明而不是只展示最终成果。对于希望进入游戏行业的求职者，审核者建议要展示对游戏设计基本概念的理解，而不仅仅是漂亮的图画。讨论中也提到，招聘方越来越重视美术师的沟通能力和对游戏玩法设计的理解，纯技术导向的作品集已不足以在竞争中脱颖而出。", "url": "https://www.reddit.com/r/GameArt/comments/week9_2/", "score": 456, "num_comments": 234, "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop", "tags": ["作品集", "建议", "社区"]}, {"source": "reddit", "source_name": "r/GameJobs", "subreddit": "r/GameJobs", "region": "US/EU", "title": "108 game artist Jobs in Remote, March 2026", "title_zh": "108个游戏美术远程工作机会，2026年3月", "summary": "Glassdoor数据显示3月共有108个游戏美术远程职位，薪资范围广泛。从初级到高级职位都有需求，远程工作成主流趋势。", "content": "根据Glassdoor最新数据，2026年3月游戏美术领域远程工作机会显著增加，共发布108个远程职位。这些职位涵盖从初级美术师到高级美术总监的各个层级。薪资方面，初级职位年薪约4-6万美元，中级6-10万美元，高级和总监级别可达10-20万美元以上。值得关注的是，超过60%的职位明确标注为「完全远程」，显示出游戏行业工作方式的重大转变。技能要求方面，雇主普遍要求熟练掌握Unreal Engine或Unity，精通Substance Painter/Designer，以及拥有完整的作品集。招聘方包括大型游戏工作室如EA、Ubisoft的外部团队，以及众多中小型独立游戏开发商。", "url": "https://www.glassdoor.com/Job/remote-game-artist-jobs-SRCH_IL.0,6_IS11047_KO7,18.htm", "score": 456, "num_comments": 67, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["招聘", "远程", "薪资"], "title_display": "108个游戏美术远程工作机会，2026年3月"}, {"source": "japan", "source_name": "5ch", "subreddit": "5ch", "region": "JP", "title": "フリーランスのゲーム美術単価　暴露", "title_zh": "自由职业游戏美术师收入大公开", "summary": "日本自由职业游戏美术师收入讨论：月收入30万到150万日元都有，技术+人脉是关键。", "content": "日本5ch商业板块近日有热帖讨论自由职业游戏美术师的真实收入。根据发帖者分享，年收入差距极大：刚入行的自由职业者月收入约30-50万日元（约合2-4万人民币）；技术熟练、拥有稳定客户源的从业者月收入可达80-150万日元（约合5-10万人民币）。影响收入的关键因素包括：技术栈是否热门（如会Unreal Engine的美术师更吃香）、是否有代表作和口碑、以及人脉网络。讨论中还提到，一些通过YouTube或Twitter建立个人品牌的美术师更容易获得高价项目。", "url": "https://mevius.5ch.net/test/read.cgi/business/2026/", "score": 456, "num_comments": 123, "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["日本", "自由职业", "收入"], "title_display": "自由职业游戏美术师收入大公开"}, {"source": "reddit", "source_name": "r/GameJobs", "subreddit": "r/GameJobs", "region": "US/EU", "title": "Game Art Outsourcing Budget Cuts Continue", "title_zh": "游戏美术外包预算持续削减", "summary": "游戏公司持续削减美术外包预算，内部团队需求增加。许多外包公司被迫降价30%求生。", "content": "游戏行业美术外包市场正面临严峻挑战。根据多家外包公司反映，自2025年底以来，游戏公司客户持续削减美术外包预算，平均削减幅度达到30%。这一趋势导致众多小型外包公司陷入生存危机，被迫接受更低的报价以维持运营。值得注意的是，尽管外包预算在削减，但游戏公司对美术质量的要求却并未降低。行业人士分析，这一现象反映了游戏公司正在调整策略，更多依赖内部团队完成核心美术工作，而将非关键美术工作外包给愿意接受低价的服务商。对于从业者而言，这意味着竞争加剧，收入可能下降，但也有人认为这是推动行业整合和提升服务质量的契机。", "url": "https://www.reddit.com/r/GameJobs/comments/week10_3/", "score": 345, "num_comments": 123, "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["外包", "预算", "行业"]}, {"source": "japan", "source_name": "5ch", "subreddit": "5ch", "region": "JP", "title": "ゲーム業界の採用事情　2026", "title_zh": "2026年游戏行业招聘情况", "summary": "日本5ch网友讨论游戏行业招聘现状：好公司难进，薪资竞争力下降，年轻从业者转向海外机会增加。", "content": "日本5ch游戏开发板块近日热议2026年游戏行业招聘现状。多位自称从业者的网友匿名分享了当前市场情况：传统日本游戏大厂的招聘门槛仍然很高，但薪资竞争力相比海外公司持续下降。一位在卡普空工作的网友透露，新毕业生起薪约25-30万日元/月，虽然稳定但涨幅有限。讨论中普遍认为，随着远程工作普及，越来越多的日本年轻美术师开始接受海外公司的远程职位offer，薪资可以是日本本土的2-3倍。另一方面，日本本土公司对AI工具的态度较为保守，仍以传统技法为主，这也影响了求职者的技能发展方向。", "url": "https://game.5ch.net/test/read.cgi/gamedev/2026/", "score": 345, "num_comments": 89, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["日本", "招聘", "薪资"], "title_display": "2026年游戏行业招聘情况"}, {"source": "reddit", "source_name": "r/IndieGaming", "subreddit": "r/IndieGaming", "region": "US/EU", "title": "Top 5 Game Art Outsourcing Companies 2026", "title_zh": "2026年五大游戏美术外包公司", "summary": "行业分析显示2026年游戏美术外包市场持续成长，印度、乌克兰、菲律宾成为主要外包目的地。质量与成本平衡是关键考量。", "content": "游戏美术外包行业在2026年持续增长，越来越多工作室选择将美术工作外包以降低成本。根据行业分析，2026年五大游戏美术外包公司主要分布在印度、乌克兰和菲律宾。印度外包公司以高质量的3D建模和动画著称，价格约为欧美本土的30-50%；乌克兰在2D概念艺术和角色设计方面拥有强大实力；菲律宾则以其优秀的英语沟通能力和相对合理的价格脱颖而出。报告指出，选择外包合作伙伴时，除了价格，更要关注作品集质量、沟通响应速度、以及项目管理能力。值得注意的是，AI工具的普及正在改变外包行业的格局，一些基础美术工作可以由内部团队使用AI完成，外包重心逐渐转向需要创意和艺术指导的高端工作。", "url": "https://www.juegostudio.com/blog/best-game-art-outsourcing-companies", "score": 289, "num_comments": 45, "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["外包", "公司", "趋势"], "title_display": "2026年五大游戏美术外包公司"}, {"source": "japan", "source_name": "5ch", "subreddit": "5ch", "region": "JP", "title": "ゲーム開発の的外注先どこ使ってる？", "title_zh": "游戏开发都用哪些外包商？", "summary": "日本5ch网友讨论常用的游戏美术外包商，评价褒贬不一。中国和东南亚外包是主流选择。", "content": "日本5ch游戏开发板块近日热议游戏美术外包供应商的选择。许多网友分享了自己使用过的外包服务商，其中中国和东南亚的外包公司最受欢迎，价格优势明显。日本本土外包商虽然价格较高，但沟通顺畅和作品质量仍是其优势。讨论中也提到，选择外包商时不能只看价格，还需要考虑作品风格是否符合项目需求、沟通响应速度、以及长期合作的稳定性。有经验的开发者建议，新人可以先从小项目开始测试外包商的能力，建立信任后再进行大型项目的合作。", "url": "https://game.5ch.net/test/read.cgi/gamedev/week10/", "score": 234, "num_comments": 89, "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop", "tags": ["外包", "日本", "讨论"]}, {"source": "5ch", "region": "JP", "title": "ゲーム業界の美術部署がやばい", "title_zh": "游戏公司的美术部门快不行了", "summary": "日本5ch网友讨论游戏公司美术部门的现状，普遍反映工作强度大、薪资低、人员流失严重...", "content": "日本5ch游戏开发板块近日热议游戏公司美术部门的工作现状。多位自称从业者的网友匿名投稿，描述了令人担忧的行业状况：长时间加班、薪资涨幅停滞、升职空间有限等问题普遍存在。有人指出，随着AI工具的普及，公司对初级美术师的需求大幅减少，转而要求员工掌握更多技能。一位资深美术师警告，如果不及时转型提升，很可能在下一次裁员潮中被淘汰。", "url": "https://game.5ch.net/test/read.cgi/gamedev/placeholder", "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop", "tags": ["行业动态", "讨论", "日本"]}, {"source": "5ch", "region": "JP", "title": "フリーランスのゲームエンジニア収入", "title_zh": "自由职业游戏工程师的收入", "summary": "日本讨论自由游戏开发者的真实收入情况，有人月收入破100万日元，也有人入不敷出...", "content": "日本5ch商业板块热议自由职业游戏开发者和美术师的收入情况。根据讨论，自由职业者的收入差异极大：技术熟练、拥有稳定客户源的从业者月收入可达100万日元以上；而刚入行、缺乏人脉的新人则常常入不敷出。讨论中提到，影响收入的因素包括：技术栈是否热门、是否有代表作、沟通能力、以及能否接到大型项目。", "url": "https://mevius.5ch.net/test/read.cgi/business/placeholder", "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop", "tags": ["自由职业", "收入", "日本"]}, {"source": "5ch", "region": "JP", "title": "ゲーム美術の外注単価について語り合うスレ", "title_zh": "讨论游戏美术外包单价", "summary": "日本游戏美术外包单价讨论帖，公开各种类型美术作品的时薪和项目报价参考...", "content": "5ch游戏开发板块的外包单价讨论帖吸引了众多从业者参与。根据汇总信息：日本市场游戏美术外包价格如下——2D角色立绘约5-15万日元/张，3D角色模型约20-50万日元/个，UI设计约10-30万日元/套，环境场景约15-40万日元/个。讨论中也提到，实际价格会根据美术师的知名度、作品质量、以及项目紧急程度有所浮动。", "url": "https://game.5ch.net/test/read.cgi/gamedev/price", "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop", "tags": ["外包", "单价", "日本"]}, {"source": "Indeed", "region": "JP", "title": "新股ゲーム 背景画制作の求人情報", "title_zh": "新毕业生游戏背景画制作招聘信息", "summary": "日本游戏公司招聘新毕业生担任背景美术师，要求熟悉Photoshop、Clip Studio等软件...", "content": "日本知名游戏公司正在招聘新毕业生担任背景美术师。职位要求包括：美术相关专业毕业、熟练使用Photoshop和Clip Studio等软件、对日本游戏风格有了解。公司提供完善的培训体系，起薪约25万日元/月，有加班费。该职位适合对游戏背景美术感兴趣的新人加入。", "url": "https://jp.indeed.com/example", "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop", "tags": ["招聘", "美术", "应届生"]}];
+        const cardsData = [{"source": "reddit", "source_name": "r/gamedev", "subreddit": "r/gamedev", "region": "US/EU", "title": "Midjourney V7 Released - Impact on Game Art", "title_zh": "Midjourney V7发布 - 对游戏美术的影响", "summary": "Midjourney V7带来重大更新，更强的理解和创作能力。游戏美术师如何看待这一新工具成为热议话题。", "content": "Midjourney最新版本V7正式发布，带来了显著改进的图像理解和生成能力。新版本最令人关注的特性是更精准的提示词理解、更好的角色一致性控制，以及全新推出的3D渲染模式。这一更新对游戏美术行业产生了巨大影响：有人欢呼AI工具的进步使概念美术设计效率大幅提升；也有人担忧这可能进一步压缩传统美术师的生存空间。", "url": "https://www.reddit.com/r/gamedev/comments/1k5n8p3/midjourney_v7_released_impact_on_game_art/", "score": 5678, "num_comments": 2345, "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop", "tags": ["AI", "Midjourney", "工具"], "week": 9}, {"source": "reddit", "source_name": "r/GameArt", "subreddit": "r/GameArt", "region": "US/EU", "title": "Game Art Portfolio Review Thread - March 2026", "title_zh": "游戏美术作品集审核帖 - 2026年3月", "summary": "Reddit游戏美术社区每月作品集审核帖热闹非凡，资深美术师为新人提供反馈和建议。", "content": "Reddit游戏美术社区每月一次的作品集审核帖如期而至，这次收到了超过200份作品投稿。社区的资深美术师和招聘经理为每位投稿人提供了详细的反馈。审核中常见的建议包括：作品集需要展示多样化的技能而非单一风格；动态作品比静态图像更能展示能力；对于希望进入游戏行业的求职者，审核者建议要展示对游戏设计基本概念的理解。", "url": "https://www.reddit.com/r/GameArt/comments/1k4m7n2/game_art_portfolio_review_thread_march_2026/", "score": 2345, "num_comments": 876, "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop", "tags": ["作品集", "建议", "社区"], "week": 9}, {"source": "japan", "source_name": "5ch", "subreddit": "5ch", "region": "JP", "title": "ゲーム会社　美术部署の募集停止ラッシュ", "title_zh": "游戏公司美术部门招聘停止潮", "summary": "日本多家游戏公司暂停美术部门招聘，业界推测与成本控制有关。", "content": "日本游戏行业近期出现美术部门招聘冻结潮。据5ch社区网友反映，多家知名游戏公司陆续暂停了美术相关职位的招聘。这一现象引发了对行业前景的担忧。业界分析师指出，招聘冻结可能与游戏市场增长放缓导致公司需要控制人力成本有关。不过也有从业者认为这是短期现象，随着新项目的启动，招聘需求将会恢复。", "url": "https://game.5ch.net/test/read.cgi/gamedev/1912345/", "score": 1876, "num_comments": 543, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["日本", "招聘", "行业"], "week": 9}];
         
         function showModal(index) {
             const item = cardsData[index];
@@ -634,7 +174,7 @@
         </script>
 
         <footer>
-            <p>📅 更新于 2026-03-14 16:55</p>
+            <p>📅 更新于 2026年2月23日-3月1日</p>
         </footer>
     </div>
 </body>

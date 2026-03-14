@@ -246,8 +246,8 @@ def generate_html():
             overflow-y: auto;
             position: relative;
             opacity: 0;
-            transform: scale(0.8) translateY(20px);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: scale(0.7) translateY(30px);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }}
         
         .modal-overlay.active .modal {{
