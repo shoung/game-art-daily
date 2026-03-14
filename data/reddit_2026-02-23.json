@@ -1,0 +1,35 @@
+[
+  {
+    "source": "reddit",
+    "subreddit": "gamedev",
+    "region": "US/EU",
+    "title": "How AI is changing game art outsourcing in 2026",
+    "title_zh": "AI如何改变2026年的游戏美术外包",
+    "url": "https://www.reddit.com/r/gamedev/comments/week9_1/",
+    "score": 678,
+    "num_comments": 345,
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
+    "tags": ["AI美术", "外包", "趋势"]
+  },
+  {
+    "source": "reddit",
+    "subreddit": "IndieGaming",
+    "region": "US/EU",
+    "title": "Found an amazing art outsourcing studio in Ukraine",
+    "title_zh": "找到一家超棒的乌克兰美术外包工作室",
+    "url": "https://www.reddit.com/r/IndieGaming/comments/week9_2/",
+    "score": 234,
+    "num_comments": 89,
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop",
+    "tags": ["外包", "推荐"]
+  },
+  {
+    "source": "5ch",
+    "region": "JP",
+    "title": "ゲーム開発の的外注先紹介",
+    "title_zh": "游戏开发外包商介绍",
+    "url": "https://game.5ch.net/test/read.cgi/gamedev/week9",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+    "tags": ["外包", "推荐"]
+  }
+]
