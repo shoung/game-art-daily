@@ -9,7 +9,6 @@ import json
 import datetime
 import requests
 from praw import Reddit
-from bs4 import BeautifulSoup
 
 # Reddit API 設定
 CLIENT_ID = os.getenv('REDDIT_CLIENT_ID', '')
@@ -22,21 +21,24 @@ KEYWORDS = [
     'game outsourcing', 'art外包', '3D modeling', 'game design',
     'AI art', 'Midjourney', 'Stable Diffusion', 'game studio',
     '游戏公司', 'ゲーム会社', 'hiring', 'art job',
-    'Blender', 'Maya', 'ZBrush', 'Substance', 'Unreal', 'Unity'
+    'Blender', 'Maya', 'ZBrush', 'Substance', 'Unreal', 'Unity',
+    'hiring', 'artist', 'game dev'
 ]
 
 # Subreddits to monitor
 SUBREDDITS = [
     'gamedev', 'GameArt', '3Dmodeling', 'cgnews',
-    'design', 'japan_gaming', 'gaming', 'gamedesign'
+    'design', 'gaming', 'gamedesign', 'indiegaming',
+    'roguelike', 'Games', 'gamingnews'
 ]
 
 def collect_reddit():
     """收集 Reddit 討論"""
     results = []
     
-    try:
-        if CLIENT_ID and CLIENT_SECRET:
+    # 嘗試使用 Reddit API
+    if CLIENT_ID and CLIENT_SECRET:
+        try:
             reddit = Reddit(
                 client_id=CLIENT_ID,
                 client_secret=CLIENT_SECRET,
@@ -44,30 +46,31 @@ def collect_reddit():
             )
             
             for subreddit_name in SUBREDDITS:
-                subreddit = reddit.subreddit(subreddit_name)
-                for post in subreddit.hot(limit=50):
-                    # 檢查標題是否包含關鍵字
-                    title_lower = post.title.lower()
-                    if any(kw.lower() in title_lower for kw in KEYWORDS):
-                        results.append({
-                            'source': 'reddit',
-                            'subreddit': subreddit_name,
-                            'title': post.title,
-                            'url': f'https://reddit.com{post.permalink}',
-                            'score': post.score,
-                            'num_comments': post.num_comments,
-                            'created_utc': datetime.datetime.fromtimestamp(
-                                post.created_utc
-                            ).isoformat(),
-                            'flair': str(post.link_flair_text) if post.link_flair_text else None
-                        })
-        else:
-            # 如果沒有 API 密鑰，使用備用方式（公共 API）
-            print("No Reddit API credentials, using public RSS fallback")
-            results = collect_reddit_fallback()
-            
-    except Exception as e:
-        print(f"Error collecting Reddit: {e}")
+                try:
+                    subreddit = reddit.subreddit(subreddit_name)
+                    for post in subreddit.hot(limit=30):
+                        title_lower = post.title.lower()
+                        if any(kw.lower() in title_lower for kw in KEYWORDS):
+                            results.append({
+                                'source': 'reddit',
+                                'subreddit': subreddit_name,
+                                'title': post.title,
+                                'url': f'https://reddit.com{post.permalink}',
+                                'score': post.score,
+                                'num_comments': post.num_comments,
+                                'created_utc': datetime.datetime.fromtimestamp(
+                                    post.created_utc
+                                ).isoformat(),
+                                'flair': str(post.link_flair_text) if post.link_flair_text else None
+                            })
+                except Exception as e:
+                    print(f"Error fetching r/{subreddit_name}: {e}")
+                    
+        except Exception as e:
+            print(f"Reddit API error: {e}")
+    
+    # 如果沒有結果，使用備用方式
+    if not results:
         results = collect_reddit_fallback()
     
     return results
@@ -75,14 +78,17 @@ def collect_reddit():
 def collect_reddit_fallback():
     """使用 RSS 備用收集"""
     results = []
-    subreddits = ['gamedev', 'GameArt', '3Dmodeling']
+    subreddits = ['gamedev', 'GameArt', '3Dmodeling', 'gaming']
     
     for sub in subreddits:
-        url = f'https://www.reddit.com/r/{sub}/hot/.json?limit=25'
-        headers = {'User-Agent': 'Mozilla/5.0'}
-        
         try:
-            response = requests.get(url, headers=headers, timeout=10)
+            # 使用舊式 Reddit URL
+            url = f'https://old.reddit.com/r/{sub}/hot/.json?limit=30'
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            }
+            
+            response = requests.get(url, headers=headers, timeout=15)
             data = response.json()
             
             for post in data['data']['children']:
@@ -94,7 +100,7 @@ def collect_reddit_fallback():
                         'source': 'reddit',
                         'subreddit': sub,
                         'title': post_data['title'],
-                        'url': f'https://reddit.com{post_data["permalink"]}',
+                        'url': f'https://reddit.com{post_data['permalink']}",
                         'score': post_data['score'],
                         'num_comments': post_data['num_comments'],
                         'created_utc': datetime.datetime.fromtimestamp(
@@ -102,6 +108,7 @@ def collect_reddit_fallback():
                         ).isoformat(),
                         'flair': post_data.get('link_flair_text')
                     })
+                    
         except Exception as e:
             print(f"Error fetching r/{sub}: {e}")
     
