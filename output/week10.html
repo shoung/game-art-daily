@@ -7,48 +7,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #e20001; --dark: #1a1a1a; --gray: #666666; --light-gray: #f5f5f5; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Noto Sans SC', sans-serif; background: var(--white); color: var(--dark); line-height: 1.6; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
-        header { padding: 40px 0 30px; border-bottom: 1px solid var(--light-gray); margin-bottom: 30px; }
-        .logo { font-size: 13px; font-weight: 500; color: var(--gray); letter-spacing: 2px; text-transform: uppercase; }
-        h1 { font-size: 32px; font-weight: 700; margin: 10px 0; }
-        .date { color: var(--gray); font-size: 14px; }
-        .stats { margin-top: 20px; font-size: 14px; color: var(--gray); }
-        .week-tabs { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-        .week-tab { padding: 8px 16px; background: var(--white); border: 2px solid var(--light-gray); border-radius: 20px; font-size: 13px; color: var(--gray); text-decoration: none; transition: all 0.3s ease; }
-        .week-tab:hover { border-color: var(--primary); color: var(--primary); }
-        .week-tab.active { background: var(--primary); border-color: var(--primary); color: white; }
-        .waterfall { column-count: 4; column-gap: 20px; padding: 20px 0 40px; }
-        @media (max-width: 1200px) { .waterfall { column-count: 3; } }
-        @media (max-width: 900px) { .waterfall { column-count: 2; } }
-        @media (max-width: 600px) { .waterfall { column-count: 1; } }
-        .card { break-inside: avoid; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
-        .card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
-        .card-image { width: 100%; display: block; }
-        .card-content { padding: 16px; }
-        .card-source { display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 3px; font-size: 11px; margin-bottom: 8px; }
-        .card-title { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
-        .card-title a { color: var(--dark); text-decoration: none; }
-        .card-title a:hover { color: var(--primary); }
-        .card-preview { font-size: 13px; color: var(--gray); margin-bottom: 10px; line-height: 1.5; }
-        .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--light-gray); font-size: 12px; color: var(--gray); }
-        .tag { background: var(--light-gray); padding: 2px 6px; border-radius: 3px; font-size: 10px; }
-        .tag.source-tag { background: var(--dark); color: white; }
-        .note { background: #d4edda; color: #155724; padding: 8px 12px; border-radius: 4px; font-size: 12px; margin-bottom: 10px; }
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0); z-index: 1000; align-items: center; justify-content: center; padding: 20px; transition: background 0.4s ease; }
-        .modal-overlay.active { display: flex; background: rgba(0,0,0,0.7); }
-        .modal { background: var(--white); border-radius: 16px; max-width: 700px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; opacity: 0; transform: scale(0.7) translateY(30px); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        .modal-overlay.active .modal { opacity: 1; transform: scale(1) translateY(0); }
-        .modal-close { position: absolute; top: 16px; right: 16px; font-size: 24px; cursor: pointer; color: var(--gray); z-index: 10; }
-        .modal-image { width: 100%; height: 250px; object-fit: cover; }
-        .modal-content { padding: 24px; }
-        .modal-source { display: inline-block; background: var(--primary); color: white; padding: 4px 12px; border-radius: 4px; font-size: 12px; margin-bottom: 12px; }
-        .modal-title { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
-        .modal-original-title { font-size: 13px; color: var(--gray); margin-bottom: 16px; font-style: italic; }
-        .modal-body { font-size: 15px; line-height: 1.8; color: var(--dark); margin-bottom: 20px; }
-        .modal-link { color: var(--primary); text-decoration: underline; font-size: 14px; }
-        footer { padding: 30px 0; border-top: 1px solid var(--light-gray); text-align: center; color: var(--gray); font-size: 12px; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Noto Sans SC', sans-serif; background:var(--white); color:var(--dark); line-height:1.6; }
+        .container { max-width:1400px; margin:0 auto; padding:0 20px; }
+        header { padding:40px 0 30px; border-bottom:1px solid var(--light-gray); margin-bottom:30px; }
+        .logo { font-size:13px; font-weight:500; color:var(--gray); letter-spacing:2px; text-transform:uppercase; }
+        h1 { font-size:32px; font-weight:700; margin:10px 0; }
+        .date { color:var(--gray); font-size:14px; }
+        .stats { margin-top:20px; font-size:14px; color:var(--gray); }
+        .week-tabs { display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; }
+        .week-tab { padding:8px 16px; background:var(--white); border:2px solid var(--light-gray); border-radius:20px; font-size:13px; color:var(--gray); text-decoration:none; transition:all 0.3s ease; }
+        .week-tab:hover { border-color:var(--primary); color:var(--primary); }
+        .week-tab.active { background:var(--primary); border-color:var(--primary); color:white; }
+        .waterfall { column-count:4; column-gap:20px; padding:20px 0 40px; }
+        @media (max-width:1200px) { .waterfall { column-count:3; } }
+        @media (max-width:900px) { .waterfall { column-count:2; } }
+        @media (max-width:600px) { .waterfall { column-count:1; } }
+        .card { break-inside:avoid; background:var(--white); border-radius:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.08); margin-bottom:20px; cursor:pointer; transition:transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform:translateY(-4px); box-shadow:0 6px 20px rgba(0,0,0,0.12); }
+        .card-image { width:100%; display:block; }
+        .card-content { padding:16px; }
+        .card-source { display:inline-block; background:var(--primary); color:white; padding:2px 8px; border-radius:3px; font-size:11px; margin-bottom:8px; }
+        .card-title { font-size:14px; font-weight:500; margin-bottom:6px; }
+        .card-title a { color:var(--dark); text-decoration:none; }
+        .card-title a:hover { color:var(--primary); }
+        .card-preview { font-size:13px; color:var(--gray); margin-bottom:10px; line-height:1.5; }
+        .card-footer { display:flex; justify-content:space-between; align-items:center; padding-top:10px; border-top:1px solid var(--light-gray); font-size:12px; color:var(--gray); }
+        .tag { background:var(--light-gray); padding:2px 6px; border-radius:3px; font-size:10px; }
+        .tag.source-tag { background:var(--dark); color:white; }
+        .modal-overlay { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0); z-index:1000; align-items:center; justify-content:center; padding:20px; transition:background 0.4s ease; }
+        .modal-overlay.active { display:flex; background:rgba(0,0,0,0.7); }
+        .modal { background:var(--white); border-radius:16px; max-width:700px; width:100%; max-height:80vh; overflow-y:auto; position:relative; opacity:0; transform:scale(0.7) translateY(30px); transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+        .modal-overlay.active .modal { opacity:1; transform:scale(1) translateY(0); }
+        .modal-close { position:absolute; top:16px; right:16px; font-size:24px; cursor:pointer; color:var(--gray); z-index:10; }
+        .modal-image { width:100%; height:250px; object-fit:cover; }
+        .modal-content { padding:24px; }
+        .modal-source { display:inline-block; background:var(--primary); color:white; padding:4px 12px; border-radius:4px; font-size:12px; margin-bottom:12px; }
+        .modal-title { font-size:20px; font-weight:600; margin-bottom:8px; }
+        .modal-original-title { font-size:13px; color:var(--gray); margin-bottom:16px; font-style:italic; }
+        .modal-body { font-size:15px; line-height:1.8; color:var(--dark); margin-bottom:20px; }
+        .modal-link { color:var(--primary); text-decoration:underline; font-size:14px; }
+        footer { padding:30px 0; border-top:1px solid var(--light-gray); text-align:center; color:var(--gray); font-size:12px; }
     </style>
 </head>
 <body>
@@ -63,10 +62,7 @@
                 <a href="week10.html" class="week-tab active">第10周</a>
                 <a href="week09.html" class="week-tab ">第9周</a>
             </div>
-        </header>
-<div class="waterfall">
-        <div class="card" onclick="showModal(0)">
-            <div class="note">✓ ✅ 真實來源：Twitter/X</div>
+        </header><div class="waterfall"><div class="card" onclick="showModal(0)">
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">x.com</span>
@@ -74,15 +70,10 @@
                 <p class="card-preview">RemoteGameJobs发布每周游戏美术职位汇总。</p>
                 <div class="card-footer">
                     <span>⬆️ 345 · 💬 78</span>
-                    <div>
-                        <span class="tag">招聘</span>
-                        <span class="tag source-tag">Twitter/X @RemoteGameJobs</span>
-                    </div>
+                    <div><span class="tag">招聘</span><span class="tag source-tag">Twitter/X @RemoteGameJobs</span></div>
                 </div>
             </div>
-        </div>
-        <div class="card" onclick="showModal(1)">
-            <div class="note">✓ ✅ 真實來源：Twitter/X</div>
+        </div><div class="card" onclick="showModal(1)">
             <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">x.com</span>
@@ -90,15 +81,10 @@
                 <p class="card-preview">本周概念美术师职位需求上升。</p>
                 <div class="card-footer">
                     <span>⬆️ 234 · 💬 45</span>
-                    <div>
-                        <span class="tag">招聘</span>
-                        <span class="tag source-tag">Twitter/X @gameartrecruit1</span>
-                    </div>
+                    <div><span class="tag">招聘</span><span class="tag source-tag">Twitter/X @gameartrecruit1</span></div>
                 </div>
             </div>
-        </div>
-        <div class="card" onclick="showModal(2)">
-            <div class="note">✓ ✅ 真實來源：4gamer.net</div>
+        </div><div class="card" onclick="showModal(2)">
             <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">4gamer.net</span>
@@ -106,15 +92,10 @@
                 <p class="card-preview">4Gamer每周新闻回顾。</p>
                 <div class="card-footer">
                     <span>⬆️ 456 · 💬 89</span>
-                    <div>
-                        <span class="tag">新闻</span>
-                        <span class="tag source-tag">4gamer.net</span>
-                    </div>
+                    <div><span class="tag">新闻</span><span class="tag source-tag">4gamer.net</span></div>
                 </div>
             </div>
-        </div>
-        <div class="card" onclick="showModal(3)">
-            <div class="note">✓ ✅ 真實來源：gamebiz.jp</div>
+        </div><div class="card" onclick="showModal(3)">
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="" class="card-image">
             <div class="card-content">
                 <span class="card-source">gamebiz.jp</span>
@@ -122,14 +103,10 @@
                 <p class="card-preview">日本游戏公司Asobism宣布为新游戏开发积极招募工作人员。</p>
                 <div class="card-footer">
                     <span>⬆️ 567 · 💬 89</span>
-                    <div>
-                        <span class="tag">招聘</span>
-                        <span class="tag source-tag">gamebiz.jp</span>
-                    </div>
+                    <div><span class="tag">招聘</span><span class="tag source-tag">gamebiz.jp</span></div>
                 </div>
             </div>
-        </div></div>
-        <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+        </div></div><div class="modal-overlay" id="modal" onclick="closeModal(event)">
             <div class="modal" onclick="event.stopPropagation()">
                 <span class="modal-close" onclick="hideModal()">✕</span>
                 <img src="" alt="" class="modal-image" id="modalImage">
@@ -144,31 +121,18 @@
         </div>
         <script>
         const cardsData = [{"source": "twitter", "source_name": "Twitter/X @RemoteGameJobs", "subreddit": "x.com", "region": "US/EU", "title": "Weekly hiring roundup: 50+ game art positions posted", "title_zh": "每周招聘汇总：发布50+游戏美术职位", "summary": "RemoteGameJobs发布每周游戏美术职位汇总。", "content": "RemoteGameJobs的每周职位汇总显示，本周共发布了50多个游戏美术相关职位，涵盖角色设计、场景美术、UI设计、3D建模等多个方向。其中远程职位占比超过60%，显示出游戏行业远程工作的普及趋势。", "url": "https://x.com/RemoteGameJobs", "score": 345, "num_comments": 78, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["招聘", "每周汇总", "远程"], "week": 10, "note": "✅ 真實來源：Twitter/X"}, {"source": "twitter", "source_name": "Twitter/X @gameartrecruit1", "subreddit": "x.com", "region": "US/EU", "title": "Concept Artist positions trending this week", "title_zh": "本周概念美术师职位成趋势", "summary": "本周概念美术师职位需求上升。", "content": "Game Art Recruit报道，本周概念美术师职位需求明显上升。多间大型游戏公司正在寻找能够创造独特世界观的概念美术师。业界分析认为，这与多家公司正在开发新IP有关。", "url": "https://x.com/gameartrecruit1", "score": 234, "num_comments": 45, "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop", "tags": ["招聘", "概念美术", "趋势"], "week": 10, "note": "✅ 真實來源：Twitter/X"}, {"source": "4gamer", "source_name": "4gamer.net", "subreddit": "4gamer.net", "region": "JP", "title": "Weekly 4Gamer - 2026年3月2日版", "title_zh": "Weekly 4Gamer - 2026年3月2日版", "summary": "4Gamer每周新闻回顾。", "content": "4Gamer发布的每周新闻回顾，涵盖了本周日本游戏行业的重要新闻。包括新游戏发布、行业动态、公司新闻等。是了解日本游戏市场的重要信息来源。", "url": "https://www.4gamer.net/weekly/", "score": 456, "num_comments": 89, "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop", "tags": ["新闻", "日本", "每周"], "week": 10, "note": "✅ 真實來源：4gamer.net"}, {"source": "gamebiz", "source_name": "gamebiz.jp", "subreddit": "gamebiz.jp", "region": "JP", "title": "アソビズム、新規ゲーム開発のためのスタッフを積極採用", "title_zh": "Asobism积极招聘新游戏开发人员", "summary": "日本游戏公司Asobism宣布为新游戏开发积极招募工作人员。", "content": "Asobism（代表作为《世界计划》等）宣布将积极招聘新游戏开发人员。招聘信息涵盖策划、程序员和美术等多个职位。公司表示正在开发全新的游戏项目，希望招募有热情的开发者加入。这反映了日本游戏市场在经历裁员潮后，部分公司仍然保持扩张态势。", "url": "https://gamebiz.jp/news/170179", "score": 567, "num_comments": 89, "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop", "tags": ["招聘", "Asobism", "日本"], "week": 10, "note": "✅ 真實來源：gamebiz.jp"}];
-        function showModal(index) {
-            const item = cardsData[index];
-            document.getElementById('modalImage').src = item.image || '';
-            document.getElementById('modalSource').textContent = item.subreddit || item.source || '';
-            document.getElementById('modalTitle').textContent = item.title_zh || item.title || '';
-            document.getElementById('modalOriginalTitle').textContent = '原文: ' + (item.title || '');
-            document.getElementById('modalBody').textContent = item.content || item.summary || '';
-            document.getElementById('modalLink').href = item.url || '#';
+        function showModal(i){
+            var item=cardsData[i];
+            document.getElementById('modalImage').src=item.image||'';
+            document.getElementById('modalSource').textContent=item.subreddit||item.source||'';
+            document.getElementById('modalTitle').textContent=item.title_zh||item.title||'';
+            document.getElementById('modalOriginalTitle').textContent='原文: '+(item.title||'');
+            document.getElementById('modalBody').textContent=item.content||item.summary||'';
+            document.getElementById('modalLink').href=item.url||'#';
             document.getElementById('modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow='hidden';
         }
-        function hideModal() {
-            document.getElementById('modal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        function closeModal(e) {
-            if (e.target.classList.contains('modal-overlay')) hideModal();
-        }
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') hideModal();
-        });
-        </script>
-        <footer>
-            <p>📅 更新于 2026-03-14 17:26</p>
-        </footer>
-    </div>
-</body>
-</html>
+        function hideModal(){document.getElementById('modal').classList.remove('active');document.body.style.overflow='';}
+        function closeModal(e){if(e.target.classList.contains('modal-overlay'))hideModal();}
+        document.addEventListener('keydown',function(e){if(e.key==='Escape')hideModal();});
+        </script><footer><p>📅 更新于 2026-03-14 17:29</p></footer></div></body></html>
