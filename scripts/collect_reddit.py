@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Reddit 論壇討論收集腳本
-收集遊戲美術外包相關的小道消息和論壇討論
+只收集日本與歐美的遊戲美術外包相關討論
 """
 
 import os
@@ -9,62 +9,89 @@ import json
 import datetime
 import requests
 
-# 關鍵字 - 更多論壇風格的關鍵詞
+# 關鍵字 - 論壇風格 + 遊戲美術外包
 KEYWORDS = [
+    # 遊戲美術
     'game art', 'game artist', 'game美术', 'ゲームアート',
-    'game outsourcing', 'art外包', '3D modeling', 'game design',
-    'AI art', 'Midjourney', 'Stable Diffusion', 'game studio',
-    '游戏公司', 'ゲーム会社', 'hiring', 'art job', 'art外包',
-    'indie dev', 'indie game', 'small studio',
-    'Blender', 'Maya', 'ZBrush', 'Substance', 'Unreal', 'Unity',
-    'layoff', 'fired', 'hiring', 'interview', 'salary',
-    'contract work', 'freelance', 'rate', 'quote',
-    'portfolio', 'demo reel', 'showcase'
+    '3D modeling', '3D artist', 'character art', 'environment art',
+    'concept art', 'illustration', 'game UI', 'vfx', 'animation',
+    # 外包
+    'game outsourcing', 'art外包', 'art outsourcing', 'contract work',
+    'freelance', 'freelancer', 'hourly rate', 'project quote',
+    # AI 美術
+    'AI art', 'Midjourney', 'Stable Diffusion', 'Generative AI',
+    'AI game art', 'AI illustration',
+    # 工具
+    'Blender', 'Maya', 'ZBrush', 'Substance', 'Houdini',
+    'Unreal Engine', 'Unity', 'Unreal', 'Unity3D',
+    # 工作室/公司
+    'game studio', 'indie dev', 'indie game', 'small studio',
+    'AAA studio', 'game company', 'ゲーム会社', 'ゲームスタジオ',
+    # 求職/裁員
+    'hiring', 'job opening', 'job interview', 'salary', 'layoff',
+    'fired', 'contractor', 'recruit', '採用', '求人',
+    # 歐美論壇關鍵詞
+    'portfolio', 'demo reel', 'showcase', 'critique',
+    'salary discussion', 'pay', 'rate per hour'
 ]
 
-# Subreddits - 更多論壇風格的看板
+# 只訂閱日本與歐美論壇 - 無台灣
 SUBREDDITS = [
-    'gamedev', 'GameArt', '3Dmodeling', 'cgjobs',
-    'IndieGaming', 'gamedesign', 'gaming', 'Games',
-    'GameUI', '像素艺术', 'houdini', 'Maya',
-    'blender3d', 'ZBrush', 'substancepainter',
+    # 美國/英語論壇
+    'gamedev', 'GameArt', '3Dmodeling', 'cgjobs', 'IndieGaming',
+    'gamedesign', 'GameUI', 'gaming', 'Games', 'lowpoly',
+    'blender3d', 'ZBrush', 'substancepainter', 'Maya3D',
     'Unity3D', 'UnrealEngine', 'gamedevscreens',
-    'lowpoly', 'indiegaming', ' roguelikedev'
+    'pixelart', 'ImaginaryLandscapes', 'conceptart',
+    'VFX', 'animation', 'digitalart', 'ArtStation',
+    # 英國/加拿大
+    'GameDevUK', 'gamedevcanada',
+    # 歐洲
+    'gamedevDE', 'gamedevFR',
+    # 日本相關（英文）
+    'japan_gaming', 'Tokyo',
+    # 裁員/求職專板
+    'GameJobs', 'layoff', 'career',
+    # 自由職業
+    'freelance', 'freelancegamedev', 'Upwork', 'GameArtJobs'
 ]
 
 def get_image_for_keyword(title):
     """根據關鍵詞返回相關圖片URL"""
     title_lower = title.lower()
     
-    # 圖片關鍵詞映射
     image_keywords = {
-        '3d': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400',
-        'blender': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400',
-        'maya': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
-        'zbrush': 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=400',
-        'game': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400',
-        'art': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400',
-        'design': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400',
-        'ai': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400',
-        'midjourney': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400',
-        'stable': 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400',
-        'unreal': 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400',
-        'unity': 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400',
-        'pixel': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400',
-        'hiring': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400',
-        'job': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400',
-        'layoff': 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400',
-        'freelance': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400',
+        '3d': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop',
+        'blender': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop',
+        'maya': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
+        'zbrush': 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&h=400&fit=crop',
+        'game': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
+        'art': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop',
+        'design': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
+        'AI': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
+        'midjourney': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
+        'unreal': 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop',
+        'unity': 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&h=400&fit=crop',
+        'pixel': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
+        'hiring': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop',
+        'job': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop',
+        'layoff': 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop',
+        'freelance': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
+        'portfolio': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
+        'vfx': 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop',
+        'animation': 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop',
+        'concept': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
+        'illustration': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop',
     }
     
     for keyword, img_url in image_keywords.items():
         if keyword in title_lower:
             return img_url
     
-    return 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400'
+    return 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop'
 
 def translate_to_simplified(text):
-    """簡單的翻譯映射 - 實際項目應該使用 API"""
+    """翻譯成簡體中文"""
     translations = {
         'game art': '游戏美术',
         'game artist': '游戏美术师',
@@ -80,15 +107,43 @@ def translate_to_simplified(text):
         'revenue': '营收',
         'studio': '工作室',
         'company': '公司',
-        'AI': '人工智能',
+        'AI': 'AI',
         'layoff': '裁员',
         'hire': '雇佣',
         'salary': '薪资',
         'freelance': '自由职业',
-        'contract': '合同',
-        'rate': '费率',
+        'contract': '外包',
+        'rate': '时薪',
         'portfolio': '作品集',
         'outsourcing': '外包',
+        'artist': '美术师',
+        'designer': '设计师',
+        'animator': '动画师',
+        'vfx': '特效',
+        '3D': '3D',
+        '2D': '2D',
+        'indie': '独立游戏',
+        'AAA': '3A',
+        'unreal': '虚幻引擎',
+        'unity': 'Unity',
+        'Blender': 'Blender',
+        'Maya': 'Maya',
+        'ZBrush': 'ZBrush',
+        'Substance': 'Substance',
+        'showcase': '作品展示',
+        'demo reel': 'Demo reel',
+        'critique': '点评',
+        'project': '项目',
+        'quote': '报价',
+        'hourly': '时薪',
+        'remote': '远程',
+        'remote work': '远程工作',
+        'junior': '初级',
+        'senior': '高级',
+        'lead': '负责人',
+        'manager': '经理',
+        'team': '团队',
+        'recruiting': '招聘中',
     }
     
     result = text
@@ -98,7 +153,7 @@ def translate_to_simplified(text):
     return result
 
 def collect_reddit():
-    """收集 Reddit 論壇討論"""
+    """收集 Reddit 論壇討論 - 只日本與歐美"""
     results = []
     
     headers = {
@@ -107,7 +162,6 @@ def collect_reddit():
     
     for sub in SUBREDDITS:
         try:
-            # 使用舊式 Reddit API
             url = f'https://old.reddit.com/r/{sub}/hot/.json?limit=50'
             response = requests.get(url, headers=headers, timeout=15)
             data = response.json()
@@ -133,6 +187,7 @@ def collect_reddit():
                     results.append({
                         'source': 'reddit',
                         'subreddit': sub,
+                        'region': 'US/EU',  # 標記區域
                         'title': post_data['title'],
                         'title_zh': translated_title,
                         'url': 'https://reddit.com' + permalink,
@@ -156,18 +211,20 @@ def get_tags(title):
     title_lower = title.lower()
     tags = []
     
-    if any(k in title_lower for k in ['hire', 'job', 'salary', 'interview', 'layoff']):
-        tags.append('招聘/裁员')
-    if any(k in title_lower for k in ['outsourcing', 'freelance', 'contract', 'rate', 'quote']):
-        tags.append('外包/自由职业')
-    if any(k in title_lower for k in ['AI', 'midjourney', 'stable', 'diffusion']):
+    if any(k in title_lower for k in ['hire', 'job', 'salary', 'interview', 'layoff', 'recruit', 'hiring', 'opening']):
+        tags.append('招聘')
+    if any(k in title_lower for k in ['outsourcing', 'freelance', 'contract', 'rate', 'quote', 'hourly', 'project', 'bid']):
+        tags.append('外包')
+    if any(k in title_lower for k in ['AI', 'midjourney', 'stable', 'diffusion', 'generative', 'AI art']):
         tags.append('AI美术')
-    if any(k in title_lower for k in ['unreal', 'unity', 'blender', 'maya', 'zbrush', '3d']):
-        tags.append('工具/技术')
-    if any(k in title_lower for k in ['studio', 'company', 'indie', 'small']):
-        tags.append('工作室动态')
-    if any(k in title_lower for k in ['showcase', 'portfolio', 'demo', 'art']):
+    if any(k in title_lower for k in ['unreal', 'unity', 'blender', 'maya', 'zbrush', '3d', 'substance', 'houdini']):
+        tags.append('工具技术')
+    if any(k in title_lower for k in ['studio', 'company', 'indie', 'small', 'AAA', 'team', 'studio']):
+        tags.append('工作室')
+    if any(k in title_lower for k in ['showcase', 'portfolio', 'demo', 'art', 'illustration', 'concept', 'design']):
         tags.append('作品展示')
+    if any(k in title_lower for k in ['vfx', 'animation', 'animate', 'motion']):
+        tags.append('动画特效')
         
     if not tags:
         tags.append('综合讨论')
@@ -186,7 +243,7 @@ def save_results(results):
     return filepath
 
 if __name__ == '__main__':
-    print('Starting Reddit forum collection...')
+    print('Starting Reddit forum collection (Japan & US/EU only)...')
     results = collect_reddit()
     save_results(results)
     print(f'Collected {len(results)} forum discussions')
