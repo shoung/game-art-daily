@@ -8,21 +8,12 @@ on:
   push:
     branches: [main]
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
 jobs:
-  collect-and-deploy:
+  collect-and-generate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -40,22 +31,43 @@ jobs:
           REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
         run: python scripts/collect_reddit.py
 
-      - name: Collect 2ch news
+      - name: Collect Japan game news
         run: python scripts/collect_2ch.py
 
       - name: Generate daily report
         run: python scripts/generate_report.py
 
-      - name: Commit and push changes
+      - name: Commit changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add data/ output/
           git diff --staged --quiet || git commit -m "Update daily report $(date +%Y-%m-%d)"
-          git push origin main
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output
+          branch: main
+
+  deploy:
+    needs: collect-and-generate
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'output'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
