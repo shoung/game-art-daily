@@ -1,0 +1,62 @@
+[
+  {
+    "source": "Reddit/r/gamedev",
+    "region": "US",
+    "title": "DLSS 5 and what some people seem to not understand",
+    "title_zh": "DLSS 5 与人们似乎不理解的一些事情",
+    "url": "https://www.reddit.com/r/gamedev/comments/1rw6c89/dlss_5_and_what_some_people_seem_to_not_understand/",
+    "image": null,
+    "collected_at": "2026-03-18T15:00:00Z",
+    "tags": ["AI技术", "图形渲染", "游戏开发"],
+    "summary": "NVIDIA发布的DLSS 5技术引发游戏开发者社区热议。该技术利用AI插帧技术提升游戏帧率和画质，但部分开发者对其效果和实用性存在争议。讨论焦点集中在DLSS对游戏美术表现的影响以及与传统渲染技术的关系。",
+    "score": 1264
+  },
+  {
+    "source": "Reddit/r/gamedev",
+    "region": "US",
+    "title": "why does everyone think making a game is just having a good idea",
+    "title_zh": "为什么大家都认为做游戏只是有一个好点子",
+    "url": "https://www.reddit.com/r/gamedev/comments/1rur2t5/why_does_everyone_think_making_a_game_is_just/",
+    "image": null,
+    "collected_at": "2026-03-18T15:00:00Z",
+    "tags": ["游戏开发", "独立游戏", "行业讨论"],
+    "summary": "一位资深游戏开发者分享了对游戏行业现状的看法，指出许多人误以为开发游戏只需要一个好的创意即可。文章探讨了游戏开发所需的技术、美术资源、时间投入等实际成本，引发社区广泛共鸣。",
+    "score": 2237
+  },
+  {
+    "source": "Reddit/r/gamedev",
+    "region": "US",
+    "title": "Do players actually read anything in games anymore?",
+    "title_zh": "玩家在游戏中还会阅读吗？",
+    "url": "https://www.reddit.com/r/gamedev/comments/1rw0hz0/do_players_actually_read_anything_in_games_anymore/",
+    "image": null,
+    "collected_at": "2026-03-18T15:00:00Z",
+    "tags": ["游戏设计", "UI/UX", "玩家行为"],
+    "summary": "游戏开发者讨论玩家在现代游戏中是否仍然愿意阅读文字内容。调查显示许多玩家倾向于跳过对话和剧情文本，这影响了游戏的叙事设计和美术风格的呈现方式。",
+    "score": 755
+  },
+  {
+    "source": "Reddit/r/3Dmodeling",
+    "region": "US",
+    "title": "The Biggest Threat to This Community Is Fear",
+    "title_zh": "这个社区最大的威胁是恐惧",
+    "url": "https://www.reddit.com/r/3Dmodeling/comments/1rcjr7z/the_biggest_threat_to_this_community_is_fear/",
+    "image": null,
+    "collected_at": "2026-03-18T15:00:00Z",
+    "tags": ["AI艺术", "3D建模", "社区管理"],
+    "summary": "3D建模社区管理员发布声明，指出当前社区面临的最大问题是对AI的恐惧导致的过度举报现象。社区正在采取措施打击无端指控AI生成作品的行为，同时承认AI工具在艺术创作中的合理使用位置。",
+    "score": 144
+  },
+  {
+    "source": "Reddit/r/gamedev",
+    "region": "US",
+    "title": "One Week After Releasing My First Steam Game: Postmortem + Numbers",
+    "title_zh": "发布第一款Steam游戏一周后：回顾与数据",
+    "url": "https://www.reddit.com/r/gamedev/comments/1qxzu9v/the_mod_teams_thoughts_on_low_effort_posts/",
+    "image": null,
+    "collected_at": "2026-03-18T15:00:00Z",
+    "tags": ["独立游戏", "Steam", "游戏发布"],
+    "summary": "独立开发者分享其首款游戏发布一周后的成绩：903个愿望清单，279份首周销量，约1300美元收入。文章详细分析了游戏开发过程中的美术资源准备、演示版本发布、营销策略等环节的得失。",
+    "score": 264
+  }
+]
