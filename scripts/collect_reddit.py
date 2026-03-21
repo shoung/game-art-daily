@@ -2,12 +2,17 @@
 """
 Reddit 論壇討論收集腳本
 只收集日本與歐美的遊戲美術外包相關討論
+使用 Tavily API 搜尋相關圖片
 """
 
 import os
 import json
 import datetime
 import requests
+import time
+
+# Tavily API Key
+TAVILY_API_KEY = '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'
 
 # 關鍵字 - 論壇風格 + 遊戲美術外包
 KEYWORDS = [
@@ -56,39 +61,84 @@ SUBREDDITS = [
     'freelance', 'freelancegamedev', 'Upwork', 'GameArtJobs'
 ]
 
-def get_image_for_keyword(title):
-    """根據關鍵詞返回相關圖片URL"""
+# 圖片快取，避免重複搜尋
+IMAGE_CACHE = {}
+
+# 備用 Unsplash 關鍵字圖片
+FALLBACK_IMAGES = {
+    '3d': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop',
+    'blender': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop',
+    'maya': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
+    'zbrush': 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&h=400&fit=crop',
+    'game': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
+    'art': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop',
+    'design': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
+    'AI': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
+    'midjourney': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
+    'unreal': 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop',
+    'unity': 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&h=400&fit=crop',
+    'pixel': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
+    'hiring': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop',
+    'job': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop',
+    'layoff': 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop',
+    'freelance': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
+    'portfolio': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
+    'vfx': 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop',
+    'animation': 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop',
+    'concept': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
+    'illustration': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop',
+    '日本': 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&h=400&fit=crop',
+    '東京': 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&h=400&fit=crop',
+    '獨立': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
+    'indie': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
+}
+
+
+def search_image_tavily(query, retries=2):
+    """使用 Tavily API 搜尋圖片 URL"""
+    cache_key = query[:100]  # 避免太長的 key
+    if cache_key in IMAGE_CACHE:
+        return IMAGE_CACHE[cache_key]
+    
+    for attempt in range(retries):
+        try:
+            url = 'https://api.tavily.com/search'
+            headers = {'Content-Type': 'application/json'}
+            payload = {
+                'api_key': TAVILY_API_KEY,
+                'query': query + ' game art',
+                'search_depth': 'basic',
+                'include_answer': False,
+                'include_images': True,
+                'include_image_descriptions': True,
+            }
+            resp = requests.post(url, json=payload, headers=headers, timeout=15)
+            if resp.status_code == 200:
+                data = resp.json()
+                images = data.get('images', [])
+                if images and len(images) > 0:
+                    img_url = images[0].get('url', '')
+                    if img_url and not img_url.startswith('data:'):
+                        IMAGE_CACHE[cache_key] = img_url
+                        return img_url
+        except Exception as e:
+            print(f"Tavily search failed (attempt {attempt+1}): {e}")
+        time.sleep(0.5)  # 避免太快
+    
+    IMAGE_CACHE[cache_key] = None
+    return None
+
+
+def get_image_for_title(title):
+    """根據標題關鍵字返回相關 Unsplash 圖片 URL"""
     title_lower = title.lower()
     
-    image_keywords = {
-        '3d': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop',
-        'blender': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop',
-        'maya': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
-        'zbrush': 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&h=400&fit=crop',
-        'game': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
-        'art': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop',
-        'design': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
-        'AI': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
-        'midjourney': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
-        'unreal': 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop',
-        'unity': 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&h=400&fit=crop',
-        'pixel': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
-        'hiring': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop',
-        'job': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop',
-        'layoff': 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop',
-        'freelance': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
-        'portfolio': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
-        'vfx': 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop',
-        'animation': 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop',
-        'concept': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
-        'illustration': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop',
-    }
-    
-    for keyword, img_url in image_keywords.items():
+    for keyword, img_url in FALLBACK_IMAGES.items():
         if keyword in title_lower:
             return img_url
     
     return 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop'
+
 
 def translate_to_simplified(text):
     """翻譯成簡體中文"""
@@ -152,6 +202,7 @@ def translate_to_simplified(text):
     
     return result
 
+
 def collect_reddit():
     """收集 Reddit 論壇討論 - 只日本與歐美"""
     results = []
@@ -177,17 +228,27 @@ def collect_reddit():
                     # 翻譯標題
                     translated_title = translate_to_simplified(post_data['title'])
                     
-                    # 獲取相關圖片
+                    # 獲取相關圖片 - 優先使用 Reddit 預覽圖
                     thumbnail = post_data.get('thumbnail', '')
-                    if thumbnail.startswith('http'):
+                    reddit_preview = post_data.get('preview', {}).get('images', [{}])[0].get('source', {}).get('url', '')
+                    
+                    if reddit_preview:
+                        # 使用 Reddit 預覽圖（移除縮址參數）
+                        image_url = reddit_preview.split('?')[0]
+                    elif thumbnail.startswith('http'):
                         image_url = thumbnail
                     else:
-                        image_url = get_image_for_keyword(post_data['title'])
+                        # 用 Tavily 搜尋相關圖片
+                        print(f"  Searching image for: {post_data['title'][:50]}...")
+                        image_url = search_image_tavily(post_data['title'])
+                        if not image_url:
+                            # 如果 Tavily 失敗，用關鍵字備用圖片
+                            image_url = get_image_for_title(post_data['title'])
                     
                     results.append({
                         'source': 'reddit',
                         'subreddit': sub,
-                        'region': 'US/EU',  # 標記區域
+                        'region': 'US/EU',
                         'title': post_data['title'],
                         'title_zh': translated_title,
                         'url': 'https://reddit.com' + permalink,
@@ -205,6 +266,7 @@ def collect_reddit():
             print(f'Error fetching r/{sub}: {e}')
     
     return results
+
 
 def get_tags(title):
     """根據標題獲取標籤"""
@@ -231,6 +293,7 @@ def get_tags(title):
         
     return tags
 
+
 def save_results(results):
     """儲存結果到 JSON"""
     today = datetime.datetime.now().strftime('%Y-%m-%d')
@@ -241,6 +304,7 @@ def save_results(results):
     
     print(f'Saved {len(results)} posts to {filepath}')
     return filepath
+
 
 if __name__ == '__main__':
     print('Starting Reddit forum collection (Japan & US/EU only)...')
