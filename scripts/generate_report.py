@@ -1,91 +1,96 @@
 #!/usr/bin/env python3
 """
-生成每日報告 HTML - 瀑布流 + 浮動卡片
+生成每日報告 HTML - 無限滾動瀑布流
+按日期倒序展示（最新在前），滾動到底部時自動載入更多
 """
 
 import os
 import json
 import datetime
+import re
 from pathlib import Path
 
-def load_latest_data():
-    """載入最新數據"""
+
+def load_all_data():
+    """載入所有數據，按日期排序（最新在前）"""
     data_dir = Path('data')
     all_items = []
     
-    for json_file in sorted(data_dir.glob('*.json')):
+    for json_file in sorted(data_dir.glob('*.json'), reverse=True):
         try:
             with open(json_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                # 處理新的 entries 格式 {"date": ..., "collected_at": ..., "entries": [...]}
                 if isinstance(data, dict) and 'entries' in data:
                     items = data['entries']
+                    file_date = data.get('date', json_file.stem)
                 elif isinstance(data, list):
                     items = data
+                    file_date = json_file.stem
                 else:
                     continue
+                    
                 for item in items:
-                    # 確保有足夠的內容
+                    item['collected_date'] = file_date
+                    
                     if 'summary' not in item:
                         item['summary'] = item.get('title_zh', '')[:50]
                     if 'content' not in item:
                         item['content'] = item.get('summary', item.get('title_zh', ''))
                     
-                    # 修復 Reddit URL - 移除 www. 避免 403
                     url = item.get('url', '')
                     if 'www.reddit.com' in url:
                         item['url'] = url.replace('www.reddit.com', 'reddit.com')
                     
-                    # 如果沒有圖片，根據標題關鍵字生成圖片
-                    if not item.get('image'):
-                        title = item.get('title', '') or item.get('title_zh', '')
-                        item['image'] = get_image_for_title(title)
-                    
                     all_items.append(item)
         except Exception as e:
             print(f"Error loading {json_file}: {e}")
-            pass
+            continue
     
-    all_items.sort(key=lambda x: x.get('score', 0), reverse=True)
-    return all_items[:20]
+    all_items.sort(key=lambda x: (x.get('collected_date', ''), x.get('score', 0)), reverse=True)
+    return all_items
 
 
-def get_image_for_title(title):
-    """根據標題關鍵字返回相關圖片URL"""
-    title_lower = title.lower()
+def escape_js_str(s):
+    """Escape string for JavaScript"""
+    if s is None:
+        return ''
+    return str(s).replace('\\', '\\\\').replace('"', '\\"').replace("'", "\\'").replace('\n', '\\n').replace('\r', '')
+
+
+def generate_card_html(item, index):
+    """Generate HTML for a single card"""
+    image = item.get('image', '')
+    title = escape_js_str(item.get('title', ''))
+    title_zh = escape_js_str(item.get('title_zh', title))
+    url = escape_js_str(item.get('url', '#'))
+    source = escape_js_str(item.get('subreddit', item.get('source', '')))
+    score = item.get('score', 0)
+    comments = item.get('num_comments', 0)
+    tags = item.get('tags', [])
+    collected_date = item.get('collected_date', '')
+    preview = escape_js_str(item.get('summary', title_zh[:80]))
     
-    image_keywords = {
-        '3d': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop',
-        'blender': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop',
-        'maya': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
-        'zbrush': 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&h=400&fit=crop',
-        'game': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
-        'art': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop',
-        'design': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
-        'AI': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
-        'unreal': 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop',
-        'unity': 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&h=400&fit=crop',
-        'pixel': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
-        'hiring': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop',
-        'job': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop',
-        'layoff': 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop',
-        'freelance': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
-        'portfolio': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
-        'vfx': 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop',
-        'animation': 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop',
-        'concept': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
-        'illustration': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop',
-        '日本': 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&h=400&fit=crop',
-        '東京': 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&h=400&fit=crop',
-        '獨立': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
-        'indie': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
-    }
+    date_badge = f'<span class="date-badge">{collected_date}</span>' if collected_date else ''
+    img_tag = f'<img src="{image}" alt="" class="card-image" loading="lazy">' if image else '<div class="card-image-placeholder"></div>'
+    tag_text = escape_js_str(tags[0] if tags else '')
     
-    for keyword, img_url in image_keywords.items():
-        if keyword in title_lower:
-            return img_url
-    
-    return 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop'
+    return f'''
+        <div class="card" onclick="showModal({index})">
+            {img_tag}
+            <div class="card-content">
+                {date_badge}
+                <span class="card-source">{source}</span>
+                <h3 class="card-title">{title_zh}</h3>
+                <p class="card-preview">{preview}</p>
+                <div class="card-footer">
+                    <span>⬆️ {score} · 💬 {comments}</span>
+                    <div>
+                        <span class="tag">{tag_text}</span>
+                    </div>
+                </div>
+            </div>
+        </div>'''
+
 
 def generate_html():
     """生成 HTML"""
@@ -93,9 +98,15 @@ def generate_html():
     today = datetime.datetime.now()
     date_str = today.strftime('%Y年%m月%d日')
     
-    items = load_latest_data()
+    items = load_all_data()
     
-    # 構建卡片數據
+    page_size = 20
+    first_page = items[:page_size]
+    
+    first_cards_html = ''
+    for i, item in enumerate(first_page):
+        first_cards_html += generate_card_html(item, i)
+    
     cards_json = json.dumps(items, ensure_ascii=False)
     
     html = f'''<!DOCTYPE html>
@@ -129,6 +140,7 @@ def generate_html():
             padding: 40px 0 30px;
             border-bottom: 1px solid var(--light-gray);
             margin-bottom: 30px;
+            text-align: center;
         }}
         
         .logo {{
@@ -151,38 +163,9 @@ def generate_html():
         }}
         
         .stats {{
-            margin-top: 20px;
+            margin-top: 15px;
             font-size: 14px;
             color: var(--gray);
-        }}
-        
-        .week-tabs {{
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }}
-        
-        .week-tab {{
-            padding: 8px 16px;
-            background: var(--white);
-            border: 2px solid var(--light-gray);
-            border-radius: 20px;
-            font-size: 13px;
-            color: var(--gray);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }}
-        
-        .week-tab:hover {{
-            border-color: var(--primary);
-            color: var(--primary);
-        }}
-        
-        .week-tab.active {{
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
         }}
         
         .waterfall {{
@@ -214,6 +197,13 @@ def generate_html():
         .card-image {{
             width: 100%;
             display: block;
+            object-fit: cover;
+        }}
+        
+        .card-image-placeholder {{
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
         }}
         
         .card-content {{
@@ -230,24 +220,32 @@ def generate_html():
             margin-bottom: 8px;
         }}
         
+        .date-badge {{
+            display: inline-block;
+            background: var(--dark);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            margin-right: 6px;
+        }}
+        
         .card-title {{
             font-size: 14px;
             font-weight: 500;
             margin-bottom: 6px;
+            line-height: 1.4;
         }}
-        
-        .card-title a {{
-            color: var(--dark);
-            text-decoration: none;
-        }}
-        
-        .card-title a:hover {{ color: var(--primary); }}
         
         .card-preview {{
             font-size: 13px;
             color: var(--gray);
             margin-bottom: 10px;
             line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }}
         
         .card-footer {{
@@ -267,12 +265,6 @@ def generate_html():
             font-size: 10px;
         }}
         
-        .tag.source-tag {{
-            background: var(--dark);
-            color: white;
-        }}
-        
-        /* Modal */
         .modal-overlay {{
             display: none;
             position: fixed;
@@ -298,7 +290,7 @@ def generate_html():
             border-radius: 16px;
             max-width: 700px;
             width: 100%;
-            max-height: 80vh;
+            max-height: 85vh;
             overflow-y: auto;
             position: relative;
             opacity: 0;
@@ -323,8 +315,9 @@ def generate_html():
         
         .modal-image {{
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
+            background: #f5f5f5;
         }}
         
         .modal-content {{
@@ -345,12 +338,6 @@ def generate_html():
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 8px;
-        }}
-        
-        .modal-title-zh {{
-            font-size: 16px;
-            color: var(--gray);
-            margin-bottom: 20px;
         }}
         
         .modal-body {{
@@ -377,6 +364,31 @@ def generate_html():
             color: #cc0000;
         }}
         
+        .loading {{
+            text-align: center;
+            padding: 30px;
+            color: var(--gray);
+            display: none;
+        }}
+        
+        .loading.active {{
+            display: block;
+        }}
+        
+        .loading-spinner {{
+            width: 30px;
+            height: 30px;
+            border: 3px solid var(--light-gray);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }}
+        
+        @keyframes spin {{
+            to {{ transform: rotate(360deg); }}
+        }}
+        
         footer {{
             padding: 30px 0;
             border-top: 1px solid var(--light-gray);
@@ -392,56 +404,21 @@ def generate_html():
             <div class="logo">Game Art Outsourcing</div>
             <h1>游戏美术外包日报</h1>
             <p class="date">{date_str}</p>
-            <p class="stats">📊 {len(items)} 条讨论</p>
-            
-            <!-- Week Tabs -->
-            <div class="week-tabs">
-                <a href="index.html" class="week-tab active">本周</a>
-                <a href="week10.html" class="week-tab">第10周</a>
-                <a href="week09.html" class="week-tab">第9周</a>
-            </div>
+            <p class="stats">📊 {len(items)} 条讨论 · 滚动加载更多</p>
         </header>
 '''
 
-    # Add CSS for tabs and better animation
-    # ... but first let me find where to add the CSS
-
-    if items:
-        html += '<div class="waterfall">'
+    if first_page:
+        html += f'<div class="waterfall" id="cardContainer">{first_cards_html}</div>'
+    else:
+        html += '<p style="padding:40px;text-align:center;color:#666;">暂无数据</p><div class="waterfall" id="cardContainer"></div>'
+    
+    html += '''
+        <div class="loading" id="loadingIndicator">
+            <div class="loading-spinner"></div>
+            <p>加载更多...</p>
+        </div>
         
-        for i, item in enumerate(items):
-            image = item.get('image', 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop')
-            title = item.get('title', '')
-            title_zh = item.get('title_zh', title)
-            url = item.get('url', '#')
-            source = item.get('subreddit', item.get('source', ''))
-            score = item.get('score', 0)
-            comments = item.get('num_comments', 0)
-            tags = item.get('tags', [])
-            preview = item.get('summary', title_zh[:50])
-            content = item.get('content', title_zh)
-            
-            html += f'''
-        <div class="card" onclick="showModal({i})">
-            <img src="{image}" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">{source}</span>
-                <h3 class="card-title">{title_zh}</h3>
-                <p class="card-preview">{preview}</p>
-                <div class="card-footer">
-                    <span>⬆️ {score} · 💬 {comments}</span>
-                    <div>
-                        <span class="tag">{tags[0] if tags else ''}</span>
-                        <span class="tag source-tag">{item.get('source_name', source)}</span>
-                    </div>
-                </div>
-            </div>
-        </div>'''
-        
-        html += '</div>'
-        
-        # 添加 Modal HTML
-        html += f'''
         <div class="modal-overlay" id="modal" onclick="closeModal(event)">
             <div class="modal" onclick="event.stopPropagation()">
                 <span class="modal-close" onclick="hideModal()">✕</span>
@@ -451,21 +428,92 @@ def generate_html():
                     <h2 class="modal-title" id="modalTitle"></h2>
                     <p class="modal-original-title" id="modalOriginalTitle"></p>
                     <div class="modal-body" id="modalBody"></div>
-                    <p class="modal-original-title" id="modalOriginalTitle"></p>
                     <a href="#" target="_blank" class="modal-link" id="modalLink">查看原文 →</a>
                 </div>
             </div>
         </div>
-'''
-        
-        # 添加 JavaScript
-        html += f'''
+    '''
+    
+    html += f'''
         <script>
-        const cardsData = {cards_json};
+        var allData = {cards_json};
+        var currentIndex = {len(first_page)};
+        var pageSize = {page_size};
+        var totalItems = allData.length;
+        
+        var loadingIndicator = document.getElementById('loadingIndicator');
+        var cardContainer = document.getElementById('cardContainer');
+        
+        function createCardHTML(item, index) {{
+            var image = item.image || '';
+            var title = item.title || '';
+            var titleZh = item.title_zh || title;
+            var source = item.subreddit || item.source || '';
+            var score = item.score || 0;
+            var comments = item.num_comments || 0;
+            var tags = item.tags || [];
+            var date = item.collected_date || '';
+            var preview = item.summary || titleZh.substring(0, 80);
+            var dateBadge = date ? '<span class="date-badge">' + date + '</span>' : '';
+            var tagText = tags.length > 0 ? tags[0] : '';
+            var imgTag = image ? '<img src="' + image + '" alt="" class="card-image" loading="lazy">' : '<div class="card-image-placeholder"></div>';
+            
+            return '<div class="card" onclick="showModal(' + index + ')">' +
+                imgTag +
+                '<div class="card-content">' +
+                dateBadge +
+                '<span class="card-source">' + source + '</span>' +
+                '<h3 class="card-title">' + titleZh + '</h3>' +
+                '<p class="card-preview">' + preview + '</p>' +
+                '<div class="card-footer">' +
+                '<span>⬆️ ' + score + ' · 💬 ' + comments + '</span>' +
+                '<div><span class="tag">' + tagText + '</span></div>' +
+                '</div></div></div>';
+        }}
+        
+        function loadMoreCards() {{
+            if (currentIndex >= totalItems) {{
+                loadingIndicator.classList.remove('active');
+                loadingIndicator.innerHTML = '<p>已加载全部 ' + totalItems + ' 条</p>';
+                return;
+            }}
+            
+            loadingIndicator.classList.add('active');
+            
+            setTimeout(function() {{
+                var endIndex = Math.min(currentIndex + pageSize, totalItems);
+                var newCardsHTML = '';
+                
+                for (var i = currentIndex; i < endIndex; i++) {{
+                    newCardsHTML += createCardHTML(allData[i], i);
+                }}
+                
+                cardContainer.insertAdjacentHTML('beforeend', newCardsHTML);
+                currentIndex = endIndex;
+                loadingIndicator.classList.remove('active');
+                
+                if (currentIndex >= totalItems) {{
+                    loadingIndicator.innerHTML = '<p>已加载全部 ' + totalItems + ' 条</p>';
+                }}
+            }}, 300);
+        }}
+        
+        var observer = new IntersectionObserver(function(entries) {{
+            entries.forEach(function(entry) {{
+                if (entry.isIntersecting && currentIndex < totalItems) {{
+                    loadMoreCards();
+                }}
+            }});
+        }}, {{ rootMargin: '200px' }});
+        
+        if (loadingIndicator) {{
+            observer.observe(loadingIndicator);
+        }}
         
         function showModal(index) {{
-            const item = cardsData[index];
-            document.getElementById('modalImage').src = item.image || 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop';
+            var item = allData[index];
+            var modalImg = document.getElementById('modalImage');
+            modalImg.src = item.image || 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop';
             document.getElementById('modalSource').textContent = item.subreddit || item.source || '';
             document.getElementById('modalTitle').textContent = item.title_zh || item.title || '';
             document.getElementById('modalOriginalTitle').textContent = '原文: ' + (item.title || '');
@@ -490,19 +538,18 @@ def generate_html():
             if (e.key === 'Escape') hideModal();
         }});
         </script>
-'''
-    else:
-        html += '<p style="padding:40px;text-align:center;color:#666;">暂无数据</p>'
-
+    '''
+    
     html += f'''
         <footer>
-            <p>📅 更新于 {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}</p>
+            <p>📅 更新于 {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')} · 共 {len(items)} 条</p>
         </footer>
     </div>
 </body>
 </html>'''
     
     return html
+
 
 def main():
     print("Generating daily report...")
@@ -511,7 +558,9 @@ def main():
     with open('output/index.html', 'w', encoding='utf-8') as f:
         f.write(html)
     
-    print(f"Done! Generated index.html with {len(load_latest_data())} items")
+    items = load_all_data()
+    print(f"Done! Generated index.html with {len(items)} items")
+
 
 if __name__ == '__main__':
     main()
