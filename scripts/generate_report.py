@@ -16,16 +16,23 @@ def load_latest_data():
     for json_file in sorted(data_dir.glob('*.json')):
         try:
             with open(json_file, 'r', encoding='utf-8') as f:
-                items = json.load(f)
-                if isinstance(items, list):
-                    for item in items:
-                        # 確保有足夠的內容
-                        if 'summary' not in item:
-                            item['summary'] = item.get('title_zh', '')[:50]
-                        if 'content' not in item:
-                            item['content'] = item.get('title_zh', '')
-                        all_items.append(item)
-        except:
+                data = json.load(f)
+                # 處理新的 entries 格式 {"date": ..., "collected_at": ..., "entries": [...]}
+                if isinstance(data, dict) and 'entries' in data:
+                    items = data['entries']
+                elif isinstance(data, list):
+                    items = data
+                else:
+                    continue
+                for item in items:
+                    # 確保有足夠的內容
+                    if 'summary' not in item:
+                        item['summary'] = item.get('title_zh', '')[:50]
+                    if 'content' not in item:
+                        item['content'] = item.get('summary', item.get('title_zh', ''))
+                    all_items.append(item)
+        except Exception as e:
+            print(f"Error loading {json_file}: {e}")
             pass
     
     all_items.sort(key=lambda x: x.get('score', 0), reverse=True)
