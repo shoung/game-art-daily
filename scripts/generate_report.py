@@ -30,6 +30,17 @@ def load_latest_data():
                         item['summary'] = item.get('title_zh', '')[:50]
                     if 'content' not in item:
                         item['content'] = item.get('summary', item.get('title_zh', ''))
+                    
+                    # 修復 Reddit URL - 移除 www. 避免 403
+                    url = item.get('url', '')
+                    if 'www.reddit.com' in url:
+                        item['url'] = url.replace('www.reddit.com', 'reddit.com')
+                    
+                    # 如果沒有圖片，根據標題關鍵字生成圖片
+                    if not item.get('image'):
+                        title = item.get('title', '') or item.get('title_zh', '')
+                        item['image'] = get_image_for_title(title)
+                    
                     all_items.append(item)
         except Exception as e:
             print(f"Error loading {json_file}: {e}")
@@ -37,6 +48,44 @@ def load_latest_data():
     
     all_items.sort(key=lambda x: x.get('score', 0), reverse=True)
     return all_items[:20]
+
+
+def get_image_for_title(title):
+    """根據標題關鍵字返回相關圖片URL"""
+    title_lower = title.lower()
+    
+    image_keywords = {
+        '3d': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop',
+        'blender': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop',
+        'maya': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
+        'zbrush': 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&h=400&fit=crop',
+        'game': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
+        'art': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop',
+        'design': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
+        'AI': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
+        'unreal': 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop',
+        'unity': 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&h=400&fit=crop',
+        'pixel': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
+        'hiring': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop',
+        'job': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop',
+        'layoff': 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop',
+        'freelance': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
+        'portfolio': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
+        'vfx': 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop',
+        'animation': 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop',
+        'concept': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
+        'illustration': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop',
+        '日本': 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&h=400&fit=crop',
+        '東京': 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&h=400&fit=crop',
+        '獨立': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
+        'indie': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop',
+    }
+    
+    for keyword, img_url in image_keywords.items():
+        if keyword in title_lower:
+            return img_url
+    
+    return 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop'
 
 def generate_html():
     """生成 HTML"""
