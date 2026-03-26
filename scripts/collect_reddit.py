@@ -10,9 +10,18 @@ import json
 import datetime
 import requests
 import time
+import praw
+from dotenv import load_dotenv
+from utils_llm import translate_and_summarize
 
-# Tavily API Key
-TAVILY_API_KEY = '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'
+# Load environment variables
+load_dotenv()
+
+# API Keys from environment
+TAVILY_API_KEY = os.getenv('TAVILY_API_KEY')
+REDDIT_CLIENT_ID = os.getenv('REDDIT_CLIENT_ID')
+REDDIT_CLIENT_SECRET = os.getenv('REDDIT_CLIENT_SECRET')
+REDDIT_USER_AGENT = os.getenv('REDDIT_USER_AGENT', 'game-art-daily-collector/1.0')
 
 # 關鍵字 - 論壇風格 + 遊戲美術外包
 KEYWORDS = [
@@ -204,12 +213,83 @@ def translate_to_simplified(text):
 
 
 def collect_reddit():
-    """收集 Reddit 論壇討論 - 只日本與歐美"""
+    """收集 Reddit 論壇討論 - 使用 praw"""
     results = []
     
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-    }
+    if not all([REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET]):
+        print("Missing Reddit API credentials. Using fallback method...")
+        return collect_reddit_fallback()
+
+    try:
+        reddit = praw.Reddit(
+            client_id=REDDIT_CLIENT_ID,
+            client_secret=REDDIT_CLIENT_SECRET,
+            user_agent=REDDIT_USER_AGENT
+        )
+        
+        for sub_name in SUBREDDITS:
+            try:
+                print(f"Fetching r/{sub_name}...")
+                subreddit = reddit.subreddit(sub_name)
+                for submission in subreddit.hot(limit=50):
+                    title_lower = submission.title.lower()
+                    
+                    # 檢查關鍵字
+                    if any(kw.lower() in title_lower for kw in KEYWORDS):
+                        # 翻譯標題與摘要 - 優先使用 LLM
+                        from utils_llm import translate_and_summarize
+                        translated_title, summary = translate_and_summarize(submission.title)
+                        
+                        if not translated_title or translated_title == submission.title:
+                            translated_title = translate_to_simplified(submission.title)
+                            summary = translated_title[:100]
+                        
+                        # 獲取圖片
+                        image_url = None
+                        if hasattr(submission, 'preview'):
+                            try:
+                                image_url = submission.preview['images'][0]['source']['url']
+                            except (KeyError, IndexError):
+                                pass
+                        
+                        if not image_url and submission.thumbnail and submission.thumbnail.startswith('http'):
+                            image_url = submission.thumbnail
+                        
+                        if not image_url:
+                            print(f"  Searching image for: {submission.title[:50]}...")
+                            image_url = search_image_tavily(submission.title)
+                        
+                        if not image_url:
+                            image_url = get_image_for_title(submission.title)
+                        
+                        results.append({
+                            'source': 'reddit',
+                            'subreddit': sub_name,
+                            'region': 'US/EU',
+                            'title': submission.title,
+                            'title_zh': translated_title,
+                            'url': 'https://reddit.com' + submission.permalink,
+                            'score': submission.score,
+                            'num_comments': submission.num_comments,
+                            'image': image_url,
+                            'created_utc': datetime.datetime.fromtimestamp(submission.created_utc).isoformat(),
+                            'flair': submission.link_flair_text,
+                            'tags': get_tags(submission.title)
+                        })
+            except Exception as e:
+                print(f'Error fetching r/{sub_name}: {e}')
+                
+    except Exception as e:
+        print(f"Error initializing Reddit API: {e}")
+        return collect_reddit_fallback()
+    
+    return results
+
+
+def collect_reddit_fallback():
+    """備用方案：使用 requests 獲取 JSON"""
+    results = []
+    headers = {'User-Agent': REDDIT_USER_AGENT}
     
     for sub in SUBREDDITS:
         try:
@@ -219,52 +299,47 @@ def collect_reddit():
             
             for post in data['data']['children']:
                 post_data = post['data']
-                title_lower = post_data['title'].lower()
+                title_original = post_data['title']
+                title_lower = title_original.lower()
                 
-                # 檢查關鍵字
                 if any(kw.lower() in title_lower for kw in KEYWORDS):
-                    permalink = post_data.get('permalink', '')
+                    print(f"  Translating (fallback): {title_original[:50]}...")
+                    translated_title, summary = translate_and_summarize(title_original)
                     
-                    # 翻譯標題
-                    translated_title = translate_to_simplified(post_data['title'])
+                    if not translated_title or translated_title == title_original:
+                        translated_title = translate_to_simplified(title_original)
                     
-                    # 獲取相關圖片 - 優先使用 Reddit 預覽圖
                     thumbnail = post_data.get('thumbnail', '')
                     reddit_preview = post_data.get('preview', {}).get('images', [{}])[0].get('source', {}).get('url', '')
                     
                     if reddit_preview:
-                        # 使用 Reddit 預覽圖（移除縮址參數）
                         image_url = reddit_preview.split('?')[0]
                     elif thumbnail.startswith('http'):
                         image_url = thumbnail
                     else:
-                        # 用 Tavily 搜尋相關圖片
-                        print(f"  Searching image for: {post_data['title'][:50]}...")
-                        image_url = search_image_tavily(post_data['title'])
+                        image_url = search_image_tavily(title_original)
                         if not image_url:
-                            # 如果 Tavily 失敗，用關鍵字備用圖片
-                            image_url = get_image_for_title(post_data['title'])
+                            image_url = get_image_for_title(title_original)
                     
                     results.append({
                         'source': 'reddit',
                         'subreddit': sub,
                         'region': 'US/EU',
-                        'title': post_data['title'],
+                        'title': title_original,
                         'title_zh': translated_title,
-                        'url': 'https://reddit.com' + permalink,
+                        'summary': summary,
+                        'content': summary,
+                        'url': 'https://reddit.com' + post_data.get('permalink', ''),
                         'score': post_data.get('score', 0),
                         'num_comments': post_data.get('num_comments', 0),
                         'image': image_url,
-                        'created_utc': datetime.datetime.fromtimestamp(
-                            post_data.get('created_utc', 0)
-                        ).isoformat(),
+                        'created_utc': datetime.datetime.fromtimestamp(post_data.get('created_utc', 0)).isoformat(),
                         'flair': post_data.get('link_flair_text'),
-                        'tags': get_tags(post_data['title'])
+                        'tags': get_tags(title_original)
                     })
-                    
         except Exception as e:
-            print(f'Error fetching r/{sub}: {e}')
-    
+            print(f'Error fetching r/{sub} (fallback): {e}')
+            
     return results
 
 

@@ -1,52 +1,48 @@
-#!/usr/bin/env python3
-"""
-生成每日報告 HTML - 瀑布流 + 浮動卡片
-"""
-
 import os
 import json
 import datetime
 from pathlib import Path
 
-def load_latest_data():
-    """載入最新數據"""
+def load_all_data():
+    """載入所有數據並去重"""
     data_dir = Path('data')
     all_items = []
     
-    for json_file in sorted(data_dir.glob('*.json')):
+    # 遍歷所有 json 檔案
+    if not data_dir.exists():
+        data_dir.mkdir(exist_ok=True)
+        
+    for json_file in data_dir.glob('*.json'):
         try:
             with open(json_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                # 處理新的 entries 格式 {"date": ..., "collected_at": ..., "entries": [...]}
-                if isinstance(data, dict) and 'entries' in data:
-                    items = data['entries']
-                elif isinstance(data, list):
-                    items = data
-                else:
-                    continue
+                items = data if isinstance(data, list) else data.get('entries', [])
                 for item in items:
-                    # 確保有足夠的內容
-                    if 'summary' not in item:
-                        item['summary'] = item.get('title_zh', '')[:50]
-                    if 'content' not in item:
-                        item['content'] = item.get('summary', item.get('title_zh', ''))
+                    if not isinstance(item, dict): continue
+                    if 'title_zh' not in item and 'title' not in item: continue
                     all_items.append(item)
         except Exception as e:
             print(f"Error loading {json_file}: {e}")
-            pass
     
-    all_items.sort(key=lambda x: x.get('score', 0), reverse=True)
-    return all_items[:20]
+    # 去重 (依標題)
+    unique_items = []
+    seen = set()
+    for item in all_items:
+        title = item.get('title') or item.get('title_zh')
+        if title not in seen:
+            seen.add(title)
+            unique_items.append(item)
+    
+    # 按分數排序
+    unique_items.sort(key=lambda x: x.get('score', 0), reverse=True)
+    return unique_items
 
-def generate_html():
-    """生成 HTML"""
-    
+def generate_html(items):
+    """生成具有無限捲動功能的 HTML 報告"""
     today = datetime.datetime.now()
     date_str = today.strftime('%Y年%m月%d日')
+    update_time = today.strftime('%H:%M')
     
-    items = load_latest_data()
-    
-    # 構建卡片數據
     cards_json = json.dumps(items, ensure_ascii=False)
     
     html = f'''<!DOCTYPE html>
@@ -54,415 +50,383 @@ def generate_html():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏美术外包日报</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Game Art Daily - 遊戲美術外包日報</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {{
-            --primary: #e20001;
-            --dark: #1a1a1a;
-            --gray: #666666;
-            --light-gray: #f5f5f5;
-            --white: #ffffff;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #1a1a1a;
+            --text-secondary: #6c757d;
+            --primary: #e63946;
+            --accent: #457b9d;
+            --border: #e9ecef;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --modal-bg: rgba(0,0,0,0.85);
         }}
-        
+
+        [data-theme="dark"] {{
+            --bg: #121212;
+            --card-bg: #1e1e1e;
+            --text: #f8f9fa;
+            --text-secondary: #adb5bd;
+            --border: #2d2d2d;
+            --shadow: 0 4px 25px rgba(0,0,0,0.3);
+        }}
+
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         
         body {{
-            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--white);
-            color: var(--dark);
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.3s, color 0.3s;
             line-height: 1.6;
         }}
-        
-        .container {{ max-width: 1400px; margin: 0 auto; padding: 0 20px; }}
-        
+
+        .container {{ max-width: 1400px; margin: 0 auto; padding: 0 24px; }}
+
+        /* Header */
         header {{
-            padding: 40px 0 30px;
-            border-bottom: 1px solid var(--light-gray);
-            margin-bottom: 30px;
-        }}
-        
-        .logo {{
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--gray);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }}
-        
-        h1 {{
-            font-size: 32px;
-            font-weight: 700;
-            margin: 10px 0;
-        }}
-        
-        .date {{
-            color: var(--gray);
-            font-size: 14px;
-        }}
-        
-        .stats {{
-            margin-top: 20px;
-            font-size: 14px;
-            color: var(--gray);
-        }}
-        
-        .week-tabs {{
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }}
-        
-        .week-tab {{
-            padding: 8px 16px;
-            background: var(--white);
-            border: 2px solid var(--light-gray);
-            border-radius: 20px;
-            font-size: 13px;
-            color: var(--gray);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }}
-        
-        .week-tab:hover {{
-            border-color: var(--primary);
-            color: var(--primary);
-        }}
-        
-        .week-tab.active {{
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-        }}
-        
-        .waterfall {{
-            column-count: 4;
-            column-gap: 20px;
-            padding: 20px 0 40px;
-        }}
-        
-        @media (max-width: 1200px) {{ .waterfall {{ column-count: 3; }} }}
-        @media (max-width: 900px) {{ .waterfall {{ column-count: 2; }} }}
-        @media (max-width: 600px) {{ .waterfall {{ column-count: 1; }} }}
-        
-        .card {{
-            break-inside: avoid;
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }}
-        
-        .card:hover {{
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-        }}
-        
-        .card-image {{
-            width: 100%;
-            display: block;
-        }}
-        
-        .card-content {{
-            padding: 16px;
-        }}
-        
-        .card-source {{
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 3px;
-            font-size: 11px;
-            margin-bottom: 8px;
-        }}
-        
-        .card-title {{
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 6px;
-        }}
-        
-        .card-title a {{
-            color: var(--dark);
-            text-decoration: none;
-        }}
-        
-        .card-title a:hover {{ color: var(--primary); }}
-        
-        .card-preview {{
-            font-size: 13px;
-            color: var(--gray);
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }}
-        
-        .card-footer {{
+            padding: 80px 0 40px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding-top: 10px;
-            border-top: 1px solid var(--light-gray);
-            font-size: 12px;
-            color: var(--gray);
+            align-items: flex-end;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
         }}
+
+        .brand h1 {{ font-size: 2.8rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 10px; }}
+        .brand p {{ color: var(--text-secondary); font-size: 1.2rem; }}
         
-        .tag {{
-            background: var(--light-gray);
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 10px;
-        }}
+        .controls {{ display: flex; gap: 15px; align-items: center; }}
         
-        .tag.source-tag {{
-            background: var(--dark);
-            color: white;
-        }}
-        
-        /* Modal */
-        .modal-overlay {{
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0);
-            z-index: 1000;
+        .theme-toggle {{
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            transition: background 0.3s ease;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
         }}
-        
-        .modal-overlay.active {{
-            display: flex;
-            background: rgba(0,0,0,0.7);
+
+        /* Grid Layout */
+        #grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            padding-bottom: 40px;
         }}
-        
-        .modal {{
-            background: var(--white);
-            border-radius: 16px;
-            max-width: 700px;
-            width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            opacity: 0;
-            transform: scale(0.7) translateY(30px);
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        #loading-sentinel {{ 
+            height: 100px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: var(--text-secondary); 
+            font-weight: 500;
         }}
-        
-        .modal-overlay.active .modal {{
-            opacity: 1;
-            transform: scale(1);
-        }}
-        
-        .modal-close {{
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            font-size: 24px;
+
+        /* Card Style */
+        .card {{
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             cursor: pointer;
-            color: var(--gray);
-            z-index: 10;
+            animation: fadeIn 0.6s ease forwards;
         }}
-        
-        .modal-image {{
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
+
+        @keyframes fadeIn {{
+            from {{ opacity: 0; transform: translateY(20px); }}
+            to {{ opacity: 1; transform: translateY(0); }}
         }}
-        
-        .modal-content {{
-            padding: 24px;
+
+        .card:hover {{
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            border-color: var(--primary);
         }}
-        
-        .modal-source {{
-            display: inline-block;
+
+        .card-img-wrapper {{ position: relative; height: 220px; overflow: hidden; }}
+        .card-img {{ width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }}
+        .card:hover .card-img {{ transform: scale(1.05); }}
+
+        .card-badge {{
+            position: absolute;
+            top: 15px; left: 15px;
             background: var(--primary);
             color: white;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-bottom: 12px;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 2;
         }}
+
+        .card-body {{ padding: 24px; }}
+        .card-title {{ font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 3.4em; }}
+        .card-summary {{ font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px; height: 4.8em; overflow: hidden; }}
         
-        .modal-title {{
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
+        .card-meta {{
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
         }}
-        
-        .modal-title-zh {{
-            font-size: 16px;
-            color: var(--gray);
-            margin-bottom: 20px;
+
+        /* Modal */
+        .modal-overlay {{
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--modal-bg);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            backdrop-filter: blur(12px);
+            transition: background 0.5s ease;
         }}
-        
-        .modal-body {{
-            font-size: 15px;
-            line-height: 1.8;
-            color: var(--dark);
-            margin-bottom: 20px;
+
+        .modal {{
+            background: var(--card-bg);
+            max-width: 850px;
+            width: 100%;
+            border-radius: 32px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.85) rotate(-4deg) translateY(60px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
         }}
-        
-        .modal-original-title {{
-            font-size: 13px;
-            color: var(--gray);
-            margin-bottom: 16px;
-            font-style: italic;
+
+        .modal-overlay.active {{ display: flex; }}
+        .modal-overlay.active .modal {{ 
+            transform: scale(1) rotate(0deg) translateY(0); 
+            opacity: 1; 
+            pointer-events: auto;
         }}
-        
-        .modal-link {{
-            color: var(--primary);
-            text-decoration: underline;
-            font-size: 14px;
+
+        .modal-close {{
+            position: absolute;
+            top: 24px; right: 24px;
+            width: 44px; height: 44px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
         }}
+
+        .modal-hero {{ width: 100%; height: 380px; object-fit: cover; }}
+        .modal-content {{ padding: 48px; }}
+        .modal-source {{ color: var(--primary); font-weight: 700; margin-bottom: 12px; display: block; letter-spacing: 1px; }}
+        .modal-title {{ font-size: 2.2rem; font-weight: 800; margin-bottom: 24px; line-height: 1.25; }}
+        .modal-text {{ font-size: 1.15rem; margin-bottom: 36px; white-space: pre-wrap; color: var(--text); opacity: 0.9; }}
         
-        .modal-link:hover {{
-            color: #cc0000;
+        .btn {{
+            display: inline-block;
+            padding: 14px 36px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 700;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
         }}
-        
-        footer {{
-            padding: 30px 0;
-            border-top: 1px solid var(--light-gray);
-            text-align: center;
-            color: var(--gray);
-            font-size: 12px;
+        .btn:hover {{ transform: translateY(-2px); box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4); }}
+
+        footer {{ padding: 80px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); }}
+
+        @media (max-width: 768px) {{
+            header {{ flex-direction: column; padding: 60px 0 30px; align-items: flex-start; gap: 20px; }}
+            .brand h1 {{ font-size: 2.2rem; }}
+            .modal-content {{ padding: 30px; }}
+            .modal-title {{ font-size: 1.6rem; }}
         }}
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="logo">Game Art Outsourcing</div>
-            <h1>游戏美术外包日报</h1>
-            <p class="date">{date_str}</p>
-            <p class="stats">📊 {len(items)} 条讨论</p>
-            
-            <!-- Week Tabs -->
-            <div class="week-tabs">
-                <a href="index.html" class="week-tab active">本周</a>
-                <a href="week10.html" class="week-tab">第10周</a>
-                <a href="week09.html" class="week-tab">第9周</a>
+            <div class="brand">
+                <h1>Game Art Daily</h1>
+                <p>📈 {date_str} 更新 · 精選全球資訊</p>
+            </div>
+            <div class="controls">
+                <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
             </div>
         </header>
-'''
 
-    # Add CSS for tabs and better animation
-    # ... but first let me find where to add the CSS
+        <div id="grid"></div>
+        <div id="loading-sentinel">載入中...</div>
 
-    if items:
-        html += '<div class="waterfall">'
-        
-        for i, item in enumerate(items):
-            image = item.get('image', 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop')
-            title = item.get('title', '')
-            title_zh = item.get('title_zh', title)
-            url = item.get('url', '#')
-            source = item.get('subreddit', item.get('source', ''))
-            score = item.get('score', 0)
-            comments = item.get('num_comments', 0)
-            tags = item.get('tags', [])
-            preview = item.get('summary', title_zh[:50])
-            content = item.get('content', title_zh)
-            
-            html += f'''
-        <div class="card" onclick="showModal({i})">
-            <img src="{image}" alt="" class="card-image">
-            <div class="card-content">
-                <span class="card-source">{source}</span>
-                <h3 class="card-title">{title_zh}</h3>
-                <p class="card-preview">{preview}</p>
-                <div class="card-footer">
-                    <span>⬆️ {score} · 💬 {comments}</span>
-                    <div>
-                        <span class="tag">{tags[0] if tags else ''}</span>
-                        <span class="tag source-tag">{item.get('source_name', source)}</span>
-                    </div>
-                </div>
-            </div>
-        </div>'''
-        
-        html += '</div>'
-        
-        # 添加 Modal HTML
-        html += f'''
-        <div class="modal-overlay" id="modal" onclick="closeModal(event)">
-            <div class="modal" onclick="event.stopPropagation()">
-                <span class="modal-close" onclick="hideModal()">✕</span>
-                <img src="" alt="" class="modal-image" id="modalImage">
-                <div class="modal-content">
-                    <span class="modal-source" id="modalSource"></span>
-                    <h2 class="modal-title" id="modalTitle"></h2>
-                    <p class="modal-original-title" id="modalOriginalTitle"></p>
-                    <div class="modal-body" id="modalBody"></div>
-                    <p class="modal-original-title" id="modalOriginalTitle"></p>
-                    <a href="#" target="_blank" class="modal-link" id="modalLink">查看原文 →</a>
-                </div>
-            </div>
-        </div>
-'''
-        
-        # 添加 JavaScript
-        html += f'''
-        <script>
-        const cardsData = {cards_json};
-        
-        function showModal(index) {{
-            const item = cardsData[index];
-            document.getElementById('modalImage').src = item.image || 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop';
-            document.getElementById('modalSource').textContent = item.subreddit || item.source || '';
-            document.getElementById('modalTitle').textContent = item.title_zh || item.title || '';
-            document.getElementById('modalOriginalTitle').textContent = '原文: ' + (item.title || '');
-            document.getElementById('modalBody').textContent = item.content || item.summary || item.title_zh || '';
-            document.getElementById('modalLink').href = item.url || '#';
-            document.getElementById('modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }}
-        
-        function hideModal() {{
-            document.getElementById('modal').classList.remove('active');
-            document.body.style.overflow = '';
-        }}
-        
-        function closeModal(e) {{
-            if (e.target.classList.contains('modal-overlay')) {{
-                hideModal();
-            }}
-        }}
-        
-        document.addEventListener('keydown', function(e) {{
-            if (e.key === 'Escape') hideModal();
-        }});
-        </script>
-'''
-    else:
-        html += '<p style="padding:40px;text-align:center;color:#666;">暂无数据</p>'
-
-    html += f'''
         <footer>
-            <p>📅 更新于 {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}</p>
+            <p>© {today.year} Game Art Daily · 提供高品質行業洞察</p>
+            <p style="margin-top: 8px; font-size: 0.8rem; opacity: 0.6;">手動匯入 JSON 驅動版</p>
         </footer>
     </div>
+
+    <!-- Modal Container -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" id="modal">
+            <div class="modal-close" onclick="hideModal()">✕</div>
+            <img class="modal-hero" id="modalHero" src="" alt="">
+            <div class="modal-content">
+                <span class="modal-source" id="modalSource">SOURCE</span>
+                <h2 class="modal-title" id="modalTitle">Title</h2>
+                <div class="modal-text" id="modalText">Content</div>
+                <a href="#" class="btn" id="modalLink" target="_blank">進入原始討論 →</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const allData = {cards_json};
+        let currentIndex = 0;
+        const BATCH_SIZE = 20;
+
+        const grid = document.getElementById('grid');
+        const sentinel = document.getElementById('loading-sentinel');
+
+        function createCard(item, index) {{
+            const source = (item.subreddit || item.source || 'NEWS').toUpperCase();
+            const score = item.score || 0;
+            const comments = item.num_comments || 0;
+            const image = item.image || 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&h=400&fit=crop';
+            const title_zh = item.title_zh || item.title || '無標題';
+            
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.onclick = () => showModal(index);
+            card.innerHTML = `
+                <div class="card-badge">${{source}}</div>
+                <div class="card-img-wrapper">
+                    <img class="card-img" src="${{image}}" alt="" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">${{title_zh}}</h3>
+                    <p class="card-summary">${{item.summary || ''}}</p>
+                    <div class="card-meta">
+                        <span>🔥 ${{score}}</span>
+                        <span>💬 ${{comments}}</span>
+                    </div>
+                </div>
+            `;
+            return card;
+        }}
+
+        function loadMore() {{
+            if (currentIndex >= allData.length) {{
+                sentinel.textContent = '已顯示所有內容';
+                return;
+            }}
+
+            const fragment = document.createDocumentFragment();
+            const end = Math.min(currentIndex + BATCH_SIZE, allData.length);
+            
+            for (let i = currentIndex; i < end; i++) {{
+                fragment.appendChild(createCard(allData[i], i));
+            }}
+            
+            grid.appendChild(fragment);
+            currentIndex = end;
+
+            if (currentIndex >= allData.length) {{
+                sentinel.textContent = '已顯示所有內容';
+                observer.unobserve(sentinel);
+            }}
+        }}
+
+        // Intersection Observer for Infinite Scroll
+        const observer = new IntersectionObserver((entries) => {{
+            if (entries[0].isIntersecting) {{
+                loadMore();
+            }}
+        }}, {{ rootMargin: '200px' }});
+
+        observer.observe(sentinel);
+
+        // Theme Toggle
+        function toggleTheme() {{
+            const body = document.body;
+            const current = body.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            document.getElementById('themeBtn').textContent = next === 'dark' ? '☀️' : '🌙';
+        }}
+
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {{
+            document.body.setAttribute('data-theme', 'dark');
+            document.getElementById('themeBtn').textContent = '☀️';
+        }}
+
+        // Modal Logic
+        function showModal(index) {{
+            const item = allData[index];
+            const title_zh = item.title_zh || item.title || '無標題';
+            document.getElementById('modalHero').src = item.image || 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=800&h=500&fit=crop';
+            document.getElementById('modalSource').textContent = (item.subreddit || item.source || 'NEWS').toUpperCase();
+            document.getElementById('modalTitle').textContent = title_zh;
+            document.getElementById('modalText').textContent = item.content || item.summary || '';
+            document.getElementById('modalLink').href = item.url || '#';
+            
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }}
+
+        function hideModal() {{
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }}
+
+        function closeModal(e) {{
+            if (e.target === document.getElementById('modalOverlay')) hideModal();
+        }}
+
+        document.addEventListener('keydown', (e) => {{
+            if (e.key === 'Escape') hideModal();
+        }});
+    </script>
 </body>
 </html>'''
-    
     return html
 
 def main():
-    print("Generating daily report...")
+    print("🚀 Generating report...")
+    items = load_all_data()
+    if not items:
+        print("⚠️ No items found in data/ directory!")
+        html = generate_html([])
+    else:
+        html = generate_html(items)
+        
+    output_dir = Path('output')
+    output_dir.mkdir(exist_ok=True)
     
-    html = generate_html()
-    with open('output/index.html', 'w', encoding='utf-8') as f:
+    with open(output_dir / 'index.html', 'w', encoding='utf-8') as f:
         f.write(html)
     
-    print(f"Done! Generated index.html with {len(load_latest_data())} items")
+    print(f"✨ Done! Generated report with {len(items)} items available for infinite scroll.")
 
 if __name__ == '__main__':
     main()
