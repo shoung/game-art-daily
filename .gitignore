@@ -12,11 +12,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Project specific
-data/*.json
-output/*.html
-scripts/*.log
-
 # AI/IDE
 .gemini/
 .vscode/
