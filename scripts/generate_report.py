@@ -156,29 +156,30 @@ CSS_TEMPLATE = """
     .btn-icon:hover { border-color: var(--primary); box-shadow: var(--shadow-md); }
     .btn-icon:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-    /* ── Feed Layout ── */
+    /* ── Feed Layout — Bento Grid / Masonry ── */
     #feed {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
+        columns: 3 320px;
+        column-gap: 20px;
         padding-bottom: 80px;
     }
 
-    /* ── Article Card ── */
+    /* ── Article Card (Bento) ── */
     .article-card {
         background: var(--card-bg);
         border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 28px 32px;
-        display: grid;
-        grid-template-columns: 4px 1fr;
-        gap: 0 28px;
+        border-radius: 16px;
+        padding: 0;
+        display: inline-block;
+        width: 100%;
+        break-inside: avoid;
+        margin-bottom: 20px;
         cursor: pointer;
         box-shadow: var(--shadow-sm);
         transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         opacity: 0;
         transform: translateY(12px);
         animation: cardEntrance 0.5s ease forwards;
+        overflow: hidden;
     }
 
     @keyframes cardEntrance {
@@ -187,28 +188,23 @@ CSS_TEMPLATE = """
 
     .article-card:hover {
         border-color: var(--card-hover-border);
-        box-shadow: var(--shadow-lg);
-        transform: translateX(4px);
+        box-shadow: 0 8px 32px rgba(230, 57, 70, 0.15), 0 2px 8px rgba(0,0,0,0.08);
+        transform: translateY(-4px);
     }
 
     .article-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-    /* Left accent bar — color-coded by region */
+    /* Top accent bar — color-coded by region */
     .card-accent {
-        width: 4px;
-        border-radius: 4px;
-        align-self: stretch;
+        height: 4px;
+        width: 100%;
         background: var(--primary);
-        opacity: 0.7;
-        transition: opacity 0.2s;
     }
-
-    .article-card:hover .card-accent { opacity: 1; }
     .card-accent.region-JP { background: #3B82F6; }
     .card-accent.region-CN { background: #F59E0B; }
     .card-accent.region-EN { background: #10B981; }
 
-    .card-main { min-width: 0; }
+    .card-main { padding: 20px 22px 22px; }
 
     .card-header {
         display: flex;
@@ -245,27 +241,19 @@ CSS_TEMPLATE = """
     .card-date { font-size: 0.78rem; color: var(--text-muted); margin-left: auto; }
 
     .card-title {
-        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
         font-weight: 700;
         line-height: 1.4;
         color: var(--text);
-        margin-bottom: 12px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        margin-bottom: 10px;
         letter-spacing: -0.01em;
     }
 
     .card-summary {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         color: var(--text-secondary);
         line-height: 1.7;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
     }
 
     .card-footer {
@@ -453,6 +441,10 @@ CSS_TEMPLATE = """
     }
 
     /* ── Responsive ── */
+    @media (max-width: 1024px) {
+        #feed { columns: 2 280px; column-gap: 16px; }
+    }
+
     @media (max-width: 768px) {
         header {
             flex-direction: column;
@@ -460,13 +452,9 @@ CSS_TEMPLATE = """
             gap: 24px;
             padding: 48px 0 32px;
         }
-        .article-card {
-            padding: 20px;
-            grid-template-columns: 3px 1fr;
-            gap: 0 16px;
-        }
-        .card-title { font-size: 1.05rem; }
-        .card-summary { font-size: 0.875rem; -webkit-line-clamp: 3; }
+        #feed { columns: 1; column-gap: 0; }
+        .article-card { margin-bottom: 12px; }
+        .card-main { padding: 16px 18px 18px; }
         .card-date { display: none; }
         .card-tags { display: none; }
         .modal-header { padding: 28px 24px 0; }
