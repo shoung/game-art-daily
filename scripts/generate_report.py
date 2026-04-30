@@ -460,6 +460,258 @@ CSS_TEMPLATE = """
             transition-duration: 0.01ms !important;
         }
     }
+
+    /* ═══════════════════════════════════════════
+       LAYOUT: BRUTALISM
+    ═══════════════════════════════════════════ */
+    [data-layout="brutalism"] #feed {
+        columns: unset;
+        column-gap: unset;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        padding-bottom: 40px;
+    }
+    [data-layout="brutalism"] .article-card {
+        background: #FAFAF9;
+        border: 2px solid #171717;
+        border-radius: 0;
+        box-shadow: 5px 5px 0 #171717;
+        margin-bottom: 3px;
+        overflow: visible;
+        transition: box-shadow 0.1s, transform 0.1s;
+    }
+    [data-layout="brutalism"] .article-card:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 #171717;
+    }
+    [data-layout="brutalism"] .card-main {
+        padding: 18px 22px 20px;
+    }
+    [data-layout="brutalism"] .card-title {
+        font-family: 'Space Mono', 'Courier New', monospace;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.35;
+        margin-bottom: 8px;
+        color: #171717;
+    }
+    [data-layout="brutalism"] .card-summary {
+        font-family: 'Space Mono', 'Courier New', monospace;
+        font-size: 0.8rem;
+        color: #444;
+        line-height: 1.65;
+        margin-bottom: 14px;
+    }
+    [data-layout="brutalism"] .card-source {
+        background: #171717;
+        color: #FAFAF9;
+        border-radius: 0;
+        font-family: 'Space Mono', 'Courier New', monospace;
+        font-size: 0.68rem;
+    }
+    [data-layout="brutalism"] .card-region {
+        border: 1.5px solid #171717;
+        border-radius: 0;
+        font-family: 'Space Mono', 'Courier New', monospace;
+    }
+    [data-layout="brutalism"] .tag {
+        border: 1.5px solid #171717;
+        border-radius: 0;
+        background: #FAFAF9;
+        font-family: 'Space Mono', 'Courier New', monospace;
+        font-size: 0.7rem;
+    }
+    [data-layout="brutalism"] .brand h1 {
+        font-family: 'Space Mono', 'Courier New', monospace;
+        letter-spacing: -0.04em;
+    }
+    [data-layout="brutalism"] .btn-icon {
+        border-radius: 0;
+        border: 2px solid #171717;
+        box-shadow: 3px 3px 0 #171717;
+        background: #FAFAF9;
+        font-family: 'Space Mono', 'Courier New', monospace;
+        font-size: 0.9rem;
+    }
+    [data-layout="brutalism"] .btn-icon:hover {
+        box-shadow: 2px 2px 0 #171717;
+        transform: translate(1px, 1px);
+    }
+    [data-layout="brutalism"] header {
+        border-bottom: 3px solid #171717;
+        margin-bottom: 40px;
+    }
+    [data-layout="brutalism"] footer { border-top: 3px solid #171717; }
+    [data-layout="brutalism"] #loading-sentinel { color: #171717; }
+    [data-layout="brutalism"] .modal {
+        border: 3px solid #171717;
+        box-shadow: 8px 8px 0 #171717;
+        border-radius: 0;
+    }
+    [data-layout="brutalism"] .modal-close {
+        border-radius: 0;
+        border: 2px solid #171717;
+        background: #FAFAF9;
+        color: #171717;
+        font-family: 'Space Mono', 'Courier New', monospace;
+    }
+    [data-layout="brutalism"] .modal-title {
+        font-family: 'Space Mono', 'Courier New', monospace;
+        color: #171717;
+    }
+    /* Brutalism dark */
+    [data-layout="brutalism"][data-theme="dark"] .article-card {
+        background: #1C1C1C;
+        border-color: #F0F0E8;
+        box-shadow: 5px 5px 0 #F0F0E8;
+    }
+    [data-layout="brutalism"][data-theme="dark"] .article-card:hover {
+        box-shadow: 7px 7px 0 #F0F0E8;
+    }
+    [data-layout="brutalism"][data-theme="dark"] .card-title { color: #F0F0E8; }
+    [data-layout="brutalism"][data-theme="dark"] .card-summary { color: #AAAAAA; }
+    [data-layout="brutalism"][data-theme="dark"] .card-source { background: #F0F0E8; color: #1C1C1C; }
+    [data-layout="brutalism"][data-theme="dark"] .card-region { border-color: #F0F0E8; color: #F0F0E8; }
+    [data-layout="brutalism"][data-theme="dark"] .tag { border-color: #F0F0E8; background: #1C1C1C; color: #F0F0E8; }
+    [data-layout="brutalism"][data-theme="dark"] .btn-icon { border-color: #F0F0E8; box-shadow: 3px 3px 0 #F0F0E8; background: #1C1C1C; color: #F0F0E8; }
+    [data-layout="brutalism"][data-theme="dark"] .brand h1 { color: #F0F0E8; }
+    [data-layout="brutalism"][data-theme="dark"] header { border-bottom-color: #F0F0E8; }
+    [data-layout="brutalism"][data-theme="dark"] footer { border-top-color: #F0F0E8; }
+    [data-layout="brutalism"][data-theme="dark"] #loading-sentinel { color: #F0F0E8; }
+    [data-layout="brutalism"][data-theme="dark"] .modal { border-color: #F0F0E8; box-shadow: 8px 8px 0 #F0F0E8; }
+    [data-layout="brutalism"][data-theme="dark"] .modal-close { border-color: #F0F0E8; background: #1C1C1C; color: #F0F0E8; }
+    [data-layout="brutalism"][data-theme="dark"] .modal-title { color: #F0F0E8; }
+
+    /* ═══════════════════════════════════════════
+       LAYOUT: NEO-BRUTALISM
+    ═══════════════════════════════════════════ */
+    [data-layout="neo-brutalism"] #feed {
+        columns: unset;
+        column-gap: unset;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding-bottom: 40px;
+    }
+    [data-layout="neo-brutalism"] .article-card {
+        background: #FFFFFF;
+        border: 2.5px solid #1A1A2E;
+        border-radius: 18px;
+        box-shadow: 6px 6px 0 #FF6B35;
+        margin-bottom: 0;
+        overflow: visible;
+        transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    [data-layout="neo-brutalism"] .article-card:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 9px 9px 0 #FF6B35;
+    }
+    [data-layout="neo-brutalism"] .card-main {
+        padding: 20px 24px 22px;
+    }
+    [data-layout="neo-brutalism"] .card-title {
+        font-size: 1.05rem;
+        font-weight: 800;
+        line-height: 1.4;
+        margin-bottom: 10px;
+        color: #1A1A2E;
+        letter-spacing: -0.02em;
+    }
+    [data-layout="neo-brutalism"] .card-summary {
+        font-size: 0.88rem;
+        color: #4A4A6A;
+        line-height: 1.72;
+        margin-bottom: 16px;
+    }
+    [data-layout="neo-brutalism"] .card-source {
+        background: #1A1A2E;
+        color: #FFFFFF;
+        border-radius: 8px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+    [data-layout="neo-brutalism"] .card-region {
+        border: 1.5px solid #1A1A2E;
+        border-radius: 8px;
+        color: #1A1A2E;
+        font-weight: 700;
+        font-size: 0.68rem;
+    }
+    [data-layout="neo-brutalism"] .tag {
+        border: 1.5px solid #1A1A2E;
+        border-radius: 8px;
+        background: #FFFFFF;
+        color: #1A1A2E;
+        font-weight: 600;
+        font-size: 0.7rem;
+    }
+    [data-layout="neo-brutalism"] .brand h1 {
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        color: #1A1A2E;
+    }
+    [data-layout="neo-brutalism"] .brand h1 span { color: #FF6B35; }
+    [data-layout="neo-brutalism"] .btn-icon {
+        border-radius: 14px;
+        border: 2.5px solid #1A1A2E;
+        box-shadow: 4px 4px 0 #FF6B35;
+        background: #FFFFFF;
+        width: 46px;
+        height: 46px;
+        font-size: 1.1rem;
+    }
+    [data-layout="neo-brutalism"] .btn-icon:hover {
+        box-shadow: 2px 2px 0 #FF6B35;
+        transform: translate(2px, 2px);
+    }
+    [data-layout="neo-brutalism"] header {
+        border-bottom: 3px solid #1A1A2E;
+        margin-bottom: 48px;
+    }
+    [data-layout="neo-brutalism"] footer { border-top: 3px solid #1A1A2E; }
+    [data-layout="neo-brutalism"] #loading-sentinel { color: #1A1A2E; }
+    [data-layout="neo-brutalism"] .modal {
+        border: 3px solid #1A1A2E;
+        border-radius: 20px;
+        box-shadow: 10px 10px 0 #FF6B35;
+    }
+    [data-layout="neo-brutalism"] .modal-close {
+        border-radius: 12px;
+        border: 2px solid #1A1A2E;
+        background: #FFFFFF;
+        color: #1A1A2E;
+        font-weight: 700;
+    }
+    [data-layout="neo-brutalism"] .modal-title {
+        font-weight: 800;
+        color: #1A1A2E;
+        letter-spacing: -0.02em;
+    }
+    /* Neo-brutalism dark */
+    [data-layout="neo-brutalism"][data-theme="dark"] .article-card {
+        background: #16162A;
+        border-color: #F0EDE8;
+        box-shadow: 6px 6px 0 #FF6B35;
+    }
+    [data-layout="neo-brutalism"][data-theme="dark"] .article-card:hover {
+        box-shadow: 9px 9px 0 #FF6B35;
+    }
+    [data-layout="neo-brutalism"][data-theme="dark"] .card-title { color: #F0EDE8; }
+    [data-layout="neo-brutalism"][data-theme="dark"] .card-summary { color: #9090AA; }
+    [data-layout="neo-brutalism"][data-theme="dark"] .card-source { background: #F0EDE8; color: #16162A; }
+    [data-layout="neo-brutalism"][data-theme="dark"] .card-region { border-color: #F0EDE8; color: #F0EDE8; }
+    [data-layout="neo-brutalism"][data-theme="dark"] .tag { border-color: #F0EDE8; background: #16162A; color: #F0EDE8; }
+    [data-layout="neo-brutalism"][data-theme="dark"] .btn-icon { border-color: #F0EDE8; box-shadow: 4px 4px 0 #FF6B35; background: #16162A; color: #F0EDE8; }
+    [data-layout="neo-brutalism"][data-theme="dark"] .brand h1 { color: #F0EDE8; }
+    [data-layout="neo-brutalism"][data-theme="dark"] .brand h1 span { color: #FF6B35; }
+    [data-layout="neo-brutalism"][data-theme="dark"] header, [data-layout="neo-brutalism"][data-theme="dark"] footer { border-color: #F0EDE8; }
+    [data-layout="neo-brutalism"][data-theme="dark"] #loading-sentinel { color: #F0EDE8; }
+    [data-layout="neo-brutalism"][data-theme="dark"] .modal { border-color: #F0EDE8; box-shadow: 10px 10px 0 #FF6B35; }
+    [data-layout="neo-brutalism"][data-theme="dark"] .modal-close { border-color: #F0EDE8; background: #16162A; color: #F0EDE8; }
+    [data-layout="neo-brutalism"][data-theme="dark"] .modal-title { color: #F0EDE8; }
 </style>
 """
 
@@ -483,7 +735,7 @@ def generate_html(items):
     <link href="https://cdn.jsdelivr.net/npm/noto-sans-sc@1.0.0/fonts/NotoSansSC-Bold.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
     {CSS_TEMPLATE}
 </head>
-<body>
+<body data-layout="default">
     <div class="container">
         <header>
             <div class="brand">
@@ -491,6 +743,7 @@ def generate_html(items):
                 <p class="brand-sub">{date_str} · 精選全球遊戲美術資訊</p>
             </div>
             <div class="controls">
+                <button class="btn-icon layout-btn" onclick="toggleLayout()" id="layoutBtn" aria-label="切換版面風格" title="版面風格">▦</button>
                 <button class="btn-icon" onclick="toggleTheme()" id="themeBtn" aria-label="切換深色模式">☾</button>
             </div>
         </header>
@@ -626,11 +879,27 @@ def generate_html(items):
             document.getElementById('themeBtn').textContent = next === 'dark' ? '☀' : '☾';
         }}
 
+        function toggleLayout() {{
+            const layouts = ['default', 'brutalism', 'neo-brutalism'];
+            const icons   = ['▦', '▤', '◧'];
+            const current = document.body.getAttribute('data-layout') || 'default';
+            const idx     = layouts.indexOf(current);
+            const next    = layouts[(idx + 1) % layouts.length];
+            document.body.setAttribute('data-layout', next);
+            localStorage.setItem('layout', next);
+            document.getElementById('layoutBtn').textContent = icons[(idx + 1) % icons.length];
+        }}
+
         if (localStorage.getItem('theme') === 'dark' ||
             (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {{
             document.body.setAttribute('data-theme', 'dark');
             document.getElementById('themeBtn').textContent = '☀';
         }}
+
+        const savedLayout = localStorage.getItem('layout') || 'default';
+        document.body.setAttribute('data-layout', savedLayout);
+        const layoutIcons = {{'default': '▦', 'brutalism': '▤', 'neo-brutalism': '◧'}};
+        document.getElementById('layoutBtn').textContent = layoutIcons[savedLayout] || '▦';
 
         function showModal(index) {{
             const item = allData[index];
