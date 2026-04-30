@@ -194,16 +194,6 @@ CSS_TEMPLATE = """
 
     .article-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-    /* Top accent bar — color-coded by region */
-    .card-accent {
-        height: 4px;
-        width: 100%;
-        background: var(--primary);
-    }
-    .card-accent.region-JP { background: #3B82F6; }
-    .card-accent.region-CN { background: #F59E0B; }
-    .card-accent.region-EN { background: #10B981; }
-
     .card-main { padding: 20px 22px 22px; }
 
     .card-header {
@@ -575,7 +565,6 @@ def generate_html(items):
                 : '';
 
             card.innerHTML = `
-                <div class="card-accent region-${{item.region || 'JP'}}"></div>
                 <div class="card-main">
                     <div class="card-header">
                         <span class="card-source">${{source}}</span>
