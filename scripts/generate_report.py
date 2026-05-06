@@ -4,6 +4,40 @@ import datetime
 from pathlib import Path
 
 
+def parse_item_datetime(item):
+    """Return a sortable datetime for a news item.
+
+    Newer cards should appear first. Prefer the collection timestamp used by
+    current X data, while keeping compatibility with older data files.
+    """
+    value = (
+        item.get('collected_at')
+        or item.get('created_at')
+        or item.get('published_at')
+        or item.get('date')
+        or ''
+    )
+
+    if not value:
+        return datetime.datetime.min.replace(tzinfo=datetime.timezone.utc)
+
+    try:
+        if isinstance(value, str):
+            normalized = value.replace('Z', '+00:00')
+            # Support date-only values such as YYYY-MM-DD.
+            if len(normalized) == 10:
+                normalized = f'{normalized}T00:00:00+00:00'
+            parsed = datetime.datetime.fromisoformat(normalized)
+        else:
+            return datetime.datetime.min.replace(tzinfo=datetime.timezone.utc)
+
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=datetime.timezone.utc)
+        return parsed
+    except ValueError:
+        return datetime.datetime.min.replace(tzinfo=datetime.timezone.utc)
+
+
 def load_all_data():
     """載入所有數據並去重"""
     data_dir = Path('data')
@@ -11,7 +45,8 @@ def load_all_data():
         return []
 
     items = []
-    for json_file in sorted(data_dir.glob('*.json')):
+    # Read newer daily files first so duplicate titles keep their latest copy.
+    for json_file in sorted(data_dir.glob('*.json'), reverse=True):
         with open(json_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
             if isinstance(data, list):
@@ -28,8 +63,11 @@ def load_all_data():
             seen.add(title)
             unique_items.append(item)
 
-    # 按分數排序
-    unique_items.sort(key=lambda x: x.get('score', 0), reverse=True)
+    # 先按日期新到舊；同一天內再按分數高到低。
+    unique_items.sort(
+        key=lambda x: (parse_item_datetime(x), x.get('score', 0)),
+        reverse=True,
+    )
     return unique_items
 
 
@@ -156,10 +194,12 @@ CSS_TEMPLATE = """
     .btn-icon:hover { border-color: var(--primary); box-shadow: var(--shadow-md); }
     .btn-icon:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-    /* ── Feed Layout — Bento Grid / Masonry ── */
+    /* ── Feed Layout — Bento Grid ── */
     #feed {
-        columns: 3 320px;
-        column-gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+        align-items: start;
         padding-bottom: 80px;
     }
 
@@ -169,10 +209,8 @@ CSS_TEMPLATE = """
         border: 1px solid var(--border);
         border-radius: 16px;
         padding: 0;
-        display: inline-block;
+        display: block;
         width: 100%;
-        break-inside: avoid;
-        margin-bottom: 20px;
         cursor: pointer;
         box-shadow: var(--shadow-sm);
         transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -432,7 +470,7 @@ CSS_TEMPLATE = """
 
     /* ── Responsive ── */
     @media (max-width: 1024px) {
-        #feed { columns: 2 280px; column-gap: 16px; }
+        #feed { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
     }
 
     @media (max-width: 768px) {
@@ -442,8 +480,7 @@ CSS_TEMPLATE = """
             gap: 24px;
             padding: 48px 0 32px;
         }
-        #feed { columns: 1; column-gap: 0; }
-        .article-card { margin-bottom: 12px; }
+        #feed { grid-template-columns: 1fr; gap: 12px; }
         .card-main { padding: 16px 18px 18px; }
         .card-date { display: none; }
         .card-tags { display: none; }
@@ -465,8 +502,6 @@ CSS_TEMPLATE = """
        LAYOUT: BRUTALISM
     ═══════════════════════════════════════════ */
     [data-layout="brutalism"] #feed {
-        columns: unset;
-        column-gap: unset;
         display: flex;
         flex-direction: column;
         gap: 3px;
@@ -587,8 +622,6 @@ CSS_TEMPLATE = """
        LAYOUT: NEO-BRUTALISM
     ═══════════════════════════════════════════ */
     [data-layout="neo-brutalism"] #feed {
-        columns: unset;
-        column-gap: unset;
         display: flex;
         flex-direction: column;
         gap: 16px;
