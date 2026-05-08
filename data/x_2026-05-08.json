@@ -1,0 +1,122 @@
+[
+  {
+    "source": "X.com @TheTrueVanguard",
+    "region": "US",
+    "title": "Sony isn't hurting, but Bungie will likely face deadlines and quantifiers for Marathon",
+    "title_zh": "业内讨论：索尼不急着砍 Bungie，但 Marathon 可能进入量化考核期",
+    "url": "https://x.com/i/status/2052726827127292248",
+    "image": "",
+    "collected_at": "2026-05-08T12:26:28Z",
+    "tags": ["工作室经营", "裁员风险", "服务型游戏"],
+    "summary": "游戏评论者 TheTrueVanguard 对 Bungie 近期处境给出相对克制的判断：索尼本身并不缺钱，因此不一定会立刻清理表现不佳的团队；但 Sony 很可能会与 Bungie 一起为《Marathon》设定增长策略、量化指标和时间节点。他认为这不是好信号，而是 Bungie 多年下滑累积后的结果。对外包团队来说，服务型游戏项目如果无法证明增长，后续预算、人力与外包需求都可能被重新审视。",
+    "score": 34542
+  },
+  {
+    "source": "X.com @deadhardware",
+    "region": "US",
+    "title": "The median game industry artist is subcontracting in Malaysia/Indonesia",
+    "title_zh": "欧美玩家观察：游戏美术岗位正在被更低成本的东南亚转包链条吸收",
+    "url": "https://x.com/i/status/2052795063462224091",
+    "image": "",
+    "collected_at": "2026-05-08T16:57:36Z",
+    "tags": ["美术外包", "转包", "东南亚"],
+    "summary": "在一条关于游戏行业采用好莱坞式项目制用工的讨论下，用户 deadhardware 补充称，现实甚至不是“是否还雇欧美人”，而是很多游戏美术工作已落到马来西亚、印尼等更低成本地区的转包链条里，执行者有时甚至不知道自己参与的是哪款游戏。虽然是个人观察，但非常贴近美术外包行业的痛点：全球化外包继续压低单价，并让一线创作者与项目品牌越来越脱节。",
+    "score": 42
+  },
+  {
+    "source": "X.com @playmygamesnow",
+    "region": "US",
+    "title": "AI gamedev may create more paid polish work for real artists",
+    "title_zh": "独立开发者反向观点：AI 做原型后，反而会把预算花在真人美术打磨上",
+    "url": "https://x.com/i/status/2052736139795341442",
+    "image": "",
+    "collected_at": "2026-05-08T13:03:28Z",
+    "tags": ["AI", "独立游戏", "美术接案"],
+    "summary": "独立开发者 playmygamesnow 提出一个与“AI 抢走美术工作”相反的观点：AI 让他能在业余时间把项目做出来，但他已经投入超过 1000 美元请真人做声音和美术修整，并预留 6000 美元做专业预告片与商店胶囊图。他认为，如果没有 AI，这个项目根本不会存在，也就不会产生这些付费委托。对外包美术来说，这代表 AI 项目可能减少基础资产需求，却增加最终品质打磨、宣传图与商店素材的订单。",
+    "score": 273
+  },
+  {
+    "source": "X.com @ZanEngineer",
+    "region": "JP",
+    "title": "このままだと開発費をペイできずに、日本のゲーム業界が衰退してしまう",
+    "title_zh": "日本开发者警告：只靠内需难以回收开发费，日本游戏必须更会全球化",
+    "url": "https://x.com/i/status/2052828419331866737",
+    "image": "",
+    "collected_at": "2026-05-08T19:10:09Z",
+    "tags": ["日本市场", "开发成本", "全球化"],
+    "summary": "日本开发者 ZanEngineer 表示，日本长期依赖国内市场也能过得去，加上过去汇率环境影响，导致一旦要面向全球销售就显得很弱。他担心如果继续这样，开发费将难以回收，日本游戏业会逐步衰退。对美术外包产业而言，这个信号很直接：日本客户若不能扩大海外收入，项目预算会更紧，外包价格与付款周期也可能承压；反过来，能协助客户全球化、适配海外审美的团队会更有价值。",
+    "score": 976
+  },
+  {
+    "source": "X.com @cluster0241201a",
+    "region": "JP",
+    "title": "NTE 態度を一転し、謝罪および、生成AIだった事を認める",
+    "title_zh": "NTE 被指改口承认使用生成式 AI，美术资产信任危机继续发酵",
+    "url": "https://x.com/i/status/2052663934759608751",
+    "image": "",
+    "collected_at": "2026-05-08T08:16:33Z",
+    "tags": ["生成式AI", "版权风险", "美术资产"],
+    "summary": "日本用户 cluster0241201a 追踪《Neverness to Everness（NTE）》争议，称项目方态度反转，开始道歉并承认曾使用生成式 AI；这与早前“未使用生成 AI、尊重日本创作”的宣传相冲突。该讨论串还整理了疑似 AI 痕迹、近似既有 IP 构图、VTuber 宣传取消等社区反应。对游戏美术外包团队而言，AI 资产的来源披露、训练数据与商业授权将越来越成为客户验收和品牌风险管理重点。",
+    "score": 528
+  },
+  {
+    "source": "X.com @koibuchicpa",
+    "region": "JP",
+    "title": "AIの導入目的をコストカットに置く会社が多いけど、その結果として人が削られるという印象をチームに与える",
+    "title_zh": "日本职场观察：把 AI 导入包装成降本，会直接加剧团队离职",
+    "url": "https://x.com/i/status/2052890293666738432",
+    "image": "",
+    "collected_at": "2026-05-08T23:16:01Z",
+    "tags": ["AI", "组织管理", "人才流失"],
+    "summary": "会计与经营领域用户 koibuchicpa 指出，很多公司导入 AI 的目标被设定为削减成本，这会让团队收到“人会被削掉”的信号，进而在 AI 导入阶段造成更多离职。他建议 AI 应被定位为扩大工作范围，而不是抢走工作。虽然不是游戏专属讨论，但对游戏美术团队同样适用：如果客户或管理层只谈 AI 降本，内部美术、TA、外包管理岗位的信任会快速下降，影响协作稳定性。",
+    "score": 91
+  },
+  {
+    "source": "X.com @yukimamax",
+    "region": "JP",
+    "title": "AIは◯◯ができない、なんていうのはAIは囲碁ができないって言ってた10年前と変わらない",
+    "title_zh": "AI 乐观派提醒：现在说 AI 做不到，像十年前说 AI 下不了围棋",
+    "url": "https://x.com/i/status/2052895072958677470",
+    "image": "",
+    "collected_at": "2026-05-08T23:35:00Z",
+    "tags": ["AI", "创意产业", "技能替代"],
+    "summary": "日本用户 yukimamax 用围棋 AI 的历史类比当前生成式 AI 争论：十年前很多人也认为 AI 下不了真正的围棋，但后来 AI 不仅击败人类，还持续自我迭代。他认为“AI 做不到某事”的判断很可能被快速推翻。对游戏美术外包行业来说，这类舆论会强化客户对 AI 工具的预期，基础资产、草图、修图等环节可能更快被要求提效；团队需要把卖点从单纯执行转向审美判断、风格控制与交付可靠性。",
+    "score": 1981
+  },
+  {
+    "source": "X.com @casey_Payne23",
+    "region": "US",
+    "title": "They’re outsourcing everything; western AAA at $300M+ can’t justify that cost",
+    "title_zh": "欧美 AAA 成本争议：预算超过 3 亿美元后，外包化几乎成了默认选择",
+    "url": "https://x.com/i/status/2052635310182351182",
+    "image": "",
+    "collected_at": "2026-05-08T06:22:48Z",
+    "tags": ["AAA成本", "外包", "西方游戏"],
+    "summary": "用户 casey_Payne23 在讨论西方 AAA 产能时直言，大型工作室“什么都在外包”，并提到 Naughty Dog 本世代除取消项目与新作外产出有限。他认为多数西方 AAA 动辄 3 亿美元以上的成本已经很难自洽。虽然是玩家侧评论，但反映了欧美市场对 AAA 成本失控与外包依赖的普遍认知：高预算项目仍会需要大量外部产能，但同时也会更严厉地审查成本、效率和可量化产出。",
+    "score": 21
+  },
+  {
+    "source": "X.com @the_vc_intern",
+    "region": "US",
+    "title": "$765M Bungie write-down is a loud reminder that live-service scale bets are binary",
+    "title_zh": "投资圈看 Bungie 减值：服务型游戏是高投入、二元化成败的豪赌",
+    "url": "https://x.com/i/status/2052691990320709817",
+    "image": "",
+    "collected_at": "2026-05-08T10:08:02Z",
+    "tags": ["服务型游戏", "投资风险", "并购整合"],
+    "summary": "投资评论账号 the_vc_intern 评价索尼对 Bungie 的 7.65 亿美元减值，认为这是服务型游戏规模化押注“非赢即输”的提醒：索尼以高价买入 IP 与人才，但执行窗口很快关闭。本世代的昂贵教训是，游戏行业真正的 ROI 仍然难找。对美术外包公司而言，服务型游戏曾是长期订单来源，但一旦增长不达标，资产量产、赛季内容与宣传素材预算都可能快速收缩。",
+    "score": 466
+  },
+  {
+    "source": "X.com @s_ryuuki",
+    "region": "JP",
+    "title": "「危機的状況にあるゲーム業界をAIが救う」Google Cloudゲーム部門担当者が語るゲームとAIの今",
+    "title_zh": "Google Cloud 游戏部门称：AI 可能成为危机中游戏行业的效率工具",
+    "url": "https://x.com/i/status/2052710395757154592",
+    "image": "",
+    "collected_at": "2026-05-08T11:21:10Z",
+    "tags": ["AI", "开发工具", "产业效率"],
+    "summary": "日本用户 s_ryuuki 转发一篇关于 Google Cloud 游戏部门负责人谈 AI 与游戏行业的文章，标题强调“AI 将拯救处于危机状态的游戏行业”。这类表述代表平台与云服务商正在把 AI 包装为解决成本、效率与产能问题的基础设施。虽然来源偏媒体转发，但对外包产业仍有参考价值：未来客户可能更期待外包团队接入 AI 管线、缩短迭代周期，并以更少人力完成概念探索、资产检查与本地化内容制作。",
+    "score": 20
+  }
+]
