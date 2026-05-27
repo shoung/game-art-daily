@@ -1,229 +1,170 @@
 [
   {
-    "source": "X.com @Bloomberg",
+    "source": "Bloomberg / Jason Schreier via Metaintro",
     "region": "US",
-    "title": "BungieがDestiny 2開発終了に伴い大規模レイオフを計画",
-    "title_zh": "Bungie计划在《命运2》停止开发后进行大规模裁员",
-    "url": "https://www.gamesindustry.biz/report-bungie-planning-significant-layoffs-as-destiny-2-development-ends",
+    "title": "GDC 2026: Outsourcing Hit Record Levels, Job Seekers Flood Conference Floor",
+    "title_zh": "GDC 2026：外包达到历史最高水平，求职者挤满会场",
+    "url": "https://www.metaintro.com/blog/gdc-2026-gaming-industry-crisis-job-seekers-ai-outsourcing",
     "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "裁员",
-      "产业生态"
-    ],
-    "summary": "据Bloomberg报道，Sony旗下Bungie在宣布停止《命运2》开发后，正计划进行大规模裁员。目前工作室没有新项目获得批准，《命运3》也暂无开发计划。此前发布的《Marathon》销量仅120万份未达预期，Sony已因Bungie业绩不佳计提7.65亿美元减值损失。",
-    "score": 45000
-  },
-  {
-    "source": "X.com @RealSoundJP",
-    "region": "JP",
-    "title": "名越スタジオへのNetEase資金提供打ち切り、「GANG OF DRAGON」完成目前で撤退",
-    "title_zh": "网易叫停名越工作室资金支持，《GANG OF DRAGON》即将完成之际被迫搁置",
-    "url": "https://news.yahoo.co.jp/articles/e51b907ec9299c1fd6c6b260c909c3574ab5efad",
-    "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "裁员",
-      "产业生态",
-      "收购"
-    ],
-    "summary": "《如龙》系列创始人名越稔洋的工作室于2026年5月被NetEase终止资金支持。首款作品《GANG OF DRAGON》已接近完成，但因需追加70亿日元投资遭拒绝。这是网易全球游戏投资全面收缩的一部分，此前已关闭樱花工作室、取消Jar of Sparks项目，反映了AAA游戏开发对大型资本的深度依赖风险。",
-    "score": 38000
-  },
-  {
-    "source": "X.com @doope",
-    "region": "ES",
-    "title": "MercurySteamが「Blades of Fire」不振を受けてレイオフを実施",
-    "title_zh": "《Blades of Fire》表现不佳，西班牙开发商MercurySteam宣布裁员",
-    "url": "https://doope.jp/2026/05166757.html",
-    "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "裁员",
-      "产业生态"
-    ],
-    "summary": "曾开发《恶魔城：暗影之王》和《银河战士：Dread》的西班牙工作室MercurySteam，因最新作《Blades of Fire》评价与销售未达预期，宣布进行人员调整。裁员规模未公开，但表示将为受影响员工提供再就业支持。这是2026年5月新一轮裁员潮的缩影。",
-    "score": 18000
-  },
-  {
-    "source": "X.com @GamesIndustry",
-    "region": "UK",
-    "title": "Build a Rocket Boyのレイオフは3月発表分の継続、組合が声明",
-    "title_zh": "Build a Rocket Boy裁员实为3月延续，工会称近100人失业",
-    "url": "https://www.gamesindustry.biz/build-a-rocket-boy-reportedly-hit-with-more-layoffs",
-    "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "裁员",
-      "产业生态"
-    ],
-    "summary": "开发《Everywhere》的Build a Rocket Boy工作室近期被曝新一轮裁员，工会澄清实为3月宣布裁员的延续，近100名员工已失去工作。工会正就前一轮裁员提起法律诉讼，指控公司违反集体协商义务、程序不公等，若胜诉可能使公司面临数百万英镑赔偿。",
-    "score": 15000
-  },
-  {
-    "source": "X.com @GamesIndustry",
-    "region": "US",
-    "title": "Night Street Gamesが「Last Flag」不振で人員削減",
-    "title_zh": "《Last Flag》商业失败，Night Street Games宣布团队缩减",
-    "url": "https://www.gamesindustry.biz/night-street-games-cuts-jobs-after-last-flag-fails-to-achieve-the-financial-success-we-anticipated",
-    "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "裁员",
-      "产业生态"
-    ],
-    "summary": "独立工作室Night Street Games在宣布停止开发英雄射击游戏《Last Flag》仅数日后，进行了团队缩减。执行制作人表示游戏未能达到预期的商业成功，导致团队规模减小。作为小型独立团队，坦言无法与AAA游戏的运营规模竞争。",
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["外包", "产业生态", "裁员"],
+    "summary": "据Bloomberg记者Jason Schreier报道，2026年GDC大会涌入异常多的求职者，AI成为全场最热话题，而游戏美术外包量达到该会议历史最高水平。这标志着游戏工作室项目人员配置正在发生结构性转变——稳定全职雇佣模式正在瓦解。自2023年以来，游戏行业已裁减超过3万个职位。",
     "score": 8500
   },
   {
-    "source": "X.com @GDC",
-    "region": "US",
-    "title": "GDC 2026調査：開発者の52%が「生成AIは業界に悪影響」と回答",
-    "title_zh": "GDC 2026报告：52%开发者认为生成AI对游戏行业有负面影响",
-    "url": "https://gaming-st.com/news/steam-ai-games-gdc-survey-2026/",
-    "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "AI",
-      "产业生态"
-    ],
-    "summary": "GDC 2026对2300多名游戏行业专业人士调查显示，认为生成AI对行业有负面影响的开发者比例从2024年的18%飙升至2026年的52%，2年增长近3倍。认为有正面影响的仅占7%。视觉艺术家64%持否定态度。52%企业已引入AI工具，个人使用者仅36%，管理层与开发者的矛盾加剧。",
-    "score": 32000
-  },
-  {
-    "source": "X.com @GameSpark",
-    "region": "US",
-    "title": "2026年1月のSteam新作の約3割が生成AI使用を開示",
-    "title_zh": "2026年1月Steam新作约30%披露使用生成AI，同比暴增约800%",
-    "url": "https://www.gamespark.jp/article/2026/03/26/164345.html",
-    "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "AI",
-      "产业生态"
-    ],
-    "summary": "数据显示2026年1月Steam新发布的游戏中约30%披露使用了生成AI技术，全年AI披露游戏从2024年约1000款增至2025年的7818款，增幅约800%。其中93%的AI披露游戏销售额不足150万日元，多为低质量资产批量生成品，真正由AI创造价值的仍是大厂作品的针对性应用。",
-    "score": 28000
-  },
-  {
-    "source": "X.com @GamesIndustry",
-    "region": "US",
-    "title": "Iron Galaxy Studiosがさらなるレイオフを発表",
-    "title_zh": "《托尼霍克滑板3+4》开发商Iron Galaxy宣布进一步裁员",
-    "url": "https://www.gamesindustry.biz/iron-galaxy-studios-announces-further-layoffs-unknown-number-of-staff-affected",
-    "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "裁员",
-      "产业生态"
-    ],
-    "summary": "《托尼霍克滑板3+4》开发商Iron Galaxy Studios宣布新一轮裁员。工作室表示即使去年已裁员缩减规模，仍无法维持团队运营。具体受影响员工数未公开，反映了中型工作室在行业下行周期中的持续生存困境。",
-    "score": 12000
-  },
-  {
-    "source": "X.com @GamesIndustry",
-    "region": "US",
-    "title": "Microsoftが米国従業員の7%に自主退職プログラムを提供",
-    "title_zh": "微软向美国员工7%提供自愿退休计划",
-    "url": "https://www.gamesindustry.biz/microsoft-reportedly-offers-voluntary-retirement-program-for-7-of-us-workforce",
-    "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "裁员",
-      "产业生态"
-    ],
-    "summary": "据内部备忘录，微软向美国员工中约7%提供自愿退休计划。符合条件的员工为高级别及以下、年龄与工龄合计至少70年者。此举虽然不直接针对游戏部门，但作为Xbox母公司的整体人力调整，对游戏行业就业形势具有信号意义。",
-    "score": 16000
-  },
-  {
-    "source": "X.com @TakeTwo",
-    "region": "US",
-    "title": "Take-Two InteractiveがAIチームをレイオフ",
-    "title_zh": "Take-Two Interactive裁撤AI团队，反映行业策略转向",
-    "url": "https://www.gamesindustry.biz/take-two-interactive-reportedly-lays-off-ai-team",
-    "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "AI",
-      "裁员"
-    ],
-    "summary": "游戏发行商Take-Two Interactive据报裁撤了其AI团队。前员工表示此决定源于高层管理优先级的变动。这一事件与GDC调查中52%开发者认为AI对行业产生负面影响的数据形成呼应，揭示即使在积极投入AI的企业内部，AI相关岗位也并非绝对安全。",
-    "score": 7000
-  },
-  {
-    "source": "X.com @Valve",
-    "region": "US",
-    "title": "ValveがSteamのAI開示ポリシーを大幅改訂",
-    "title_zh": "Valve大幅修订Steam AI披露政策，转向「如何使用AI」判定标准",
-    "url": "https://gaming-st.com/news/steam-ai-games-gdc-survey-2026/",
-    "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "AI",
-      "产业生态"
-    ],
-    "summary": "Valve于2026年1月大幅修订Steam AI披露政策，核心变化是从「是否使用AI」转向「如何使用AI」。开发效率工具无需披露，仅玩家直接消费的AI生成内容（美术、音频、文本等）需披露。但Steam仍未提供AI内容过滤功能，用户无法在搜索结果中排除AI游戏。",
-    "score": 9500
-  },
-  {
-    "source": "X.com @automaton",
-    "region": "FR",
-    "title": "Clair Obscur: Expedition 33がAI使用発覚でGOTY賞を剥奪",
-    "title_zh": "《Clair Obscur: Expedition 33》因AI使用被揭露遭剥夺年度最佳游戏奖",
-    "url": "https://automaton-media.com/articles/newsjp/20260130-414565/",
-    "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "AI",
-      "产业生态"
-    ],
-    "summary": "2025年TGA九冠王《Clair Obscur: Expedition 33》在Indie Game Awards 2025获得GOTY后，被揭露申报时声称未使用AI但实际上使用了生成AI技术。主办方随即剥夺其GOTY和最佳首秀两个奖项。游戏总监事后承认使用AI是错误的。此案成为游戏业AI伦理争议的标志性案例。",
-    "score": 22000
-  },
-  {
-    "source": "X.com @gamebiznews",
+    "source": "Yahoo Japan News / Real Sound",
     "region": "JP",
-    "title": "バンダイナムコ売上・利益過去最高、ガンダムIP売上7割近く増加",
-    "title_zh": "万代南梦宫营收利润创新高，高达IP销售额增长近七成",
-    "url": "https://www.gamebusiness.jp/article/2026/05/26/27040.html",
+    "title": "Nagoshi Studio Funding Cut by NetEase - 'GANG OF DRAGON' Development in Crisis",
+    "title_zh": "网易切断名越工作室资金供应，'GANG OF DRAGON'项目面临危机",
+    "url": "https://news.yahoo.co.jp/articles/e51b907ec9299c1fd6c6b260c909c3574ab5efad",
     "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "产业生态",
-      "财务"
-    ],
-    "summary": "万代南梦宫控股公布2026年3月期财报，销售额和利润均创历史新高。高达IP销售额同比增长近70%，成为最大增长引擎。这一成绩验证了日本游戏公司通过多元化IP运营（游戏、玩具、影视联动）抵御行业周期波动的策略有效性。",
-    "score": 11000
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["收购", "产业生态", "裁员"],
+    "summary": "《如龙》系列制作人名越稔洋领导的名越工作室，于2026年5月被网易游戏切断资金支持。首款作品《GANG OF DRAGON》原定由马东锡主演、以新宿歌舞伎町为舞台的AAA级动作冒险游戏，但网易评估后认为需要追加70亿日元投资，最终在发售前撤资。这一事件凸显了AAA游戏开发对大型资本的深度依赖及其风险。",
+    "score": 9200
   },
   {
-    "source": "X.com @RealSoundJP",
-    "region": "CN",
-    "title": "NetEase投資戦略の全面縮小：名越・桜花・Jar of Sparks次々と撤退",
-    "title_zh": "网易全球投资战略全面收缩：接连从樱花、Jar of Sparks、名越工作室撤资",
-    "url": "https://realsound.jp/tech/2026/03/post-2336477.html",
+    "source": "GamesIndustry.biz / Skillsearch Report",
+    "region": "Global",
+    "title": "44% of Game Industry Professionals Consider Leaving Industry After Redundancies - Art Most Impacted",
+    "title_zh": "44%游戏行业从业者因裁员考虑转行，美术岗位受影响最大",
+    "url": "https://www.gamesindustry.biz/44-of-games-industry-professionals-have-considered-leaving-the-industry-as-a-result-of-redundancies",
     "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "收购",
-      "裁员",
-      "产业生态"
-    ],
-    "summary": "网易在游戏领域的全球投资进入全面收缩阶段：2024年关闭樱花工作室、2025年取消Jar of Sparks项目、2026年5月终止名越工作室资金支持。此前曾积极向海外知名创作者工作室投资的战略已彻底转向，反映了中国游戏巨头对海外高风险AAA项目投资意愿大幅降低，对依赖中国资本的海外工作室构成严重警示。",
-    "score": 25000
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["裁员", "产业生态", "外包"],
+    "summary": "游戏人才招聘公司Skillsearch最新报告显示，44%的受访者因裁员而考虑离开游戏行业。22%在过去一年内被解雇。美术（Art）被列为「受影响最大的裁员领域」。在英国76%、北美和中东/北非地区88%的受访者正在或计划在游戏行业外求职。该比例从2024年的24%、2025年的35%持续攀升。",
+    "score": 7800
   },
   {
-    "source": "X.com @UnrealEngine",
+    "source": "GameMakers.jp / GDC 2026 State of the Game Industry Report",
+    "region": "Global",
+    "title": "Over 60% of AAA Studios Conducted Layoffs in Past Year - GDC 2026 Report",
+    "title_zh": "GDC 2026报告：超六成AAA工作室在过去一年内实施裁员",
+    "url": "https://gamemakers.jp/article/2026_02_02_130006/",
+    "image": "",
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["裁员", "产业生态", "AI"],
+    "summary": "GDC主办方Informa发布的《2026年游戏产业现状报告》显示，AAA级工作室中有三分之二在过去一年内实施了裁员。全行业28%的受访者在过去两年内经历过裁员。生成AI使用方面，管理层（58%）远高于一般员工（29%），认为AI对行业有害的比例从2024年的18%飙升至52%。",
+    "score": 6500
+  },
+  {
+    "source": "Note.com / Industry Analysis",
+    "region": "JP",
+    "title": "2026 H1 Game Industry Earthquake: Destiny 2 Live Service End, Switch 2 Price Hike, Double Fine Unionization",
+    "title_zh": "2026上半年游戏业巨变：命运2结束主要更新、Switch 2涨价、Double Fine成立工会",
+    "url": "https://note.com/dandy_okapi8097/n/n266bebd536c9",
+    "image": "",
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["产业生态", "裁员", "外包"],
+    "summary": "日本产业观察者对2026年上半年游戏业的全面总结：5月21日Bungie宣布《命运2》将于6月9日推送最后一次主要内容更新后停止运营；任天堂因AI数据中心需求推高内存价格，将Switch 2从49,980日元涨价至59,980日元；5月7日微软旗下Double Fine工作室申请成立工会；GameStop向eBay提出约560亿美元收购要约。产业正在从增长期转入成熟期。",
+    "score": 7200
+  },
+  {
+    "source": "AUTOMATON / Skillsearch Report",
+    "region": "Global",
+    "title": "22% of Game Devs Laid Off in Past Year - Regional Exodus Accelerates",
+    "title_zh": "过去一年22%游戏开发者被裁，区域人才外流加速",
+    "url": "https://automaton-media.com/articles/newsjp/20260420-438623/",
+    "image": "",
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["裁员", "产业生态"],
+    "summary": "根据Skillsearch报告，1000名受访者中有22%在过去一年内被解雇，12%更早前失业。裁员主因是投资资金减少、预算削减和项目不足。在被裁者中45%已找到新工作，但仅有27%对新岗位感到安心。找工作时间上，33%需1-3个月，19%需7-12个月。行业人才流失正在加速，西欧63%、亚太70%的人在行业外求职，北美和中东北非高达88%。",
+    "score": 5400
+  },
+  {
+    "source": "Nextmars / Industry Analysis",
+    "region": "Global",
+    "title": "2026 Game Art Outsourcing Market Shift: Buyers Prioritize Process Maturity",
+    "title_zh": "2026游戏美术外包市场转变：买家更看重流程成熟度",
+    "url": "https://www.nextmars.com/post/future-proof-game-art-outsourcing-2026-qualified-inbound-demand",
+    "image": "",
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["外包", "产业生态"],
+    "summary": "2026年游戏美术外包市场的评价标准正在改变。买家不再只关注作品集的美观度，而是更多关注运营信号：外包工作室能否在分布式团队间保持概念意图、风格一致性和生产效率。能展示修订治理、项目管理可见性和可预测的联合开发里程碑的美术外包公司，正在赢得更多高质量询盘。",
+    "score": 3200
+  },
+  {
+    "source": "Bungie / Official Announcement via Note.com",
     "region": "US",
-    "title": "Unreal Engine 6正式発表、UEFNとの統合目指す",
-    "title_zh": "Epic正式发布Unreal Engine 6，目标与《堡垒之夜》编辑器深度整合",
-    "url": "https://www.gamebusiness.jp/article/2026/05/25/27035.html",
+    "title": "Bungie Ends Major Destiny 2 Live Service Updates After 9 Years",
+    "title_zh": "Bungie结束《命运2》9年运营更新，转向新作开发",
+    "url": "https://www.bungie.net/",
     "image": "",
-    "collected_at": "2026-05-26T23:51:53.537214+00:00",
-    "tags": [
-      "产业生态",
-      "技术"
-    ],
-    "summary": "Epic Games正式发布Unreal Engine 6，重要方向是与《堡垒之夜》编辑器UEFN深度整合。《火箭联盟》宣布将迁移至UE6。这一整合将大幅降低游戏开发门槛，可能对游戏美术外包市场产生深远影响——更多创作者可直接在UEFN生态中制作内容，而非通过传统外包渠道。",
-    "score": 20000
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["产业生态", "裁员"],
+    "summary": "5月21日Bungie宣布《命运2》将于6月9日推送最后一次大型内容更新后停止主要运营服务。这款2017年上线的游戏经过约9年运营后终于迎来终点。Bungie自被索尼收购后经历了严格重组——2024年7月裁员220人（约17%员工）。公司未来重心将转向新作《Marathon》。被视为live service模式极限的象征。",
+    "score": 6800
+  },
+  {
+    "source": "Nintendo / Official Announcement via Note.com",
+    "region": "JP",
+    "title": "Nintendo Switch 2 Price Hiked 10,000 Yen Due to AI-Driven Memory Cost Surge",
+    "title_zh": "任天堂Switch 2涨价1万日元，AI推动内存成本飙升",
+    "url": "https://www.nintendo.com/",
+    "image": "",
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["产业生态", "AI"],
+    "summary": "任天堂5月25日宣布日本国内Switch 2建议零售价从49,980日元上调至59,980日元。原因在于AI数据中心需求扩张推高内存和半导体价格，给游戏硬件厂商带来成本压力。这表明游戏行业已无法仅凭自身逻辑定价——芯片需求正与AI产业竞争，任天堂「亲民硬件」的定位正在被削弱。",
+    "score": 5900
+  },
+  {
+    "source": "Double Fine / CWA via Note.com",
+    "region": "US",
+    "title": "Microsoft's Double Fine Productions Files for Union Election",
+    "title_zh": "微软旗下Double Fine工作室申请成立工会",
+    "url": "https://www.washingtonpost.com/",
+    "image": "",
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["产业生态"],
+    "summary": "5月7日，微软旗下《疯狂世界》系列开发商Double Fine Productions的员工与CWA合作，向美国劳工关系委员会申请成立工会，涉及42名正式和兼职员工。在裁员常态化的背景下，游戏开发者越来越倾向于通过工会化来保护就业稳定和劳动条件。这是微软旗下继ZeniMax之后的又一个工会化案例。",
+    "score": 4300
+  },
+  {
+    "source": "GameStop / Official Announcement via Note.com",
+    "region": "US",
+    "title": "GameStop Makes Unsolicited ~$56 Billion Bid to Acquire eBay",
+    "title_zh": "GameStop向eBay提出约560亿美元收购要约",
+    "url": "https://www.gamestop.com/",
+    "image": "",
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["收购", "产业生态"],
+    "summary": "5月3日GameStop宣布以每股125美元向eBay提出全股票收购要约，总额约560亿美元。GameStop自称已持有eBay约5%的经济风险敞口。尽管eBay方面已拒绝该提案，但此举标志着GameStop已从传统游戏零售商转型为更具投资公司色彩的实体。游戏行业重组已从开发商收购扩展到流通、电商、支付等周边经济领域。",
+    "score": 5100
+  },
+  {
+    "source": "Sony / Official Announcement via Note.com",
+    "region": "US",
+    "title": "PlayStation Plus Subscription Prices Rise",
+    "title_zh": "PlayStation Plus订阅费上涨",
+    "url": "https://www.playstation.com/",
+    "image": "",
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["产业生态"],
+    "summary": "5月20日起索尼在部分地区上调PlayStation Plus 1个月和3个月套餐价格。美国1个月套餐从$10.99起、3个月从$27.99起。这延续了游戏行业成本转嫁趋势：硬件、周边、在线服务、订阅费用都在逐步上涨。玩家玩游戏的总持有成本从买断制向持续付费转移，且持续付费也不再便宜。",
+    "score": 3800
+  },
+  {
+    "source": "Skillsearch Report via GamesIndustry.biz",
+    "region": "Global",
+    "title": "53% of Game Pros Would Relocate for Higher Salary - Job Security Top Concern",
+    "title_zh": "53%游戏从业者愿为更高薪资relocate，工作保障成最大焦虑",
+    "url": "https://www.gamesindustry.biz/44-of-games-industry-professionals-have-considered-leaving-the-industry-as-a-result-of-redundancies",
+    "image": "",
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["产业生态", "外包"],
+    "summary": "Skillsearch报告还显示，53%的游戏从业者愿意为更高薪水和搬迁补贴而relocate，但工作保障和生活成本仍是主要顾虑。38%曾因搬迁补贴不足而拒绝offer。近半数从业者对AI使用增加感到担忧，64%认为AI对行业创意产生负面影响。29%的公司已制定AI伦理政策。行业仍以男性为主（74%），25-44岁占76%。",
+    "score": 3600
+  },
+  {
+    "source": "NetEase / Multiple Reports",
+    "region": "CN/Global",
+    "title": "NetEase Scales Back Global Game Investment",
+    "title_zh": "网易收缩全球游戏投资：从名越到漫威争锋美国团队裁员",
+    "url": "https://news.yahoo.co.jp/articles/e51b907ec9299c1fd6c6b260c909c3574ab5efad",
+    "image": "",
+    "collected_at": "2026-05-27T23:50:00Z",
+    "tags": ["收购", "裁员", "产业生态"],
+    "summary": "网易正在大幅收缩海外游戏投资。继名越工作室资金中断后，近期还包括PvP团队射击游戏《漫威争锋》美国开发团队被裁撤。此前2024年负责《圣剑传说》的樱花工作室关闭，2025年Jar of Sparks工作室新作开发中止。网易曾积极投资海外知名创作者工作室（如Q-Games、GPTRACK50等），现在全面回撤。大型资本的撤离正在重塑独立工作室的生存环境。",
+    "score": 4800
   }
 ]
