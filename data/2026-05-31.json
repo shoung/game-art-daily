@@ -1,0 +1,54 @@
+[
+  {
+    "source": "forbes.com",
+    "region": "Global",
+    "title": "AI Isn’t Replacing Creativity. It’s Moving It Upstream. - Forbes",
+    "title_zh": "AI 沒有取代創造力，而是將創意向上游移動",
+    "url": "https://www.forbes.com/sites/cathyrubin/2026/05/26/ai-isnt-replacing-creativity-its-moving-it-upstream/",
+    "image": "https://imageio.forbes.com/specials-images/imageserve/6a11204aa488ec8b473b57df/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+    "published_date": "2026-05-26",
+    "collected_at": "2026-05-31T07:50:00+08:00",
+    "tags": ["AI", "产业生态"],
+    "summary": "隨著生成式 AI 加速並降低製作成本，布魯克林的「Artist and the Machine」高峰會上，十位全球創意領袖指出創意價值正向上游移動——從手動製作轉向意圖、策展、情感智慧與人類作者權。與會者認為 AI 並非取代創造力，而是重新定位創造力所在的層級。Forbes 專文深入探討當「想像與執行之間的距離」消失後，創意產業的下一步。",
+    "score": 330
+  },
+  {
+    "source": "malaysia.news.yahoo.com",
+    "region": "Global",
+    "title": "Extraordinary Machines: AI And Creativity Summit Beyond The Binary - Yahoo News Malaysia",
+    "title_zh": "非凡機器：AI 與創造力高峰會——超越二元對立",
+    "url": "https://malaysia.news.yahoo.com/extraordinary-machines-ai-creativity-summit-120000873.html",
+    "image": "",
+    "published_date": "2026-05-26",
+    "collected_at": "2026-05-31T07:50:00+08:00",
+    "tags": ["AI", "产业生态"],
+    "summary": "在 AI 爭議日趨兩極化的氛圍下，由 Artist and the Machine 製作的 AI 與創造力高峰會在布魯克林 Lighthouse 舉行。活動邀請實際使用 AI 輔助創作的人們分享經驗，主旨是 AI 能作為創作工具提升產能，但無法取代發想點子的人類。Yahoo News 報導點出一個有趣的矛盾：從原型到真正可上市的產品之間仍有巨大鴻溝，但這或許正是創作新時代的開端。",
+    "score": 254
+  },
+  {
+    "source": "pcgamer.com",
+    "region": "Global",
+    "title": "Epic devs discuss the shock of mass layoffs: 'We only had a slight hint that the company revenue wasn't doing well' - PC Gamer",
+    "title_zh": "Epic 開發者談大規模裁員震撼：「我們對公司營收不佳僅略有預感」",
+    "url": "https://www.pcgamer.com/gaming-industry/epic-devs-discuss-the-shock-of-mass-layoffs-we-only-had-a-slight-hint-that-the-company-revenue-wasnt-doing-well/",
+    "image": "https://cdn.mos.cms.futurecdn.net/ZoNnbwEE9xr6vSMNfPbQVN-1920-80.jpg",
+    "published_date": "2026-05-28",
+    "collected_at": "2026-05-31T07:50:00+08:00",
+    "tags": ["裁员", "AI", "产业生态"],
+    "summary": "PC Gamer 深入報導 Epic Games 大規模裁員的內部衝擊。一份由前 Epic 員工建立的「Awesome People List」多達 545 筆記錄，觸及動畫師、製作人、程式設計師、HR 和 QA 專員——從剛入行的年輕開發者到超過 25 年經驗的資深員工無一倖免。受訪開發者坦言僅對公司營收下滑略有預感，裁員消息仍然令人震驚，折射出遊戲產業當前的深層結構問題。",
+    "score": 140
+  },
+  {
+    "source": "theguardian.com",
+    "region": "Global",
+    "title": "‘We’re expanding the cinematic toolbox’: AI fault lines on show at Cannes - The Guardian",
+    "title_zh": "「我們正在擴展電影工具箱」：坎城影展上的 AI 分歧戰線",
+    "url": "https://www.theguardian.com/technology/2026/may/24/cinematic-toolbox-ai-fault-lines-cannes",
+    "image": "https://i.guim.co.uk/img/media/c84557861eefbe376f55e4a2d52e4e3e326d127d/218_0_3424_2740/master/3424.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=f6931424fc7d287f63da2032616bf734",
+    "published_date": "2026-05-24",
+    "collected_at": "2026-05-31T07:50:00+08:00",
+    "tags": ["AI", "工会", "产业生态"],
+    "summary": "今年坎城影展上，AI 成為主導話題。導演戴倫·亞洛諾夫斯基在「AI for Talent」高峰會上為 AI 辯護，稱其為「擴展電影工具箱」的工具而非威脅。他的新工作室 Primordial Soup 與 Google DeepMind 合作，展示 AI 如何在拍攝中避免使用真實新生兒等實務應用。但坎城沙灘上的高峰會與豪華遊艇發表會同時也凸顯了電影產業內部對 AI 的深刻分歧。",
+    "score": 114
+  }
+]
