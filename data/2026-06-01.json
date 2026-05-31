@@ -1,0 +1,41 @@
+[
+  {
+    "source": "pcgamer.com",
+    "region": "Global",
+    "title": "Epic devs discuss the shock of mass layoffs: 'We only had a slight hint that the company revenue wasn't doing well'",
+    "title_zh": "Epic Games 前員工揭露大規模裁員內幕：「公司營收不佳，我們只有一點預感」",
+    "url": "https://www.pcgamer.com/gaming-industry/epic-devs-discuss-the-shock-of-mass-layoffs-we-only-had-a-slight-hint-that-the-company-revenue-wasnt-doing-well/",
+    "image": "https://cdn.mos.cms.futurecdn.net/ZoNnbwEE9xr6vSMNfPbQVN-1920-80.jpg",
+    "published_date": "2026-05-28",
+    "collected_at": "2026-06-01T07:50:00+08:00",
+    "tags": ["裁員", "產業生態", "Epic Games"],
+    "summary": "PC Gamer 獨家報導，一份名為「Epic 優秀人才清單」的文件列出了 545 名被解僱員工，涵蓋動畫師、製作人、程式設計師、HR 及 QA 專才。受訪的前 Epic 開發者表示，公司營收不佳早有徵兆，但裁員規模之大仍令人震驚。從入行不久的年輕開發者到擁有 25 年以上資歷的老將均受波及，突顯遊戲產業裁員潮仍在持續發酵。",
+    "score": 311
+  },
+  {
+    "source": "forbes.com",
+    "region": "Global",
+    "title": "AI Isn't Replacing Creativity. It's Moving It Upstream.",
+    "title_zh": "AI 不是取代創意，而是把創意推向「上游」",
+    "url": "https://www.forbes.com/sites/cathyrubin/2026/05/26/ai-isnt-replacing-creativity-its-moving-it-upstream/",
+    "image": "https://imageio.forbes.com/specials-images/imageserve/6a11204aa488ec8b473b57df/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+    "published_date": "2026-05-26",
+    "collected_at": "2026-06-01T07:50:00+08:00",
+    "tags": ["AI", "創意產業", "產業生態"],
+    "summary": "Forbes 報導指出，隨著生成式 AI 讓製作變得更快更便宜，創意產業的價值正從「執行層」移向「意圖、策劃與人類判斷力」的上游。來自全球十位創意領袖在布魯克林 AI 與創意峰會上分享觀點：提示詞只是一種戰術，方向感才是紀律。對於遊戲美術外包產業而言，這意味著純技術執行的價值持續下滑，而具有品味與策劃能力的創意人才將更加稀有。",
+    "score": 215
+  },
+  {
+    "source": "malaysia.news.yahoo.com",
+    "region": "Global",
+    "title": "Extraordinary Machines: AI And Creativity Summit Beyond The Binary",
+    "title_zh": "非凡機器：AI 與創意峰會——超越二元對立的對話",
+    "url": "https://malaysia.news.yahoo.com/extraordinary-machines-ai-creativity-summit-120000873.html",
+    "image": "https://s.yimg.com/ny/api/res/1.2/5I4jVX0vpoZ2SQNipYMmHQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTE5MjA7aD0xMjgwO2NmPXdlYnA-/https://media.zenfs.com/en/forbes_contributor_845/023170a823fa149df57ef5bc901fae63",
+    "published_date": "2026-05-26",
+    "collected_at": "2026-06-01T07:50:00+08:00",
+    "tags": ["AI", "創意產業", "遊戲開發"],
+    "summary": "本次在布魯克林舉行的 AI 與創意峰會試圖打破「AI 毀滅一切」與「AI 烏托邦」的二元對立。創意技術專家 Don Allen Stevenson III 在現場即時搭建了一款復古小遊戲，引發關於 AI 原型與商業化之間巨大落差的討論。活動的核心論點是：AI 可以是創作工具，但無法取代提出想法和進行提示的人類——對獨立開發者和外包工作室而言，這是值得深思的信號。",
+    "score": 114
+  }
+]
