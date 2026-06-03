@@ -1,16 +1,28 @@
 [
   {
+    "source": "gamespot.com",
+    "region": "Global",
+    "title": "Tomb Raider: Legacy Of Atlantis Features \"AI-Assisted Assets\" That Were \"Refined By Humans\" - GameSpot",
+    "title_zh": "《古墓奇兵：亞特蘭提斯遺產》使用 AI 輔助美術素材，官方強調「已由人類重新精修」",
+    "url": "https://www.gamespot.com/articles/tomb-raider-legacy-of-atlantis-features-ai-assisted-assets-that-were-refined-by-humans/",
+    "image": "https://images.pushsquare.com/1854d33e6a479/sound-the-alarm-tomb-raider-legacy-of-atlantis-partially-developed-using-ai-1.large.jpg",
+    "published_date": "2026-06-03",
+    "collected_at": "2026-06-03T23:50:04+00:00",
+    "tags": ["AI", "遊戲美術", "3A工作室"],
+    "summary": "Crystal Dynamics 與 Flying Wild Hog 在 Steam 頁面揭露，《古墓奇兵：亞特蘭提斯遺產》開發過程中使用 AI 輔助工具產出早期探索用與暫代素材。聲明強調所有 AI 生成素材「已由人類替換或精修」，以維護開發團隊的創作與藝術願景。此舉引發業界對生成式 AI 應用於遊戲美術的再度討論，該作預計 2027 年 2 月發售。",
+    "score": 147
+  },
+  {
     "source": "pcgamer.com",
     "region": "Global",
     "title": "Epic devs discuss the shock of mass layoffs: 'We only had a slight hint that the company revenue wasn't doing well' - PC Gamer",
-    "title_zh": "Epic 開發者談大規模裁員的震撼：「我們只隱約感覺公司收入不太好」",
+    "title_zh": "Epic Games 前員工揭露大規模裁員內幕：「我們只知道公司營收不太好」",
     "url": "https://www.pcgamer.com/gaming-industry/epic-devs-discuss-the-shock-of-mass-layoffs-we-only-had-a-slight-hint-that-the-company-revenue-wasnt-doing-well/",
     "image": "",
     "published_date": "2026-05-28",
-    "days_ago": 6,
-    "collected_at": "2026-06-03T00:00:00+08:00",
-    "tags": ["裁員", "產業生態", "Epic Games"],
-    "summary": "PC Gamer 訪問了多位 Epic Games 前員工，揭露 2026 年 3 月大規模裁員（逾 1,000 人）的內部衝擊。被裁員工包含動畫師、製作人、程式設計師、HR 及 QA 等各職能，橫跨菜鳥到 25 年資深老手。許多人表示裁員前幾乎沒有徵兆，只有「公司營收不太理想」的隱約感覺。這份被稱為「Epic Awesome People List」的名單多達 545 筆，凸顯裁員範圍之廣與對遊戲美術、開發團隊的深遠打擊。",
+    "collected_at": "2026-06-03T23:50:04+00:00",
+    "tags": ["裁員", "產業生態", "3A工作室"],
+    "summary": "Epic Games 在今年 3 月大規模裁員約 1,000 人，近日前員工出面受訪揭露當時狀況。一份名為「Epic Awesome People List」的文件列出 545 名被裁員工，橫跨動畫師、製作人、程式設計師、HR 與 QA 專員，從剛入行的新手到年資 25 年的老將無一倖免。受訪者表示當時只隱約感覺公司營收不佳，未料到裁員規模如此之大。",
     "score": 140
   }
 ]
