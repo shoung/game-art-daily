@@ -1,0 +1,41 @@
+[
+  {
+    "source": "gamesindustry.biz",
+    "region": "Global",
+    "title": "MGM and Amazon Game Studios to publish future IO Interactive James Bond titles",
+    "title_zh": "MGM 與 Amazon Game Studios 將接手發行 IO Interactive 未來詹姆士·龐德遊戲",
+    "url": "https://www.gamesindustry.biz/mgm-and-amazon-game-studios-to-publish-future-io-interactive-james-bond-titles",
+    "image": "https://assetsio.gnwcdn.com/007-first-light-12-29-25-1-1024x576.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp",
+    "published_date": "2026-06-04",
+    "collected_at": "2026-06-04T23:50:07+00:00",
+    "tags": ["产业生态", "收购"],
+    "summary": "IO Interactive 宣布未來《詹姆士·龐德》遊戲將不再自行發行，改由 MGM 與 Amazon Game Studios 聯合發行。此舉源於 Amazon 在 2022 年以 84.5 億美元收購龐德 IP 持有者 MGM。IO Interactive 開發的《007：First Light》上月 27 日發售，24 小時內即賣出 150 萬套。Amazon 遊戲部門總經理 Jeff Gattis 表示，龐德這樣的 IP 支援 Amazon 跨媒體策略——涵蓋遊戲、影集與電影。然而 Amazon 遊戲部門近期面臨動盪，包括傳聞取消《魔戒》MMO、關閉 Glowmade 的線上遊戲 King of Meat，以及明年 1 月《New World: Aeternum》伺服器將正式下線。",
+    "score": 337
+  },
+  {
+    "source": "gamespot.com",
+    "region": "Global",
+    "title": "Tomb Raider: Legacy Of Atlantis Features \"AI-Assisted Assets\" That Were \"Refined By Humans\"",
+    "title_zh": "《古墓奇兵：亞特蘭提斯遺產》確認使用 AI 輔助素材——經人工調整後保留在遊戲中",
+    "url": "https://www.gamespot.com/articles/tomb-raider-legacy-of-atlantis-features-ai-assisted-assets-that-were-refined-by-humans/",
+    "image": "https://www.destructoid.com/wp-content/uploads/2025/12/TombRaider_LegacyofAtlantis_LaraCroft_Vilcabamba_VistaReveal.jpg?quality=75",
+    "published_date": "2026-06-03",
+    "collected_at": "2026-06-04T23:50:07+00:00",
+    "tags": ["AI", "产业生态"],
+    "summary": "Crystal Dynamics 與 Flying Wild Hog 證實，《古墓奇兵：亞特蘭提斯遺產》（1996 年重製版）在開發過程中使用了 AI 輔助工具。Steam 頁面的 AI 揭露聲明指出：「AI 輔助工具用於開發初期探索與臨時開發素材。任何 AI 輔助素材已由人類替換或調整，以維持開發團隊的創意與藝術願景。」然而外界擔憂部分 AI 生成素材經「調整」後仍保留在最終遊戲中。報導指出，Crystal Dynamics 負責人此前曾稱 AI 是「推動效率的最強工具」，但也引發藝術社群對創意稀釋的不滿。本作預計 2027 年 2 月登陸 PC、PS5 與 Xbox Series X|S。",
+    "score": 147
+  },
+  {
+    "source": "theguardian.com",
+    "region": "Global",
+    "title": "Martin Scorsese accused of 'throwing artists under bus' with AI storyboards",
+    "title_zh": "馬丁·史柯西斯因採用 AI 生成分鏡圖遭藝術家批評「把藝術家賣了」",
+    "url": "https://www.theguardian.com/film/2026/jun/03/martin-scorsese-accused-of-throwing-artists-under-bus-with-ai-storyboards",
+    "image": "https://i.guim.co.uk/img/media/3e37007827b598db22f107192bfab281d6c71aac/127_124_2864_2291/master/2864.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=24377ce556d54208c428172326651a27",
+    "published_date": "2026-06-03",
+    "collected_at": "2026-06-04T23:50:07+00:00",
+    "tags": ["AI", "产业生态"],
+    "summary": "大導演馬丁·史柯西斯宣布投資 AI 公司 Black Forest Labs，並使用 AI 工具生成分鏡圖，引發影視與概念藝術界強烈反彈。曾參與《黑豹》《復仇者聯盟》等 Marvel 電影的概念藝術家 Karla Ortiz 痛批：「他把所有合作過的分鏡藝術家都賣了⋯⋯用他的遺產和權力做這種事太惡心了。」動畫影集《惡魔城》導演 Samuel Deats 也批評：「沒有理由用建立在數百萬藝術家被竊取作品上的 AI。史柯西斯在聲明中辯稱 AI 能幫助他在前製階段更有效率地傳達視覺想法，但此事正凸顯 AI 對創意產業藝術家工作機會的威脅——這波爭議同樣衝擊遊戲產業的概念設計與美術外包生態。",
+    "score": 138
+  }
+]
