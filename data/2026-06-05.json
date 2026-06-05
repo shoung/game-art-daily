@@ -1,0 +1,54 @@
+[
+  {
+    "source": "gamespot.com",
+    "region": "Global",
+    "title": "Tomb Raider: Legacy Of Atlantis Features \"AI-Assisted Assets\" That Were \"Refined By Humans\"",
+    "title_zh": "《古墓奇兵：亞特蘭提斯的遺產》揭露使用「AI輔助素材」並由人類精修",
+    "url": "https://www.gamespot.com/articles/tomb-raider-legacy-of-atlantis-features-ai-assisted-assets-that-were-refined-by-humans/",
+    "image": "",
+    "published_date": "2026-06-03",
+    "collected_at": "2026-06-05T23:50:04+00:00",
+    "tags": ["AI", "美術外包", "3A遊戲"],
+    "summary": "《古墓奇兵：亞特蘭提斯的遺產》開發團隊在遊戲揭露聲明中表示，所有「AI輔助素材」均經過人類美術師替換或精修，以維持開發團隊的創意與藝術願景。這款經典重啟作品使用 AI 輔助生成部分資產，但強調最終產品仍由人類把關。此做法反映了 3A 遊戲大廠在 AI 輔助美術素材上的常見立場：既要利用 AI 效率，又需避免引發社群對 AI 取代人類美術師的負面觀感。",
+    "score": 359
+  },
+  {
+    "source": "forbes.com",
+    "region": "Global",
+    "title": "AI Agents Put Creative Control Back On The Table",
+    "title_zh": "AI Agent 讓創意主導權重回創作者手中",
+    "url": "https://www.forbes.com/sites/ronschmelzer/2026/06/03/ai-agents-put-creative-control-back-on-the-table/",
+    "image": "",
+    "published_date": "2026-06-03",
+    "collected_at": "2026-06-05T23:50:04+00:00",
+    "tags": ["AI", "創意產業", "產業生態"],
+    "summary": "在舊金山 Upscale 大會上，創意產業專家指出 AI 在產業中的角色正從「取代創作者」的爭論，轉向「如何駕馭 AI 實現創意願景」的實務討論。Magnific CEO Joaquín Cuenca 批評現有 AI 編輯工具過度自作主張，呼籲新一代 AI Agent 應具備循環工作流程：生成內容、自我審查、暴露決策過程，讓創作者能掌握每一步。重點不再是產出量，而是建立可重複的品質把關流程。",
+    "score": 331
+  },
+  {
+    "source": "roadtovr.com",
+    "region": "Global",
+    "title": "Vertigo Games Shutters 'Metro Awakening' Studio Amid \"challenging\" VR Market",
+    "title_zh": "VR 寒冬持續：Vertigo Games 關閉《Metro Awakening》開發工作室",
+    "url": "https://roadtovr.com/vertigo-games-shuts-down-metro-awakening-studio/",
+    "image": "",
+    "published_date": "2026-06-05",
+    "collected_at": "2026-06-05T23:50:04+00:00",
+    "tags": ["裁員", "工作室關閉", "VR產業"],
+    "summary": "荷蘭 VR 大廠 Vertigo Games 宣布關閉阿姆斯特丹工作室（原 Force Field，曾開發《Metro Awakening VR》），CEO 坦言「VR 市場仍是充滿挑戰的領域」。該工作室 2021 年被 Vertigo Games 收購，而母公司則在 2020 年被 Embracer Group 旗下 Plaion 以 6000 萬美元收購。此舉反映 VR 遊戲產業持續萎縮，今年稍早 Meta 也關閉多間內部 VR 工作室，轉而聚焦 AI 與智慧眼鏡業務。",
+    "score": 198
+  },
+  {
+    "source": "gamesindustry.biz",
+    "region": "Global",
+    "title": "MGM and Amazon Game Studios to publish future IO Interactive James Bond titles",
+    "title_zh": "Amazon 全面接管 007 IP：未來《James Bond》遊戲由 MGM 與 Amazon Game Studios 發行",
+    "url": "https://www.gamesindustry.biz/mgm-and-amazon-game-studios-to-publish-future-io-interactive-james-bond-titles",
+    "image": "",
+    "published_date": "2026-06-04",
+    "collected_at": "2026-06-05T23:50:04+00:00",
+    "tags": ["收購", "產業生態", "跨媒體"],
+    "summary": "IO Interactive 宣布未來不再自行發行《James Bond》系列遊戲，改由 MGM 與 Amazon Game Studios 負責發行。此決定源於 Amazon 2022 年以 84.5 億美元收購 MGM（握有 007 IP）。IO 開發的《007：第一道曙光》上市 24 小時即售出 150 萬套。Amazon 遊戲部門總經理表示，007 IP 將支援 Amazon 跨遊戲、影視、電視的泛媒體策略，未來也將看到《古墓奇兵》影集等更多 IP 聯動。",
+    "score": 114
+  }
+]
