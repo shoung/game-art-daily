@@ -1,0 +1,54 @@
+[
+  {
+    "source": "forbes.com",
+    "region": "Global",
+    "title": "AI Agents Put Creative Control Back On The Table - Forbes",
+    "title_zh": "AI 代理讓創作主導權重回創作者手中 — Upscale 大會紀實",
+    "url": "https://www.forbes.com/sites/ronschmelzer/2026/06/03/ai-agents-put-creative-control-back-on-the-table/",
+    "image": "https://imageio.forbes.com/specials-images/imageserve/6a20a739ac75b76282f7cc99/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+    "published_date": "2026-06-03",
+    "collected_at": "2026-06-06T23:50:05+00:00",
+    "tags": ["AI", "產業生態"],
+    "summary": "在舊金山 Upscale 大會上，AI 創意工具的討論已從「取代創作者」轉向「賦予創作者更大控制權」。Magnific CEO Cuenca 指出新一代 AI 代理能循環運作：生成圖像與影片、自行審查成果、再將流程暴露給使用者進行微調，有別於傳統黑箱式的 AI 輸出。創意工作者正從追求生成結果轉向打造可控、可重複的創意流程。Cuenca 強調：「讓他人看見你腦中的畫面，更大的控制權能將恐懼轉化為好奇。」",
+    "score": 331
+  },
+  {
+    "source": "roadtovr.com",
+    "region": "Global",
+    "title": "Vertigo Games Shutters 'Metro Awakening' Studio Amid 'challenging' VR Market - Road to VR",
+    "title_zh": "Vertigo Games 關閉阿姆斯特丹工作室，《戰慄深隧：覺醒》團隊解散",
+    "url": "https://roadtovr.com/vertigo-games-shuts-down-metro-awakening-studio/",
+    "image": "https://roadtovr.com/wp-content/uploads/2024/07/metro-awakening.jpg",
+    "published_date": "2026-06-05",
+    "collected_at": "2026-06-06T23:50:05+00:00",
+    "tags": ["裁員", "VR", "工作室關閉"],
+    "summary": "荷蘭 VR 大廠 Vertigo Games 宣布關閉阿姆斯特丹工作室。CEO 在公開信中坦言「VR 市場仍然充滿挑戰」，該團隊曾開發《Metro Awakening VR》，原為 Force Field 工作室，2021 年被 Vertigo 收購。母公司為 Embracer Group 旗下 Plaion（2020 年以 6000 萬美元收購 Vertigo）。此波 VR 產業寒冬中，Meta 也於今年稍早關閉多間內部 VR 工作室，Reality Labs 重心轉向 AI 與智慧眼鏡。",
+    "score": 198
+  },
+  {
+    "source": "polygon.com",
+    "region": "Global",
+    "title": "Star Trek, TMNT, and Avatar are officially entering a new gaming era - Polygon.com",
+    "title_zh": "派拉蒙正式成立遊戲工作室，宣布《忍者龜：最後的浪人》等 AAA 新作",
+    "url": "https://www.polygon.com/paramount-games-studio-tmnt-star-trek-spongebob-avatar/",
+    "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/06/paramount-games-studios-_-get-lost-in-our-worlds-0-54-screenshot.jpg?w=1600&h=900&fit=crop",
+    "published_date": "2026-06-05",
+    "collected_at": "2026-06-06T23:50:05+00:00",
+    "tags": ["收購", "工作室成立", "產業生態"],
+    "summary": "派拉蒙在 Summer Game Fest 前宣布成立 Paramount Games Studio，整合 Skydance 旗下兩個遊戲團隊，包含 Amy Hennig 領軍開發《Marvel 1943》的工作室。首款確認作品為《忍者龜：最後的浪人》，由白金工作室（PlatinumGames）開發。新部門將不僅負責 IP 授權，更將親自開發《星際爭霸戰》、《海綿寶寶》、《降世神通》等 IP 的 AAA 遊戲。CEO 強調遊戲將成為與影視並列的內容支柱。",
+    "score": 135
+  },
+  {
+    "source": "gamesindustry.biz",
+    "region": "Global",
+    "title": "MGM and Amazon Game Studios to publish future IO Interactive James Bond titles - GamesIndustry.biz",
+    "title_zh": "MGM 與 Amazon Game Studios 接手發行 IO Interactive《007》系列新作",
+    "url": "https://www.gamesindustry.biz/mgm-and-amazon-game-studios-to-publish-future-io-interactive-james-bond-titles",
+    "image": "https://assetsio.gnwcdn.com/007-first-light-12-29-25-1-1024x576.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp",
+    "published_date": "2026-06-04",
+    "collected_at": "2026-06-06T23:50:05+00:00",
+    "tags": ["收購", "產業生態", "跨媒體"],
+    "summary": "IO Interactive 將不再自行發行《007》系列遊戲，改由 MGM 與 Amazon Game Studios 接手。Amazon 於 2022 年以 84.5 億美元收購 MGM 後擁有龐德 IP 所有權，正將其納入跨媒體策略。首作《007: First Light》於 5 月 27 日上市，24 小時內銷量突破 150 萬套。Amazon 遊戲部門總經理表示龐德 IP 可同時支撐遊戲、電影與電視三方內容策略。",
+    "score": 114
+  }
+]
