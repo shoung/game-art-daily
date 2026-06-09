@@ -1,0 +1,54 @@
+[
+  {
+    "source": "roadtovr.com",
+    "region": "Global",
+    "title": "Vertigo Games Shutters 'Metro Awakening' Studio Amid "challenging" VR Market - Road to VR",
+    "title_zh": "Vertigo Games 關閉阿姆斯特丹工作室，《Metro Awakening》開發團隊解散 — VR 市場持續寒冬",
+    "url": "https://roadtovr.com/vertigo-games-shuts-down-metro-awakening-studio/",
+    "image": "",
+    "published_date": "2026-06-05",
+    "collected_at": "2026-06-09T23:50:04+00:00",
+    "tags": ["裁員", "VR", "產業生態"],
+    "summary": "荷蘭 VR 老牌發行商 Vertigo Games 宣布關閉其阿姆斯特丹工作室（原 Force Field），CEO Richard Stitselaar 在公開信中坦言「VR 市場仍然充滿挑戰」。該工作室曾開發《Metro Awakening VR》（2024）及多款 VR 作品，2021 年被 Vertigo Games 收購。Vertigo 鹿特丹總部則早在 2020 年就被 Embracer Group 以 6000 萬美元收購。今年稍早 Meta 也關閉了多個內部 VR 工作室，轉向 AI 與智慧眼鏡，Survios 等老牌 VR 工作室同樣實質上已停擺，VR 遊戲業正面臨持續萎縮的結構性問題。",
+    "score": 198
+  },
+  {
+    "source": "sea.ign.com",
+    "region": "Global",
+    "title": "After Starring in an AI-Generated Video for Prada, Hideo Kojima Says 'Maybe AI Could Create Art, but While I Live, I Don't Think I'll See It'",
+    "title_zh": "小島秀夫談 AI 生成藝術：「也許 AI 能創作藝術，但我有生之年恐怕看不到」",
+    "url": "https://sea.ign.com/hideo-kojima-xbox-project/243945/after-starring-in-an-ai-generated-video-for-prada-hideo-kojima-says-maybe-ai-could-create-art-but-wh",
+    "image": "",
+    "published_date": "2026-06-08",
+    "collected_at": "2026-06-09T23:50:04+00:00",
+    "tags": ["AI", "產業生態"],
+    "summary": "小島秀夫因出演 Prada 的 AI 生成宣傳影片而引發爭議，隨後他公開表達對 AI 藝術的看法。他在訪談中表示，AI 最適合擔任「創意雜務的清潔工」，人類必須留在創作現場。《華盛頓郵報》報導指出，小島認為 AI 或許能創作出某種形式的藝術，但在他有生之年看不到真正的 AI 原創藝術。此番言論引發業界對遊戲開發中 AI 定位的廣泛討論。",
+    "score": 165
+  },
+  {
+    "source": "gonintendo.com",
+    "region": "Global",
+    "title": "SEGA confirms use of generative A.I. in creating Crazy Taxi: World Tour",
+    "title_zh": "SEGA 證實《瘋狂計程車：世界巡迴》開發過程使用生成式 AI",
+    "url": "https://gonintendo.com/contents/61605-sega-confirms-use-of-generative-a-i-in-creating-crazy-taxi-world-tour",
+    "image": "",
+    "published_date": "2026-06-08",
+    "collected_at": "2026-06-09T23:50:04+00:00",
+    "tags": ["AI", "產業生態"],
+    "summary": "SEGA 在 Summer Games Fest 上確認《瘋狂計程車：世界巡迴》開發過程中使用生成式 AI。原始系列創作者菅野健治在 Q&A 中澄清，AI 僅用於前期概念發想階段，包括環境美術參考與暫用素材（placeholder），最終產品不會包含 AI 生成的資產。SEGA 官方聲明表示，生成式 AI 是可選的輔助工具，所有 AI 產出均經開發團隊審查，且未用於任何表演者相關內容。",
+    "score": 147
+  },
+  {
+    "source": "gamespot.com",
+    "region": "Global",
+    "title": "Tomb Raider: Legacy Of Atlantis Features \"AI-Assisted Assets\" That Were \"Refined By Humans\"",
+    "title_zh": "《古墓奇兵：亞特蘭提斯遺產》採用 AI 輔助素材，「經人類精煉後呈現」",
+    "url": "https://www.gamespot.com/articles/tomb-raider-legacy-of-atlantis-features-ai-assisted-assets-that-were-refined-by-humans/",
+    "image": "",
+    "published_date": "2026-06-03",
+    "collected_at": "2026-06-09T23:50:04+00:00",
+    "tags": ["AI", "產業生態"],
+    "summary": "Crystal Dynamics 與 Flying Wild Hog 證實，預計推出的《古墓奇兵》1996 年重製版《亞特蘭提斯遺產》在開發過程中使用了 AI 工具。Steam 產品頁面揭露聲明指出，開發團隊在早期探索與暫用內容階段使用了「AI 輔助工具」，所有 AI 輔助素材「要麼被替換，要麼經由人類精煉，以維持開發團隊的創作與藝術願景」。此舉延續了近期 3A 等級遊戲陸續公開使用 AI 工具的趨勢，也再次引發業界對於 AI 在遊戲美術開發中角色的討論。",
+    "score": 147
+  }
+]
