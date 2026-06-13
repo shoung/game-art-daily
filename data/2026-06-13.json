@@ -1,0 +1,41 @@
+[
+  {
+    "source": "eurogamer.net",
+    "region": "Global",
+    "title": "Ubisoft is reportedly closing two studios and restructuring another, with around 380 people expected to be laid off",
+    "title_zh": "Ubisoft 關閉 Winnipeg 與 Belgrade 兩間工作室，380 名員工面臨裁員",
+    "url": "https://www.eurogamer.net/ubisoft-two-studio-closures-layoffs",
+    "image": "https://assetsio.gnwcdn.com/ubisoft-logo-2025.png",
+    "published_date": "2026-06-11",
+    "collected_at": "2026-06-13T23:50:04+00:00",
+    "tags": ["裁員", "工作室關閉", "產業生態"],
+    "summary": "Ubisoft 宣布關閉位於加拿大溫尼伯和塞爾維亞貝爾格勒的兩間小型工作室，並重組巴塞隆納工作室（僅保留《虹彩六號》相關開發）。Winnipeg 工作室主要負責 Anvil 與 Snowdrop 引擎的技術支援，Belgrade 則參與過《火線獵殺：野境》、《The Crew 2》、《怒海戰記》等作品的協力開發。此次重整預計約 380 人受影響，同時 Ubisoft 蒙特婁工作室的《虹彩六號：圍攻行動》團隊也遭到波及。這是 Ubisoft 今年第三波大規模裁員。",
+    "score": 276
+  },
+  {
+    "source": "gamesindustry.biz",
+    "region": "Global",
+    "title": "Yet more layoffs reported at Ubisoft, this time in San Francisco",
+    "title_zh": "Ubisoft 舊金山辦公室也傳裁員，XDefiant 團隊再受衝擊",
+    "url": "https://www.gamesindustry.biz/yet-more-layoffs-reported-at-ubisoft-this-time-in-san-francisco",
+    "image": "https://images.gnwcdn.com/2024/articles/2024-08-28-15-04/ubisoft-san-francisco-layoffs.jpg",
+    "published_date": "2026-06-10",
+    "collected_at": "2026-06-13T23:50:04+00:00",
+    "tags": ["裁員", "工作室關閉", "外包"],
+    "summary": "在同一天 Ubisoft 關閉兩間工作室的同時，舊金山辦公室也傳出裁員消息。據 Insider Gaming 報導，裁員於內部會議中宣布，舊金山辦公室約有 50-100 個職位受到影響。該工作室過去曾負責線上射擊遊戲 XDefiant 的開發，並在 2024 年 8 月已裁撤過 45 人。此次整體重組中約 380 個職位處於風險之中，對外包美術團隊與支援工作室的影響尤為顯著。",
+    "score": 281
+  },
+  {
+    "source": "me.ign.com",
+    "region": "Global",
+    "title": "Xbox Studio Shutdowns and Ad-Funded Subscriptions Likely After Asha Sharma's Stark 'Reset' Warning, Analysts Say",
+    "title_zh": "Xbox 高層警告「全面重啟」，分析師預測工作室關閉與廣告贊助訂閱將成常態",
+    "url": "https://me.ign.com/en/clockwork-revolution/245561/xbox-studio-shutdowns-and-ad-funded-subscriptions-likely-after-asha-sharmas-stark-reset-warning-anal",
+    "image": "https://sm.ign.com/t/ign_me/screenshot/default/xbox-logo-2024_vr72.1200.jpg",
+    "published_date": "2026-06-12",
+    "collected_at": "2026-06-13T23:50:04+00:00",
+    "tags": ["裁員", "收購", "產業生態"],
+    "summary": "Xbox 營運長 Asha Sharma 近日發布內部備忘錄，警告公司需要「全面重啟」（reset），引發業界震盪。分析師指出，微軟在「不惜代價追求成長」時期收購的大量小型工作室，如今面臨關閉風險。業界預測 Xbox 可能進一步關閉工作室，並轉向廣告贊助的訂閱制模式（ad-funded subscriptions）。這對依賴 Xbox 外包案的美術工作室而言，意味著未來訂單可能進一步縮減。",
+    "score": 241
+  }
+]
