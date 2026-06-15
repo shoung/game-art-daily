@@ -1,28 +1,41 @@
 [
   {
+    "source": "bloomberg.com",
+    "region": "US",
+    "title": "Studios in Microsoft’s Xbox Division Brace for Closures",
+    "title_zh": "Microsoft Xbox 分部多間工作室面臨關閉危機",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-15/studios-in-microsoft-s-xbox-division-brace-for-closures",
+    "image": "",
+    "published_date": "2026-06-15",
+    "collected_at": "2026-06-15T23:50:05+00:00",
+    "tags": ["裁员", "产业生态"],
+    "summary": "彭博社報導，Microsoft Xbox 部門正醞釀新一波工作室關閉與重組計畫。此舉由二月上任的 Xbox CEO Asha Sharma 主導，上週她已預告將進行「Xbox 重置」，暗示工作室體系「過度擴張」。消息指出 Xbox Game Studios 旗下多間工作室正在為可能到來的關閉做好準備，同時可能伴隨大規模裁員。這是微軟遊戲部門近年最大規模的組織重整，引發產業對 Xbox 第一方陣容未來走向的關注。",
+    "score": 282
+  },
+  {
     "source": "eurogamer.net",
     "region": "Global",
     "title": "Ubisoft is reportedly closing two studios and restructuring another, with around 380 people expected to be laid off",
-    "title_zh": "Ubisoft 再關兩間工作室、重組巴塞隆納團隊，預計 380 人受影響",
+    "title_zh": "Ubisoft 關閉兩間工作室並重組第三間，約 380 人面臨裁員",
     "url": "https://www.eurogamer.net/ubisoft-two-studio-closures-layoffs",
     "image": "https://assetsio.gnwcdn.com/ubisoft_logo_whiteonblack_960x540_351175.png?width=1200&height=630&fit=crop&enable=upscale&auto=webp",
     "published_date": "2026-06-11",
-    "collected_at": "2026-06-15T07:50:00+08:00",
-    "tags": ["裁員", "產業生態", "工作室關閉"],
-    "summary": "Ubisoft 宣布關閉加拿大 Winnipeg 與塞爾維亞 Belgrade 兩間支援型工作室，並將巴塞隆納工作室轉為專注《虹彩六號》系列開發。這是 Ubisoft 2026 年第三波裁員，連同全球發行部門重整，預計約 380 人失業。舊金山辦公室也傳出數十人裁員。自 2023 年員工數從兩萬人降至目前約 16,590 人，騰訊注資 11.6 億歐元成立 Vantage Studios 後持續瘦身。",
+    "collected_at": "2026-06-15T23:50:05+00:00",
+    "tags": ["裁员", "外包", "产业生态"],
+    "summary": "Ubisoft 宣布關閉位於加拿大溫尼伯和塞爾維亞貝爾格勒的工作室，同時重整巴塞隆納工作室僅專注《彩虹六號》系列開發。這波裁員預計影響約 380 人，加拿大蒙特婁工作室和全球發行團隊也受到衝擊。溫尼伯工作室原本負責支援 Anvil 及 Snowdrop 引擎開發，貝爾格勒則曾參與《火線獵殺：野境》《怒海戰記》等作品。這是 Ubisoft 今年第三輪裁員，此前已關閉 Halifax 和斯德哥爾摩工作室，累計裁員規模持續擴大。",
     "score": 276
   },
   {
-    "source": "ign.com",
-    "region": "Global",
-    "title": "Xbox Studio Shutdowns and Ad-Funded Subscriptions Likely After Asha Sharma's Stark 'Reset' Warning, Analysts Say",
-    "title_zh": "Xbox 總監「重置」警告發酵：分析師預測更多工作室關閉與廣告贊助訂閱制",
-    "url": "https://me.ign.com/en/clockwork-revolution/245561/xbox-studio-shutdowns-and-ad-funded-subscriptions-likely-after-asha-sharmas-stark-reset-warning-anal",
-    "image": "https://sm.ign.com/t/ign_me/news/x/xbox-studi/xbox-studio-shutdowns-and-ad-funded-subscriptions-likely-aft_jq7x.1200.jpg",
-    "published_date": "2026-06-12",
-    "collected_at": "2026-06-15T07:50:00+08:00",
-    "tags": ["裁員", "產業生態", "Xbox", "訂閱制"],
-    "summary": "Xbox 營運總監 Asha Sharma 發表內部備忘錄，直言遊戲產業需要「重置」（reset），引發市場震盪。分析師認為這可能預示更多 Xbox 工作室關閉，以及微軟將推動廣告贊助訂閱模式。過去幾年在「不惜成本成長」時期被收購的中小型工作室風險最高，面臨裁員或關閉的命運。此舉被視為微軟遊戲部門從擴張轉向獲利導向的重要信號。",
-    "score": 241
+    "source": "theverge.com",
+    "region": "US",
+    "title": "Xbox turmoil continues with a studio closure and executive departures",
+    "title_zh": "Xbox 動盪持續：Compulsion Games 關閉、高層離職",
+    "url": "https://www.theverge.com/games/949964/xbox-compulsion-games-closure-craig-duncan-departure",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25485116/STK048_XBOX2__B.png?quality=90&strip=all&crop=0,10.732984293194,100,78.534031413613&w=1200",
+    "published_date": "2026-06-15",
+    "collected_at": "2026-06-15T23:50:05+00:00",
+    "tags": ["裁员", "产业生态"],
+    "summary": "Xbox 內部動盪持續升溫。《南方午夜》開發工作室 Compulsion Games 確定被關閉，Xbox Game Studios 負責人 Craig Duncan 與營運長 Louise O'Connor 相繼離職。本月初 Xbox CEO Asha Sharma 發布內部備忘錄，坦言 Xbox「工作室體系過度擴張」，未來 100 天將進行「重置」，包括調整 Game Pass 策略與強化第一方獨佔陣容。分析師認為工作室關閉與廣告贊助版 Game Pass 可能成為 Xbox 未來改革方向。",
+    "score": 261
   }
 ]
