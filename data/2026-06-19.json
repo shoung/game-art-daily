@@ -1,0 +1,67 @@
+[
+  {
+    "source": "bloomberg.com",
+    "region": "Global",
+    "title": "Studios in Microsoft’s Xbox Division Brace for Closures",
+    "title_zh": "微軟 Xbox 部門旗下工作室面臨關閉潮",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-15/studios-in-microsoft-s-xbox-division-brace-for-closures",
+    "image": "",
+    "published_date": "2026-06-15",
+    "collected_at": "2026-06-19T23:50:05+00:00",
+    "tags": ["裁員", "工作室關閉", "Xbox", "產業生態"],
+    "summary": "彭博社報導，微軟 Xbox 部門正準備大規模關閉旗下工作室，這是新任執行長 Asha Sharma 二月上任後推行全面重組的一部分。Xbox 近期已傳出將大幅裁員，多位分析師指出，工作室關閉和廣告贊助的 Game Pass 訂閱制可能是未來方向。Ninja Theory、Double Fine、Compulsion Games 等知名工作室據傳都在影響範圍內。",
+    "score": 282
+  },
+  {
+    "source": "ign.com",
+    "region": "Global",
+    "title": "Entire Luna Abyss Development Team Laid Off One Month After Launch",
+    "title_zh": "《Luna Abyss》發售僅一個月，整個開發團隊遭裁撤",
+    "url": "https://www.ign.com/articles/entire-luna-abyss-development-team-laid-off-one-month-after-launch",
+    "image": "",
+    "published_date": "2026-06-17",
+    "collected_at": "2026-06-19T23:50:05+00:00",
+    "tags": ["裁員", "獨立遊戲", "外包", "產業生態"],
+    "summary": "由 Kwalee Labs 開發的射擊遊戲《Luna Abyss》上市僅一個月，整個 9 人開發團隊全數遭裁員。執行長 Hollie Emery 在 LinkedIn 上證實此事，表示裁員決定完全超出其控制範圍。該遊戲在 Metacritic 獲得 81 分好評，但 Steam 同時在線人數峰值僅 317 人，商業表現不佳。團隊耗時七年開發，如今所有成員正在尋找新工作。",
+    "score": 281
+  },
+  {
+    "source": "ign.com",
+    "region": "Global",
+    "title": "Ahead of Xbox Studio 'Bloodbath', Report Lays Out Why the Company is Struggling So Bad",
+    "title_zh": "Xbox 工作室「血流成河」前夕：分析報告揭開微軟困境真相",
+    "url": "https://www.ign.com/articles/amid-concern-over-xbox-studio-bloodbath-new-report-says-developers-are-being-punished-today-for-following-orders",
+    "image": "",
+    "published_date": "2026-06-18",
+    "collected_at": "2026-06-19T23:50:05+00:00",
+    "tags": ["裁員", "工作室關閉", "Xbox", "產業生態"],
+    "summary": "IGN 最新報導指出，Xbox 即將面臨大規模裁員與工作室關閉的「血流成河」局面，開發者正在為「聽從命令」而受到懲罰。疫情成長紅利消退、Roblox 大量吸走玩家注意力與消費、AI 成為微軟等科技公司重心轉移等因素疊加，導致 Xbox 面臨更嚴峻的財務目標。據悉微軟計劃在 6 月 30 日財年結束前完成裁員，部分工作室可能被出售或分拆。",
+    "score": 275
+  },
+  {
+    "source": "sea.ign.com",
+    "region": "Global",
+    "title": "Xbox Game Studios Boss Departs Amid Growing Concern Over Layoffs and Possible Studio Shutdowns",
+    "title_zh": "Xbox Game Studios 主管離職，裁員與工作室關閉陰霾籠罩",
+    "url": "https://sea.ign.com/everwild-canceled/244240/xbox-game-studios-boss-departs-amid-growing-concern-over-layoffs-and-possible-studio-shutdowns",
+    "image": "",
+    "published_date": "2026-06-15",
+    "collected_at": "2026-06-19T23:50:05+00:00",
+    "tags": ["裁員", "高層離職", "Xbox", "產業生態"],
+    "summary": "Xbox Game Studios 負責人 Craig Duncan 離職，而首席營運官 Dave O'Connor 也同步離開。兩人的職位將由 Xbox 首席內容官 Matt Booty 暫代接管。此高層動盪發生在 Xbox 可能大規模關閉工作室的敏感時刻，包括 Compulsion Games、Ninja Theory 和 Double Fine 等團隊都傳出面臨關閉風險。",
+    "score": 274
+  },
+  {
+    "source": "theverge.com",
+    "region": "Global",
+    "title": "Xbox turmoil continues with a studio closure and executive departures",
+    "title_zh": "Xbox 動盪持續：工作室關閉加上高層出走",
+    "url": "https://www.theverge.com/games/949964/xbox-compulsion-games-closure-craig-duncan-departure",
+    "image": "",
+    "published_date": "2026-06-15",
+    "collected_at": "2026-06-19T23:50:05+00:00",
+    "tags": ["裁員", "工作室關閉", "Xbox", "產業生態"],
+    "summary": "The Verge 報導，微軟計劃關閉《South of Midnight》開發商 Compulsion Games，這是繼 Xbox 執行長 Asha Sharma 發出「重置」警告後的首批具體行動。Sharma 與內容長 Matt Booty 在內部備忘錄中坦承，Xbox 的工作室體系已「過度擴張」，未對旗下經典 IP 投入足夠資源。同時微軟也調降了 Game Pass 價格，並將《戰爭機器》等作品改為 Xbox 獨佔。",
+    "score": 261
+  }
+]
