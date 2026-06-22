@@ -1,0 +1,54 @@
+[
+  {
+    "source": "ign.com",
+    "region": "Global",
+    "title": "Entire Luna Abyss Development Team Laid Off One Month After Launch - IGN",
+    "title_zh": "《Luna Abyss》發售僅一個月，整個開發團隊遭裁員",
+    "url": "https://www.ign.com/articles/entire-luna-abyss-development-team-laid-off-one-month-after-launch",
+    "image": "https://sm.ign.com/t/ign_nordic/screenshot/default/blob_5bqq.1280.jpg",
+    "published_date": "2026-06-17",
+    "collected_at": "2026-06-22T23:50:05+00:00",
+    "tags": ["裁員", "獨立遊戲", "產業生態"],
+    "summary": "口碑良好的第一人稱射擊遊戲《Luna Abyss》發售僅一個月後，其開發團隊全員遭資遣。Kwalee Labs 執行長 Hollie Emery 在 LinkedIn 上證實此消息，表示這項決定完全不在其控制範圍內。該團隊僅九人，耗費七年開發，遊戲在 Metacritic 獲得 81 分佳評，但 Steam 最高同時在線僅 317 人，商業表現不如預期。目前所有成員正在尋找新工作。此事件發生在遊戲業夏季裁員潮之際，Bungie 預計下個月也將大幅裁員。",
+    "score": 281
+  },
+  {
+    "source": "ign.com",
+    "region": "Global",
+    "title": "Ahead of Xbox Studio 'Bloodbath', Report Lays Out Why the Company is Struggling So Bad - IGN",
+    "title_zh": "Xbox 工作室面臨「血洗式」裁員：分析報告揭露微軟遊戲部門困境",
+    "url": "https://www.ign.com/articles/amid-concern-over-xbox-studio-bloodbath-new-report-says-developers-are-being-punished-today-for-following-orders",
+    "image": "https://sm.ign.com/t/ign_apac/screenshot/default/xbox-d0e5c0cf-ce1d-453b-afc1-8c9816e26fea_gn6f.1280.jpg",
+    "published_date": "2026-06-18",
+    "collected_at": "2026-06-22T23:50:05+00:00",
+    "tags": ["裁員", "產業生態", "3A 遊戲"],
+    "summary": "彭博記者 Jason Schreier 最新報導指出，Xbox 即將迎來大規模裁員與工作室關閉，業內人士形容將是一場「血洗」。Ninja Theory、Compulsion Games 及 Double Fine 等工作室據傳正在與微軟協商獨立可能性，但即使成功脫離，仍可能伴隨大量裁員。報告分析，Xbox Series X/S 銷量落後 PlayStation、Game Pass 成長停滯，加上 COVID 紅利消退、Roblox 瓜分玩家注意力及 AI 投資壓力，導致開發團隊如今為當初「聽從指令擴張」付出代價。",
+    "score": 275
+  },
+  {
+    "source": "gamespot.com",
+    "region": "Global",
+    "title": "Palworld Dev On AI: \"Gamers Don't Want It\" - GameSpot",
+    "title_zh": "《Palworld》開發者談 AI：「玩家根本不想要」",
+    "url": "https://www.gamespot.com/articles/palworld-dev-on-ai-gamers-dont-want-it/",
+    "image": "",
+    "published_date": "2026-06-18",
+    "collected_at": "2026-06-22T23:50:05+00:00",
+    "tags": ["AI", "產業生態", "獨立遊戲"],
+    "summary": "《Palworld》發行與公關主管 John Buckley 在接受 GamesRadar 訪問時明確表態反對生成式 AI 用於遊戲美術。他表示：「沒理由為了 AI 而開除我們內部的美術師，這毫無意義。」他認為多數玩家不喜歡 AI 生成的內容，並描繪了一個「反烏托邦」的未來：如果大公司用 AI 取代美術師，玩家將被迫接受品質低劣的 AI 美術，而獨立團隊則繼續以手工打造優質作品。Buckley 強調 Pocketpair 的宗旨是「製作玩家喜愛的遊戲，而不是股東喜愛的遊戲」。",
+    "score": 260
+  },
+  {
+    "source": "gamefile.news",
+    "region": "Global",
+    "title": "Xbox's reverse-2018 - by Stephen Totilo - Game File",
+    "title_zh": "Xbox 的逆向 2018：從收購盛世到工作室關閉潮的四年衰退",
+    "url": "https://www.gamefile.news/p/xbox-studio-contraction",
+    "image": "https://substackcdn.com/image/fetch/$s_!_4Ii!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F44e2a515-39b9-4cd4-bc42-4b8257082b45_3440x1440.jpeg",
+    "published_date": "2026-06-16",
+    "collected_at": "2026-06-22T23:50:05+00:00",
+    "tags": ["裁員", "產業生態", "3A 遊戲"],
+    "summary": "資深記者 Stephen Totilo 在 Game File 深入分析 Xbox 從 2018 年收購盛世到如今的衰退歷程。文章回顧 2022 年 Phil Spencer 公布的 Xbox 高層組織圖，如今四年過去，圖中近半數高層已離職。微軟以 690 億美元收購 Activision Blizzard 後的連鎖效應持續發酵：大規模裁員、工作室關閉、主機漲價、Game Pass 訂閱價調漲。報導指出 Xbox Series X/S 銷量表現不佳、Game Pass 成長觸頂，整個 Xbox 正面臨前所未有的組織重整壓力。",
+    "score": 245
+  }
+]
