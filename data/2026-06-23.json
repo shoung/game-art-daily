@@ -1,0 +1,58 @@
+[
+  {
+    "source": "ign.com",
+    "region": "Global",
+    "title": "Entire Luna Abyss Development Team Laid Off One Month After Launch - IGN",
+    "title_zh": "《Luna Abyss》發售僅一個月，整個開發團隊遭裁撤",
+    "url": "https://www.ign.com/articles/entire-luna-abyss-development-team-laid-off-one-month-after-launch",
+    "image": "https://sm.ign.com/t/ign_in/screenshot/default/luna-abyss-header_xt4g.1280.jpg",
+    "published_date": "2026-06-17",
+    "days_ago": 6,
+    "collected_at": "2026-06-23T23:50:05+00:00",
+    "tags": ["裁員", "工作室關閉"],
+    "summary": "獲得好評的射擊遊戲《Luna Abyss》上市僅一個月，其開發團隊 Kwalee Labs 便被母公司全數裁員。CEO Hollie Emery 在 LinkedIn 上表示，這項決定完全超出她的控制範圍。與此同時，Bungie 傳出下個月將進行重大裁員，多家 Xbox 工作室也面臨關閉風險，遊戲產業夏季裁員潮持續升溫。",
+    "score": 281
+  },
+  {
+    "source": "ign.com",
+    "region": "Global",
+    "title": "Ahead of Xbox Studio 'Bloodbath', Report Lays Out Why the Company is Struggling So Bad - IGN",
+    "title_zh": "Xbox 工作室「大屠殺」在即，報告揭微軟遊戲部門陷入困境的背後原因",
+    "url": "https://www.ign.com/articles/amid-concern-over-xbox-studio-bloodbath-new-report-says-developers-are-being-punished-today-for-following-orders",
+    "image": "https://sm.ign.com/t/ign_in/screenshot/default/xbox-logo-2020-1600x900_v5c7.1280.jpg",
+    "published_date": "2026-06-18",
+    "days_ago": 5,
+    "collected_at": "2026-06-23T23:50:05+00:00",
+    "tags": ["裁員", "產業生態", "Xbox"],
+    "summary": "一份最新報告指出，Xbox 即將面臨大規模裁員與工作室關閉的「血洗」。疫情紅利消退、Roblox 搶佔玩家時間與消費力、以及 AI 成為微軟等科技巨頭的新焦點，都是導致 Xbox 必須達成更嚴苛財務目標的原因。開發者表示他們只因「聽從指令」就遭到懲罰，Ninja Theory 等工作室據傳也在關閉名單上。",
+    "score": 275
+  },
+  {
+    "source": "gamespot.com",
+    "region": "Global",
+    "title": "Palworld Dev On AI: \"Gamers Don't Want It\" - GameSpot",
+    "title_zh": "Palworld 開發者談 AI：「玩家根本不想要」",
+    "url": "https://www.gamespot.com/articles/palworld-dev-on-ai-gamers-dont-want-it/",
+    "image": "",
+    "published_date": "2026-06-18",
+    "days_ago": 5,
+    "collected_at": "2026-06-23T23:50:05+00:00",
+    "tags": ["AI", "產業生態"],
+    "summary": "《Palworld》開發商 Pocketpair 的發行與公關主管 John Buckley 接受 GamesRadar 訪問時明確表態，認為玩家對遊戲中採用生成式 AI 製作內容並不買單。他表示「完全沒理由為了 AI 而開除自家美術團隊，這毫無意義」，並警告 AI 可能導致遊戲產業走向「反烏托邦」的未來。",
+    "score": 260
+  },
+  {
+    "source": "gamespot.com",
+    "region": "Global",
+    "title": "Epic Says AI Will Play A Bigger Role In Unreal Engine 6 - GameSpot",
+    "title_zh": "Epic 表示 AI 將在 Unreal Engine 6 中扮演更重要的角色",
+    "url": "https://www.gamespot.com/articles/epic-says-ai-will-play-a-bigger-role-in-unreal-engine-6/",
+    "image": "",
+    "published_date": "2026-06-18",
+    "days_ago": 5,
+    "collected_at": "2026-06-23T23:50:05+00:00",
+    "tags": ["AI", "Unreal Engine"],
+    "summary": "在今年的 State of Unreal 發表會上，Epic Games 展示了 Unreal Engine 6 如何整合生成式 AI 來輔助遊戲資產創作。Epic 強調 AI 是協助美術團隊修改與迭代概念的工具，而非取代人類。他們坦言 AI 常會產生缺陷，需要人類藝術家後續修整，更直言「設計才是王道，AI 只能產生普通內容」。",
+    "score": 220
+  }
+]
