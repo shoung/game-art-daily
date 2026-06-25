@@ -1,0 +1,55 @@
+[
+  {
+    "source": "kotaku.com",
+    "region": "Global",
+    "title": "The Internet Reacts To Mass Cuts At Bungie After The End Of Destiny 2 - Kotaku",
+    "title_zh": "Destiny 2 結束後 Bungie 大規模裁員，網路反應兩極",
+    "url": "https://kotaku.com/destiny-2-bungie-marathon-layoffs-sony-playstation-react-2000710535",
+    "image": "",
+    "published_date": "2026-06-25",
+    "collected_at": "2026-06-25T23:50:04+00:00",
+    "tags": ["裁員", "收購", "產業生態"],
+    "summary": "Bungie 在《天命 2》最終更新後啟動大規模裁員，公司表示遊戲「近年未達預期」，正重組團隊投入新項目孵化。這是 PlayStation 旗下又一波裁員潮，此前已關閉 Concord 開發商 Firewalk Studios、《惡魔靈魂》重製團隊 Bluepoint 及 London Studio 等。Sony 於 2022 年以 36 億美元收購 Bungie，至今已產生 5.6 億美元虧損。業界認為這是工作室追逐即時服務（live-service）夢想的後遺症，而管理層仍在位，基層員工卻失去工作。",
+    "score": 214,
+    "dedup_group": "bungie_layoffs"
+  },
+  {
+    "source": "gamespot.com",
+    "region": "Global",
+    "title": "EA Exec Says There Has Been A \"Real Rise Of Creativity\" After Developers Embraced AI - GameSpot",
+    "title_zh": "EA 高層：開發者擁抱 AI 後，創意迎來「真正的提升」",
+    "url": "https://www.gamespot.com/articles/ea-exec-says-there-has-been-a-real-rise-of-creativity-after-developers-embraced-ai/",
+    "image": "",
+    "published_date": "2026-06-23",
+    "collected_at": "2026-06-25T23:50:04+00:00",
+    "tags": ["AI", "產業生態"],
+    "summary": "EA 高層主管表示，開發者開始擁抱 AI 後，遊戲產業出現「真正的創意提升」。她指出，AI 能幫助團隊減少繁瑣工作，讓開發者專注於更具創造性的任務。此番言論引發業界兩極反應：支持者認為 AI 確實能提高效率，反對者則擔憂這只是企業為裁員鋪路的說詞。",
+    "score": 192
+  },
+  {
+    "source": "uploadvr.com",
+    "region": "Global",
+    "title": "Layoffs At Ghosts Of Tabor Developer & Shutdowns For 3 Other VR Games - UploadVR",
+    "title_zh": "《Tabor 幽靈》開發商裁員，三款 VR 遊戲同步關閉",
+    "url": "https://www.uploadvr.com/layoffs-at-ghosts-of-tabor-developer-shutdowns-for-3-other-vr-games/",
+    "image": "",
+    "published_date": "2026-06-25",
+    "collected_at": "2026-06-25T23:50:04+00:00",
+    "tags": ["裁員", "VR", "產業生態"],
+    "summary": "VR 遊戲產業持續受挫。《Tabor 幽靈》開發商 Combat Waffle Studios 宣布裁員，原因是與大型平台合作的一項計畫被取消。與此同時，多人遊戲 Quantaar、VR 開放世界 RPG《A Township Tale》宣布關服，科幻 FPS《Memoreum》也因銷量不佳退出全職開發。多家 VR 工作室正承受遊戲產業寒冬的衝擊。",
+    "score": 183
+  },
+  {
+    "source": "pcgamer.com",
+    "region": "Global",
+    "title": "The team behind bullet hell FPS Luna Abyss just got laid off, less than a month after the game's release - PC Gamer",
+    "title_zh": "《Luna Abyss》發售不到一個月，全團隊遭解僱",
+    "url": "https://www.pcgamer.com/games/fps/the-team-behind-bullet-hell-fps-luna-abyss-just-got-laid-off-less-than-a-month-after-the-games-release/",
+    "image": "",
+    "published_date": "2026-06-20",
+    "collected_at": "2026-06-25T23:50:04+00:00",
+    "tags": ["裁員", "產業生態"],
+    "summary": "彈幕 FPS《Luna Abyss》發售不到一個月，開發團隊即遭全體解僱。開發商 Kwalee Labs CEO 在 LinkedIn 上證實，整個團隊被裁撤是「完全超出我們控制範圍的決定」。她呼籲業界關注這批優秀開發者，表示整個團隊即日起開放求職。此事件凸顯獨立遊戲團隊在發售後的生存困境。",
+    "score": 162
+  }
+]
