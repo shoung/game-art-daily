@@ -1,0 +1,81 @@
+[
+  {
+    "source": "kotaku.com",
+    "region": "Global",
+    "title": "Xbox 玩家連署要求終止裁員循環，在官方平台引發熱議",
+    "title_zh": "Xbox 玩家連署要求終止裁員循環，在官方平台引發熱議",
+    "url": "https://kotaku.com/fans-begging-xbox-to-stop-the-cycle-of-layoffs-start-trending-on-player-voice-portal-2000715317",
+    "image": "",
+    "published_date": "2026-07-13",
+    "days_ago": 5,
+    "tags": ["裁員", "AI", "工會"],
+    "summary": "Xbox 玩家在微軟今年推出的 Player Voice Portal 上發起連署，要求「停止關閉工作室」，已累積超過 3,000 個讚數登上熱門。玩家不滿微軟這家獲利豐厚的科技巨頭，卻在旗下遊戲部門不斷裁員與取消專案。目前最熱門的貼文指出，Xbox 在短短兩年內已裁員超過 10,000 人，多家工作室被迫關閉或前景堪慮，包括 Compulsion Games、Tango Gameworks、Arkane Austin 等知名團隊。這股來自社群的壓力正逐步升溫，反映出玩家對遊戲產業勞動危機的高度關注。",
+    "score": 302
+  },
+  {
+    "source": "gamedeveloper.com",
+    "region": "Global",
+    "title": "「整個體系即將崩潰」— Game Developer 深入揭露 Xbox 最新一波大規模裁員內幕",
+    "title_zh": "「整個體系即將崩潰」— Game Developer 深入揭露 Xbox 最新一波大規模裁員內幕",
+    "url": "https://www.gamedeveloper.com/production/-good-work-is-not-going-to-save-your-job-at-this-company-laid-off-xbox-devs-condemn-microsoft",
+    "image": "",
+    "published_date": "2026-07-15",
+    "days_ago": 3,
+    "tags": ["裁員", "AI", "工會"],
+    "summary": "Game Developer 採訪多位受影響的匿名員工，深入揭露 Xbox 自 2023 年以來的第五波大規模裁員內幕。7 月 6 日 Xbox CEO Asha Sharma 內部確認裁員消息後，Bethesda、ZeniMax Online Studios、id Software 等團隊的員工僅透過一場短暫的視訊會議就被通知解雇，無法提問、無法辯解，聊天功能被封鎖、麥克風靜音，甚至部分攝影機被自動關閉。多名開發者感嘆數個世代的遊戲開發經驗在幾分鐘內化為烏有，批評微軟的做法既荒謬又殘酷。",
+    "score": 261
+  },
+  {
+    "source": "polygon.com",
+    "region": "Global",
+    "title": "Xbox 裁員波及 ZeniMax 高層，《上古卷軸 Online》未來堪憂",
+    "title_zh": "Xbox 裁員波及 ZeniMax 高層，《上古卷軸 Online》未來堪憂",
+    "url": "https://www.polygon.com/elder-scrolls-online-eso-zenimax-online-studios-xbox-cuts-leadership-team/",
+    "image": "",
+    "published_date": "2026-07-16",
+    "days_ago": 2,
+    "tags": ["裁員", "AI"],
+    "summary": "Xbox 於本月宣布將在本財年裁員超過 3,200 人，號稱「公司史上最大規模重組」。其中 ZeniMax Online Studios 就裁撤超過 200 個職位，包括工作室總監、營運總監、遊戲與音訊部門主管、美術總監以及副總裁等高層全部被砍。《上古卷軸 Online》團隊遭遇重大打擊，新任工作室負責人 Joe Burba 才剛上任不久就面臨這個爛攤子。隨著資深領導層大量流失，這款長青 MMORPG 的未來發展充滿不確定性。",
+    "score": 243
+  },
+  {
+    "source": "pk.ign.com",
+    "region": "Global",
+    "title": "《極樂迪斯可》開發商 ZA/UM 宣布裁員，最多 32 名員工受影響",
+    "title_zh": "《極樂迪斯可》開發商 ZA/UM 宣布裁員，最多 32 名員工受影響",
+    "url": "https://pk.ign.com/disco-elysium/258038/disco-elysium-dev-zaum-announces-layoffs-affecting-up-to-32-staff",
+    "image": "",
+    "published_date": "2026-07-18",
+    "days_ago": 0,
+    "tags": ["裁員", "AI", "產業生態"],
+    "summary": "《極樂迪斯可》開發商 ZA/UM 在推出新作《Zero Parades: For Dead Spies》僅兩個月後，宣布裁員最多 32 人。官方聲明表示儘管新作獲得評論界好評，但商業表現不足以維持目前的工作室規模。裁員涵蓋所有部門，ZA/UM 表示將與工會 Workers' Alliance 持續協商。過去幾年，多位前 ZA/UM 開發者已陸續成立 Dark Math Games、Longdue Games、Summer Eternal 等衍生工作室，這個曾締造傳奇的工作室正面臨品牌影響力快速消退的困境。",
+    "score": 195
+  },
+  {
+    "source": "gamespot.com",
+    "region": "Global",
+    "title": "在 AI 充斥的時代，《Meccha Chameleon》擁抱人類創作的混亂之美",
+    "title_zh": "在 AI 充斥的時代，《Meccha Chameleon》擁抱人類創作的混亂之美",
+    "url": "https://www.gamespot.com/articles/in-an-era-of-ai-slop-meccha-chameleon-embraces-human-crafted-chaos/",
+    "image": "",
+    "published_date": "2026-07-17",
+    "days_ago": 1,
+    "tags": ["AI", "產業生態"],
+    "summary": "GameSpot 發表專文探討 AI 對遊戲美術創作的負面影響。過去開發者會花時間做出粗糙但充滿魅力的 placeholder 素材，如今只需輸入幾個關鍵字就能用 AI 生成，但卻失去了反覆迭代過程中產生的創造力火花。文章以新作《Meccha Chameleon》為例，這款遊戲刻意選擇人類手工創作的混亂風格，來對抗越來越多的 AI 生成內容。這不僅傷害了觀眾——他們失去了真正原創的體驗，也傷害了藝術家——他們被數位幻覺取代，而這些幻覺永遠無法複製人類在創作過程中的掙扎與發現。",
+    "score": 181
+  },
+  {
+    "source": "kotaku.com",
+    "region": "Global",
+    "title": "遊戲公司再也無法悄悄裁員了——勞動抗爭正在改變產業",
+    "title_zh": "遊戲公司再也無法悄悄裁員了——勞動抗爭正在改變產業",
+    "url": "https://kotaku.com/video-game-worker-strike-ubisoft-zenimax-bethesda-2000716754",
+    "image": "",
+    "published_date": "2026-07-16",
+    "days_ago": 2,
+    "tags": ["裁員", "AI", "工會"],
+    "summary": "2021 年以來遊戲產業的勞動條件持續惡化，Epic、Xbox、PlayStation 等巨頭的大規模裁員已無法被忽視。本週 ZeniMax 和 Bethesda 員工在德州、蒙特婁、加州多個工作室舉辦抗議活動，高舉標語抨擊公司持續背棄員工。馬里蘭州因微軟大幅削減遊戲部門，將損失超過 350 個工作機會。Kotaku 分析指出，這場勞工運動正逐漸獲得主流關注，開發者們不再默默地接受被裁員的命運，而是透過公開示威、串聯工會等方式積極抗爭，要求更好的勞動保障。",
+    "score": 167
+  }
+]
+'ENF'
